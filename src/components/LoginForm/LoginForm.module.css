@@ -1,0 +1,117 @@
+.login-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 354px;
+  width: 280px;
+  background-color: #ffffff;
+
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 107px;
+}
+@media (min-width: 768px) {
+  .login-form-container {
+    width: 100%;
+    height: 468px;
+    max-width: 533px;
+    margin: 0px auto;
+    border-radius: 15px;
+    gap: 0;
+  }
+}
+
+.logo-svg {
+  width: 120px;
+  height: 30px;
+  justify-content: center;
+  margin-top: 0;
+  padding-bottom: 60px;
+}
+@media (min-width: 768px) {
+  .logo-svg {
+    width: 181px;
+    height: 40px;
+    margin-top: 38px;
+  }
+}
+
+.input-container {
+  width: 100%;
+  height: 32px;
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  justify-content: center;
+  gap: 13px;
+  border-bottom: 1px solid #ccc;
+}
+@media (min-width: 768px) {
+  .input-container {
+    gap: 20px;
+    min-width: 409px;
+    border-bottom: 1px solid #ccc;
+  }
+}
+
+.input-container input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 16px;
+
+  color: #bdbdbd;
+}
+
+.input-svg {
+  width: 24px;
+  height: 24px;
+  margin-left: 10px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+  padding-top: 50px;
+}
+@media (min-width: 768px) {
+  .button-container {
+    gap: 12px;
+  }
+}
+
+.button {
+  width: 280px;
+  height: 50px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+@media (min-width: 768px) {
+  .button {
+    width: 300px;
+  }
+}
+
+.login-button {
+  background-color: #24cca7;
+  color: #ffffff;
+}
+
+.registration-button {
+  background-color: #ffffff;
+  color: #4a56e2;
+  border: #4a56e2;
+}
