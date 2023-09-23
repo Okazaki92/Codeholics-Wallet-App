@@ -37,6 +37,7 @@
 import { Suspense, lazy } from "react";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
+import Header from "./components/Header/Header";
 
 const RegistrationPage = lazy(() =>
   import("./pages/RegistrationPage/RegistrationPage")
@@ -44,11 +45,14 @@ const RegistrationPage = lazy(() =>
 
 function App() {
   return (
-    <Suspense>
-      <Routes>
-        <Route path="/register" element={<RegistrationPage />} />
-      </Routes>
-    </Suspense>
+    <>
+      <Header />
+      <Suspense>
+        <Routes>
+          <Route path="/register" element={<RegistrationPage />} />
+        </Routes>
+      </Suspense>
+    </>
   );
 }
 
