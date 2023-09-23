@@ -3,6 +3,8 @@ import walletLogo from "../../assets/icons/logo.svg";
 import email from "../../assets/icons/email.svg";
 import lock from "../../assets/icons/lock.svg";
 import userIcon from "../../assets/icons/userIcon.svg";
+import REgisterForm from "../../components/RegisterForm/RegisterForm";
+import RegisterForm from "../../components/RegisterForm/RegisterForm";
 
 const RegistrationPage = () => {
   return (
@@ -12,7 +14,8 @@ const RegistrationPage = () => {
           <h2 className={css.headerRegistration}>Finance App</h2>
         </div>
         <div className={css.registrationFormContainer}>
-          <div className={css.registrationBox}>
+          <RegisterForm />
+          {/* <div className={css.registrationBox}>
             <div className={css.logo}>
               <img src={walletLogo} alt="Wallet logo" />
             </div>
@@ -72,7 +75,7 @@ const RegistrationPage = () => {
                 <button className={css.registrationBtn}>LOG IN</button>
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
