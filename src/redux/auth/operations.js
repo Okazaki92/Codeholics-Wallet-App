@@ -2,11 +2,26 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { setAuthSuccess, setAuthError } from "./authSlice";
 
-axios.defaults.baseURL = "";
+axios.defaults.baseURL =
+  "https://codeholics-wallet-app-c8b1a2de9f25.herokuapp.com/";
 
 const setAuthHeader = (token) => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
+
+export const register = createAsyncThunk(
+  "auth/register",
+  async (credentials, thunkAPI) => {
+    try {
+      const res = await axios.post("/api/users/signup", credentials);
+      // After successful registration, add the token to the HTTP header
+      setAuthHeader(res.data.token);
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
 
 export const logIn = createAsyncThunk(
   "auth/logIn",
