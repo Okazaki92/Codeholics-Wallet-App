@@ -1,0 +1,28 @@
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding-top: 12px;
+  @media (min-width: 768px) {
+    flex-direction: column;
+    padding-top: 40px;
+    padding-left: 32px;
+    gap: 15px;
+  }
+}
+
+.nav__icon {
+  width: 44px;
+  height: 44px;
+  fill: #7079e3;
+  transition: fill 150ms;
+  @media (min-width: 768px) {
+    width: 24px;
+    height: 24px;
+  }
+}
+.nav__text {
+  @media (max-width: 767px) {
+    display: none;
+  }
+}

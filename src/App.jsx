@@ -48,7 +48,6 @@ const RegistrationPage = lazy(() =>
 function App() {
   return (
     <>
-      <Header />
       <Suspense>
         <Routes>
           {/* <Route path="/register" element={<RegistrationPage />} /> */}
