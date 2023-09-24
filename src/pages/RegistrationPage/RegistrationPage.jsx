@@ -1,8 +1,8 @@
 import css from "./RegistrationPage.module.css";
-import walletLogo from "../../assets/icons/logo.svg";
-import email from "../../assets/icons/email.svg";
-import lock from "../../assets/icons/lock.svg";
-import userIcon from "../../assets/icons/userIcon.svg";
+// import walletLogo from "../../assets/icons/logo.svg";
+// import email from "../../assets/icons/email.svg";
+// import lock from "../../assets/icons/lock.svg";
+// import userIcon from "../../assets/icons/userIcon.svg";
 import RegisterForm from "../../components/RegisterForm/RegisterForm";
 
 const RegistrationPage = () => {
