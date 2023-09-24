@@ -1,11 +1,13 @@
 import css from "./RegistrationPage.module.css";
-import walletLogo from "../../assets/icons/logo.svg";
-import email from "../../assets/icons/email.svg";
-import lock from "../../assets/icons/lock.svg";
-import userIcon from "../../assets/icons/userIcon.svg";
+// import walletLogo from "../../assets/icons/logo.svg";
+// import email from "../../assets/icons/email.svg";
+// import lock from "../../assets/icons/lock.svg";
+// import userIcon from "../../assets/icons/userIcon.svg";
 import RegisterForm from "../../components/RegisterForm/RegisterForm";
 
+
 const RegistrationPage = () => {
+
   return (
     <div className={css.pageContainer}>
       <div className={css.content}>
@@ -14,6 +16,7 @@ const RegistrationPage = () => {
         </div>
         <div className={css.registrationFormContainer}>
           <RegisterForm />
+         
           {/* <div className={css.registrationBox}>
             <div className={css.logo}>
               <img src={walletLogo} alt="Wallet logo" />

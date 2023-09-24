@@ -1,0 +1,25 @@
+:root {
+    --color-text-main: #000000;
+    --color-text-sec: #BDBDBD;
+    --color-text-third: #FF6596;
+    --color-text-fourth: #24CCA7;
+    --color-text-fifth: #FFF;
+
+    --color-background-main: #E7EAF2;
+    --color-background-blur: rgba(255, 255, 255, 0.40);
+
+    --color-btn: #24CCA7;
+    --color-btn-second: #FFF;
+
+    --font-weight: 700;
+
+    --font-size-main: 18px;
+    --font-size-sec: 16px;
+
+    --border-radius: 20px;
+    --border-radius-second: 30px;
+    --border-radius-third: 30px 30px 0px 0px;
+
+    --transition-duration: 250ms;
+    --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}

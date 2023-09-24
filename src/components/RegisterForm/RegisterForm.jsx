@@ -1,7 +1,9 @@
 import { useFormik } from "formik";
+import { Link } from "react-router-dom";
 import css from "./RegisterForm.module.css";
 import { validate } from "./RegisterFormValidations";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { selectError } from "../../redux/auth/selectors";
 import { register } from "../../redux/auth/operations";
 import walletLogoPhone from "../../assets/wallet-logo-phone.png";
 import walletLogo from "../../assets/wallet-logo.png";
@@ -11,6 +13,8 @@ import userIcon from "../../assets/icons/userIcon.svg";
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
+
+  const error = useSelector(selectError);
 
   const formik = useFormik({
     initialValues: {
@@ -43,6 +47,8 @@ const RegisterForm = () => {
         />
         <img className={css.img} src={walletLogoPhone} alt="Wallet logo" />
       </picture>
+
+      {error ? <div>Error:{error.message}</div> : null}
 
       <form className={css.form} onSubmit={formik.handleSubmit}>
         <div className={css.inputWrapper}>
@@ -129,11 +135,9 @@ const RegisterForm = () => {
           <button className={`${css.btn} ${css.btnRegister}`} type="submit">
             Register
           </button>
-          <button className={`${css.btn} ${css.btnLogin}`} type="button">
-            <a className={css.link} href="#">
-              Log in
-            </a>
-          </button>
+          <Link className={`${css.btn} ${css.btnLogin}`} to="/login">
+            Log In
+          </Link>
         </div>
       </form>
     </div>

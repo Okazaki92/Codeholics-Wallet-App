@@ -62,11 +62,11 @@
 }
 
 .btnLogin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 1px solid #4a56e2;
   background-color: #fff;
-}
-
-.link {
   text-decoration: none;
 }
 
