@@ -9,6 +9,7 @@ import emailIcon from "../../assets/icons/email.svg";
 import lockIcon from "../../assets/icons/lock.svg";
 import userIcon from "../../assets/icons/userIcon.svg";
 
+
 const RegisterForm = () => {
   const dispatch = useDispatch();
 
@@ -43,6 +44,8 @@ const RegisterForm = () => {
         />
         <img className={css.img} src={walletLogoPhone} alt="Wallet logo" />
       </picture>
+
+      
 
       <form className={css.form} onSubmit={formik.handleSubmit}>
         <div className={css.inputWrapper}>
@@ -134,6 +137,7 @@ const RegisterForm = () => {
               Log in
             </a>
           </button>
+
         </div>
       </form>
     </div>
