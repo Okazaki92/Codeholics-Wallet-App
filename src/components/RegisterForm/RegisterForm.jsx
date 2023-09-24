@@ -135,11 +135,9 @@ const RegisterForm = () => {
           <button className={`${css.btn} ${css.btnRegister}`} type="submit">
             Register
           </button>
-          <button className={`${css.btn} ${css.btnLogin}`} type="button">
-            <Link className={css.link} to="/login">
-              Log In
-            </Link>
-          </button>
+          <Link className={`${css.btn} ${css.btnLogin}`} to="/login">
+            Log In
+          </Link>
         </div>
       </form>
     </div>
