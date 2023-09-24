@@ -13,7 +13,7 @@ import {
 import storage from "redux-persist/lib/storage";
 
 import { authReducer } from "./auth/authSlice";
-import { globalReducer} from "./global/globalSlice"
+import { globalReducer } from "./global/globalSlice";
 
 // Persisting token field from auth slice to localstorage
 const authPersistConfig = {
@@ -33,7 +33,7 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
-  devTools: process.env.NODE_ENV === "development",
+  // devTools: process.env.NODE_ENV === "development",
 });
 
 export const persistor = persistStore(store);
