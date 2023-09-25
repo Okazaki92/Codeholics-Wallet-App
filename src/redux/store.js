@@ -1,6 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { authReducer } from "../redux/auth/authSlice";
-
+import { authReducer } from "./auth/authSlice";
 import {
   persistStore,
   persistReducer,
@@ -33,7 +32,6 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
-  // devTools: process.env.NODE_ENV === "development",
 });
 
 export const persistor = persistStore(store);
