@@ -45,11 +45,15 @@ const RegistrationPage = lazy(() =>
   import("./pages/RegistrationPage/RegistrationPage")
 );
 
+const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
+
 function App() {
   return (
     <>
       <Suspense>
         <Routes>
+          <Route path="/login" element={<LoginPage />} />
+
           {/* <Route path="/register" element={<RegistrationPage />} /> */}
           <Route
             path="/register"
@@ -60,6 +64,7 @@ function App() {
               />
             }
           />
+
         </Routes>
       </Suspense>
     </>

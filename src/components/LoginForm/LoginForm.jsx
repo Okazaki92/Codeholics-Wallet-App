@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
-import { logIn } from "../../redux/auth/operation";
+import { logIn } from "../../redux/auth/operations.js";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
 import css from "./LoginForm.module.css";
-import walletLogo from ".../../../assets/logo.svg";
-import email from "../../../assets/email.svg";
-import lock from "../../../assets/lock.svg";
+import logo from "../../assets/icons/logo.svg";
+import email from "../../assets/icons/email.svg";
+import lock from "../../assets/icons/lock.svg";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
@@ -40,24 +40,15 @@ export const LoginForm = () => {
         onSubmit={handleSubmit}
       >
         <Form className={css["login-form-container"]} autoComplete="off">
-          <svg className={css["logo-svg"]}>
-            <img src={walletLogo} alt="wallet icon" />
-          </svg>
-
+          <img className={css["logo-svg"]} src={logo} alt="wallet icon" />
           <div className={css["input-container"]}>
-            <div className={css.inputGroup}></div>
-            <svg className={css["input-svg"]}>
-              <img src={email} alt="Email icon" />
-            </svg>
+            <img className={css["input-svg"]} src={email} alt="Email icon" />
             <Field type="email" name="email" placeholder="Email" />
             <ErrorMessage name="email" component="div" className={css.error} />
           </div>
-
           <div className={css["input-container"]}>
-            <div className={css.inputGroup}></div>
-            <svg className={css["input-svg"]}>
-              <img src={lock} alt="lock icon" />
-            </svg>
+            <img className={css["input-svg"]} src={lock} alt="lock icon" />
+
             <Field type="password" name="password" placeholder="Password" />
             <ErrorMessage
               name="password"
@@ -70,14 +61,14 @@ export const LoginForm = () => {
               type="submit"
               className={`${css.button} ${css["login-button"]}`}
             >
-              Log In
+              LOG IN
             </button>
             <Link to="/register"></Link>
             <button
               type="button"
               className={`${css.button} ${css["registration-button"]}`}
             >
-              Register
+              REGISTER
             </button>
             {error && <div className={css.error}>{error}</div>}
           </div>
