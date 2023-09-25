@@ -1,0 +1,132 @@
+/* LoginPage.module.css */
+.loginPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  width: auto;
+  position: relative;
+}
+@media (max-width: 768px) {
+  .tablet {
+    display: none;
+    height: fit-content;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .mobile {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .tablet {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #e7eaf2;
+    height: 100%;
+    width: 100%;
+    max-width: 1199px;
+  }
+}
+
+.topSection {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 50px;
+  gap: 40px;
+  margin-top: 60px;
+}
+
+.p {
+  font-size: 30px;
+  font-style: "poppins-regular";
+  position: relative;
+  z-index: 2;
+  margin: 0;
+}
+
+.svg {
+  width: 260px;
+  height: 250px;
+}
+
+.ellipse2 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+}
+.ellipse1 {
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  position: absolute;
+}
+.bottomSection {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-top: 60px;
+  padding-bottom: 50px;
+}
+
+@media screen and (min-width: 1200px) {
+  .loginPage {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background-color: #e7eaf2;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .tablet {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100vw;
+    height: 100vh;
+    min-width: 1200px;
+    max-width: max-content;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .topSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 77px;
+    gap: 38px;
+    margin-top: 150px;
+    justify-content: space-between;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .svg {
+    width: 468px;
+    height: 420px;
+    z-index: 3;
+  }
+}
+@media (max-width: 1199px) {
+  .blur {
+    display: none;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .blur {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 731px;
+    height: 720px;
+    z-index: 2;
+  }
+}

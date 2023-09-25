@@ -1,4 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { authReducer } from "../redux/auth/authSlice";
 
 import {
   persistStore,
@@ -12,7 +13,6 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
-import { authReducer } from "./auth/authSlice";
 import { globalReducer } from "./global/globalSlice";
 
 // Persisting token field from auth slice to localstorage

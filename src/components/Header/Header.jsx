@@ -5,7 +5,7 @@ import icon from "../../assets/icons/icons.svg";
 // import { useSelector, useDispatch } from "react-redux";
 
 const Header = () => {
-  const headerVisible = true;
+  const headerVisible = false;
   // const user = useSelector((state) => state.session.user);
   // const dispatch = useDispatch();
 
