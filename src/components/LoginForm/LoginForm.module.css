@@ -8,7 +8,7 @@
   background-color: #ffffff;
   padding-left: 20px;
   padding-right: 20px;
-  margin-top: 107px;
+  padding-top: 107px;
   z-index: 4;
 }
 @media (min-width: 768px) {
@@ -19,6 +19,7 @@
     margin: 0px auto;
     border-radius: 15px;
     gap: 0;
+    padding-top: 0px;
   }
 }
 
@@ -27,13 +28,12 @@
   height: 30px;
   justify-content: center;
   margin-top: 0;
-  padding-bottom: 60px;
+  margin-bottom: 60px;
 }
 @media (min-width: 768px) {
   .logo-svg {
     width: 181px;
     height: 40px;
-    margin-top: 38px;
   }
 }
 
