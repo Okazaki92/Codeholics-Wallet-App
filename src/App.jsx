@@ -74,7 +74,7 @@ function App() {
           />
 
           {/*     <Route
-          path="/DashboardPage"
+          path="/dashboard"
           element={
             <PrivateRoute redirectTo="/login" component={<DashboardPage />} />
           }
