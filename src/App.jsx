@@ -52,7 +52,15 @@ function App() {
     <>
       <Suspense>
         <Routes>
-          <Route path="/login" element={<LoginPage />} />
+          <Route
+            path="/login"
+            element={
+              <RestrictedRoute
+                redirectTo="/registration"
+                element={<LoginPage />}
+              />
+            }
+          />
 
           {/* <Route path="/register" element={<RegistrationPage />} /> */}
           <Route
@@ -65,6 +73,13 @@ function App() {
             }
           />
 
+          {/*     <Route
+          path="/DashboardPage"
+          element={
+            <PrivateRoute redirectTo="/login" component={<DashboardPage />} />
+          }
+        />
+        */}
         </Routes>
       </Suspense>
     </>
