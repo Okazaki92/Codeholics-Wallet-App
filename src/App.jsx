@@ -37,6 +37,9 @@
 import { Suspense, lazy } from "react";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import RestrictedRoute from "./components/RestrictedRoute/RestrictedRoute";
+import Header from "./components/Header/Header";
 
 const RegistrationPage = lazy(() =>
   import("./pages/RegistrationPage/RegistrationPage")
@@ -45,14 +48,30 @@ const DashboardPage = lazy(() =>
   import("./pages/DashboardPage/DashboardPage")
 );
 
+const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
+
 function App() {
   return (
-    <Suspense>
-      <Routes>
-        <Route path="/register" element={<RegistrationPage />} />
-        <Route path="/:activeBtn" element={<DashboardPage />} />
-      </Routes>
-    </Suspense>
+    <>
+      <Suspense>
+        <Routes>
+          <Route path="/login" element={<LoginPage />} />
+
+          {/* <Route path="/register" element={<RegistrationPage />} /> */}
+          <Route
+            path="/register"
+            element={
+              <RestrictedRoute
+                redirectTo="/login"
+                component={<RegistrationPage />}
+              />
+            }
+          />
+<Route path="/:activeBtn" element={<DashboardPage />} />
+        </Routes>
+      </Suspense>
+    </>
+
   );
 }
 

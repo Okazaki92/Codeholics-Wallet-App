@@ -1,0 +1,75 @@
+.header {
+  max-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  color: black;
+  padding: 15px 20px 15px 20px;
+}
+
+.header__user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  color: #bdbdbd;
+  @media (min-width: 768px) {
+    gap: 12px;
+  }
+}
+
+.username {
+  display: flex;
+  align-items: center;
+  font-family: "Circe";
+  font-weight: 400;
+  font-size: 18px;
+  @media (min-width: 768px) {
+    border-right: 1px solid #bdbdbd;
+    height: 30px;
+    padding-right: 12px;
+  }
+}
+.exit-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  font-family: Circe;
+  font-size: 18px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: #bdbdbd;
+  transition: color 150ms;
+  cursor: pointer;
+}
+
+.exit-btn__text {
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+
+.logo {
+  height: 30px;
+  @media (min-width: 768px) {
+    height: 40px;
+  }
+}
+
+.exit-btn__icon {
+  transition: fill 150ms;
+  fill: #bdbdbd;
+}
+
+.exit-btn:hover,
+.exit-btn:focus {
+  transition: color 150ms;
+  color: #4a56e2;
+  svg {
+    transition: fill 150ms;
+    fill: #4a56e2;
+  }
+}
