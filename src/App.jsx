@@ -41,12 +41,16 @@ import { Route, Routes } from "react-router-dom";
 const RegistrationPage = lazy(() =>
   import("./pages/RegistrationPage/RegistrationPage")
 );
+const DashboardPage = lazy(() =>
+  import("./pages/DashboardPage/DashboardPage")
+);
 
 function App() {
   return (
     <Suspense>
       <Routes>
         <Route path="/register" element={<RegistrationPage />} />
+        <Route path="/:activeBtn" element={<DashboardPage />} />
       </Routes>
     </Suspense>
   );
