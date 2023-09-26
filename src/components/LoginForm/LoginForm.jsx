@@ -8,7 +8,7 @@ import logo from "../../assets/icons/logo.svg";
 import email from "../../assets/icons/email.svg";
 import lock from "../../assets/icons/lock.svg";
 import { useNavigate } from "react-router-dom";
-import { setAuthError } from "../../redux/auth/selectors";
+import { selectError } from "../../redux/auth/selectors";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
@@ -35,7 +35,7 @@ const LoginForm = () => {
       }
     } catch (err) {
       console.error(err.message);
-      dispatch(setAuthError("Login failed ⚠"));
+      dispatch(selectError("Login failed ⚠"));
     }
   };
 
