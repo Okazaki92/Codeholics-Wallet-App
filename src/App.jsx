@@ -37,9 +37,11 @@
 import { Suspense, lazy } from "react";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
+import { useSelector } from "react-redux";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import RestrictedRoute from "./components/RestrictedRoute/RestrictedRoute";
 import Header from "./components/Header/Header";
+import ModalLogout from "./components/ModalLogout/ModalLogout";
 
 const RegistrationPage = lazy(() =>
   import("./pages/RegistrationPage/RegistrationPage")
@@ -48,8 +50,10 @@ const RegistrationPage = lazy(() =>
 const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
 
 function App() {
+  const { isModalLogoutOpen } = useSelector((state) => state.global);
   return (
     <>
+      {isModalLogoutOpen && <ModalLogout />}
       <Suspense>
         <Routes>
           <Route path="/login" element={<LoginPage />} />
@@ -64,7 +68,6 @@ function App() {
               />
             }
           />
-
         </Routes>
       </Suspense>
     </>
