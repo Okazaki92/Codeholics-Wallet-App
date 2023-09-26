@@ -1,7 +1,7 @@
 
 import { lazy, Suspense, useState } from "react";
 import { useParams } from "react-router-dom";
-
+import Header from "../../components/Header/Header";
 
 import PurpleEllipse from "../../assets/icons/ellipse1.svg";
 import PeachEllipse from "../../assets/icons/ellipse2.svg";
@@ -19,8 +19,7 @@ const DashboardPage = () => {
       <img className={styles.purple} src={PurpleEllipse} alt="logo" />
       <img className={styles.peach} src={PeachEllipse} alt="logo" />
       <div className={styles.dash}>
-       
-        {/* <Header /> */}
+        <Header />
         {activeBtn === "home" && (
           <div>
             <HomePage />

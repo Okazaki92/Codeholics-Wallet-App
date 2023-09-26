@@ -13,8 +13,8 @@ import {
 
 import { NavMenuMobile } from "../../components/dashboard/navMenu/NavMenuMobile";
 import { NavMenu } from "../../components/dashboard/navMenu/NavMenu";
-// import { Currency } from "../components";
-// import { Ballance } from "../components";
+import { Currency } from "../../components/Currency/Currency.jsx";
+import { Balance } from "../../components/Balance/Balance";
 import styles from "./HomePage.module.css";
 
 const HomePage = () => {
@@ -28,7 +28,6 @@ const HomePage = () => {
 
   return (
     <>
-     
       <Media
         queries={{
           small: "(max-width: 767px)",
@@ -42,7 +41,7 @@ const HomePage = () => {
               <>
                 <ToastContainer />
                 <NavMenuMobile />
-                {/* <Ballance /> */}
+                {/* <Balance /> */}
                 <div className={styles.containerTable}>
                   <TransactionTableMobile />
                 </div>
@@ -54,9 +53,9 @@ const HomePage = () => {
                 <div className={styles.currency}>
                   <div className={styles.nav_ballance}>
                     <NavMenu />
-                    {/* <Ballance /> */}
+                    {/* <Balance /> */}
                   </div>
-                  {/* <Currency /> */}
+                  <Currency />
                 </div>
                 <div className={styles.containerTable}>
                   <TransactionDesk />
@@ -69,8 +68,8 @@ const HomePage = () => {
                 <div className={styles.largeSize}>
                   <div className={styles.leftSize}>
                     <NavMenu />
-                    {/* <Ballance />
-                    <Currency /> */}
+                    {/* <Balance /> */}
+                    <Currency />
                   </div>
                   <div className={styles.rightSize}>
                     <div className={styles.containerTable}>

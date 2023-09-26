@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import css from "./Currency.module.css";
 
-const Currency = () => {
+export const Currency = () => {
   const [currencies, setCurrencies] = useState([]);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -109,4 +109,4 @@ const Currency = () => {
   );
 };
 
-export default Currency;
+

@@ -1,6 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { transactionsSlice }   from "./transactions/transactionSlice.js";
 import { authReducer } from "./auth/authSlice";
+import { statisticsReducer } from './statistics/statisticsSlice.js'
+import {transactionReducer} from './transactions/transactionSlice.js'
 import {
   persistStore,
   persistReducer,
@@ -25,7 +27,8 @@ const authPersistConfig = {
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-    transactions: transactionsSlice.reducer,
+    transactions: transactionReducer,
+    statistics: statisticsReducer,
     global: globalReducer,
   },
   middleware: (getDeafualtMiddleware) =>

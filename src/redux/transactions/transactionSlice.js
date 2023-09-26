@@ -58,4 +58,4 @@ export const transactionsSlice = createSlice({
 
 export  const { resetTransactions, setTransactions, setBalance } =
   transactionsSlice.actions;
-export default transactionsSlice.reducer;
+export const transactionReducer = transactionsSlice.reducer;

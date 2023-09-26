@@ -5,6 +5,10 @@ import Media from "react-media";
 import { NavMenuMobile } from "../../components/dashboard/navMenu/NavMenuMobile";
 import { NavMenu } from "../../components/dashboard/navMenu/NavMenu";
 import styles from "./StatPage.module.css";
+import { Balance } from "../../components/Balance/Balance";
+import { Currency } from "../../components/Currency/Currency";
+// import { Diagram } from "../components";
+// import { StatTable } from "../components/";
 
 const StatPage = () => {
 
@@ -34,9 +38,9 @@ const StatPage = () => {
                <div className={styles.currency}>
                  <div>
                    <NavMenu />
-                   {/* <Ballance /> */}
+                   <Balance />
                  </div>
-                 {/* <Currency /> */}
+                 <Currency />
                </div>
                <div className={styles.right}>
                  <h3 className={styles.stat}>Statistic</h3>
@@ -51,8 +55,8 @@ const StatPage = () => {
              <div className={styles.wrap}>
                <div className={styles.left}>
                  <NavMenu />
-                 {/* <Ballance />
-                <Currency /> */}
+                 <Balance />
+                <Currency />
                </div>
                <div className={styles.right}>
                  <h3 className={styles.stat}>Statistic</h3>
