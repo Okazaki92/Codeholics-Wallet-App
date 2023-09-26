@@ -1,4 +1,4 @@
-const Balance = () => {
+export const Balance = () => {
   return (
     <div>
       <div></div>
@@ -6,4 +6,4 @@ const Balance = () => {
   );
 };
 
-export default Balance;
+
