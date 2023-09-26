@@ -55,10 +55,7 @@ function App() {
           <Route
             path="/login"
             element={
-              <RestrictedRoute
-                redirectTo="/registration"
-                element={<LoginPage />}
-              />
+              <RestrictedRoute redirectTo="/register" element={<LoginPage />} />
             }
           />
 
