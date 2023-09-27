@@ -4,9 +4,9 @@ import { useSelector } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import { NavMenuMobile } from "../../components/dashboard/navMenu/NavMenuMobile";
 import { NavMenu } from "../../components/dashboard/navMenu/NavMenu";
-// import { Currency } from "../components";
+import { Currency } from "../../components/Currency/Currency";
 import { TransactionDesk } from "../../components/dashboard/transaction/";
-// import { Ballance } from "../components";
+import { Balance } from "../../components/Balance/Balance";
 import styles from "../HomePage/HomePage.module.css";
 
 const CurrencyPage = () => {
@@ -33,7 +33,7 @@ const CurrencyPage = () => {
               <>
                 <NavMenuMobile />
                 <div className={styles.currencyMob}>
-                  {/* <Currency /> */}
+                  <Currency />
                 </div>
               </>
             )}
@@ -43,9 +43,9 @@ const CurrencyPage = () => {
                 <div className={styles.currency}>
                   <div className={styles.nav_ballance}>
                     <NavMenu />
-                    {/* <Ballance /> */}
+                    <Balance />
                   </div>
-                  {/* <Currency /> */}
+                  <Currency />
                 </div>
                 <div className={styles.containerTable}>
                   <TransactionDesk />
@@ -58,8 +58,8 @@ const CurrencyPage = () => {
                 <div className={styles.largeSize}>
                   <div className={styles.leftSize}>
                     <NavMenu />
-                    {/* <Ballance />
-                    <Currency /> */}
+                    <Balance />
+                    <Currency />
                   </div>
                   <div className={styles.rightSize}>
                     <div className={styles.containerTable}>

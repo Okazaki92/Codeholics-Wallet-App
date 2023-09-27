@@ -10,11 +10,23 @@ import styles from "../DashboardPage/DashboardPage.module.css";
 const HomePage = lazy(() => import("../HomePage/HomePage"));
 const StatPage = lazy(() => import("../StatPage/StatPage"));
 const CurrencyPage = lazy(() => import("../CurrencyPage/CurrencyPage"));
+const PageNotFound = lazy(() => import("../PageNotFound/PageNotFound"));
 
 
 const DashboardPage = () => {
-     const { activeBtn } = useParams();
+  const { activeBtn } = useParams();
+  if (
+    (activeBtn !== "home") &
+    (activeBtn !== "currency") &
+    (activeBtn !== "diagram")
+  )
+    return (
+      <Suspense>
+        <PageNotFound path="/home" />
+      </Suspense>
+    );
   return (
+    
     <>
       <img className={styles.purple} src={PurpleEllipse} alt="logo" />
       <img className={styles.peach} src={PeachEllipse} alt="logo" />
