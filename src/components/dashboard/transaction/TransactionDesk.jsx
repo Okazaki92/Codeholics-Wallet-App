@@ -11,7 +11,6 @@ export const TransactionDesk = () => {
       {transactions.length === 0 && (
         <>
           <p className={styles.transactionsText}>
-            {" "}
             You haven't made any transactions yet
           </p>
         </>
