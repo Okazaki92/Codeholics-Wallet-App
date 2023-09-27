@@ -46,9 +46,7 @@ import ModalLogout from "./components/ModalLogout/ModalLogout";
 const RegistrationPage = lazy(() =>
   import("./pages/RegistrationPage/RegistrationPage")
 );
-const DashboardPage = lazy(() =>
-  import("./pages/DashboardPage/DashboardPage")
-);
+const DashboardPage = lazy(() => import("./pages/DashboardPage/DashboardPage"));
 
 const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
 
@@ -59,13 +57,7 @@ function App() {
       {isModalLogoutOpen && <ModalLogout />}
       <Suspense>
         <Routes>
-          <Route
-            path="/login"
-            element={
-              <RestrictedRoute redirectTo="/register" element={<LoginPage />} />
-            }
-          />
-
+          <Route path="/login" element={<LoginPage />} />
           {/* <Route path="/register" element={<RegistrationPage />} /> */}
           <Route
             path="/register"
@@ -77,11 +69,9 @@ function App() {
             }
           />
           <Route path="/:activeBtn" element={<DashboardPage />} />
-
         </Routes>
       </Suspense>
     </>
-
   );
 }
 
