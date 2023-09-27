@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import Media from "react-media";
 import { ToastContainer, toast } from "react-toastify";
 
-
 // components
 
 import {
@@ -14,7 +13,7 @@ import {
 import { NavMenuMobile } from "../../components/dashboard/navMenu/NavMenuMobile";
 import { NavMenu } from "../../components/dashboard/navMenu/NavMenu";
 import { Currency } from "../../components/Currency/Currency.jsx";
-import { Balance } from "../../components/Balance/Balance";
+import Balance from "../../components/Balance/Balance";
 import styles from "./HomePage.module.css";
 
 const HomePage = () => {
@@ -41,7 +40,7 @@ const HomePage = () => {
               <>
                 <ToastContainer />
                 <NavMenuMobile />
-                {/* <Balance /> */}
+                <Balance />
                 <div className={styles.containerTable}>
                   <TransactionTableMobile />
                 </div>
@@ -53,7 +52,7 @@ const HomePage = () => {
                 <div className={styles.currency}>
                   <div className={styles.nav_ballance}>
                     <NavMenu />
-                    {/* <Balance /> */}
+                    <Balance />
                   </div>
                   <Currency />
                 </div>
@@ -68,7 +67,7 @@ const HomePage = () => {
                 <div className={styles.largeSize}>
                   <div className={styles.leftSize}>
                     <NavMenu />
-                    {/* <Balance /> */}
+                    <Balance />
                     <Currency />
                   </div>
                   <div className={styles.rightSize}>

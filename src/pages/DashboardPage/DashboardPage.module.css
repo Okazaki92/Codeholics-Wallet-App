@@ -11,6 +11,7 @@ body {
   backdrop-filter: blur(50px);
   /* background-color: #E7EAF2; */
 }
+
 .dash.offScroll {
   position: fixed;
   overflow: hidden;
@@ -24,6 +25,7 @@ body {
   font-size: 30px;
   line-height: 1.5;
 }
+
 .purple {
   display: none;
 }
@@ -44,6 +46,7 @@ body {
     backdrop-filter: blur(50px);
     /* margin: 0 auto; */
   }
+
   .purple {
     display: inline;
     position: absolute;
@@ -74,6 +77,7 @@ body {
     background-color: rgba(231, 234, 242, 0.5);
     backdrop-filter: blur(50px);
   }
+
   .purple {
     width: 618px;
     height: 547px;

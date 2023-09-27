@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { transactionsSlice }   from "./transactions/transactionSlice.js";
+import { transactionsSlice } from "./transactions/transactionSlice.js";
 import { authReducer } from "./auth/authSlice";
-import { statisticsReducer } from './statistics/statisticsSlice.js'
-import {transactionReducer} from './transactions/transactionSlice.js'
+import { statisticsReducer } from "./statistics/statisticsSlice.js";
+import { transactionReducer } from "./transactions/transactionSlice.js";
 import {
   persistStore,
   persistReducer,

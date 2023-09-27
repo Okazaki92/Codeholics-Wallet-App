@@ -46,9 +46,7 @@ import ModalLogout from "./components/ModalLogout/ModalLogout";
 const RegistrationPage = lazy(() =>
   import("./pages/RegistrationPage/RegistrationPage")
 );
-const DashboardPage = lazy(() =>
-  import("./pages/DashboardPage/DashboardPage")
-);
+const DashboardPage = lazy(() => import("./pages/DashboardPage/DashboardPage"));
 
 const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
 
@@ -75,7 +73,6 @@ function App() {
         </Routes>
       </Suspense>
     </>
-
   );
 }
 

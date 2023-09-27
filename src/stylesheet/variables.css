@@ -11,10 +11,13 @@
     --color-btn: #24CCA7;
     --color-btn-second: #FFF;
 
-    --font-weight: 700;
-
+    --font-family-main: Circe;
+    --font-family-sec: Poppins;
     --font-size-main: 18px;
     --font-size-sec: 16px;
+    --font-size-third: 30px;
+    --font-size-fourth: 12px;
+    --font-weight: 700;
 
     --border-radius: 20px;
     --border-radius-second: 30px;
