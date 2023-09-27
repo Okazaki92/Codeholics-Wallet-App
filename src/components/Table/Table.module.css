@@ -1,0 +1,102 @@
+@import "../../stylesheet/variables.css";
+
+.tableWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 280px;
+  padding: 0 20px;
+  gap: 14px;
+}
+
+.header,
+.listItem,
+.results {
+  display: flex;
+  justify-content: space-between;
+}
+
+.listItemWrap {
+  display: flex;
+}
+
+.header {
+  width: 280px;
+  background-color: #fff;
+  padding: 15px 20px;
+  border-radius: var(--border-radius-second);
+}
+
+.headerItem {
+  font-size: var(--font-size-main);
+  font-weight: var(--font-weight);
+}
+
+.list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-bottom: 30px;
+}
+
+.listItem {
+  border-bottom: 1px solid #dcdcdf;
+}
+
+.category {
+  max-width: 120px;
+  font-size: var(--font-size-sec);
+  text-wrap: wrap;
+}
+
+.resultsWrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.resultsTitle,
+.resultsExpenses,
+.resultsIncome {
+  font-weight: var(--font-weight);
+  font-size: var(--font-size-sec);
+}
+
+.resultsExpenses {
+  color: var(--color-text-third);
+}
+
+.resultsIncome {
+  color: var(--color-text-fourth);
+}
+
+@media screen and (min-width: 768px) {
+  .tableWrap {
+    width: 336px;
+    gap: 16px;
+  }
+
+  .header {
+    width: 336px;
+  }
+
+  .list {
+    gap: 32px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .tableWrap {
+    width: 395px;
+  }
+
+  .header {
+    width: 395px;
+  }
+
+  .list {
+    gap: 28px;
+  }
+}
