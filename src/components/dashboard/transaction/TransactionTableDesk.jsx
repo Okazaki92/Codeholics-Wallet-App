@@ -18,7 +18,7 @@ export const TransactionTableDesk = ({
           <EllipsisText text={comment} length={20} />
         </td>
         <td className={`${isIncome ? styles.incomeSum : styles.expensSum}`}>
-          {sum}{" "}
+          {sum}
         </td>
         <td className={styles.balance}>{balance} </td>
       </tr>
