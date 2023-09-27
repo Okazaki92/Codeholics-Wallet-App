@@ -7,6 +7,8 @@ import css from "./LoginForm.module.css";
 import logo from "../../assets/icons/logo.svg";
 import email from "../../assets/icons/email.svg";
 import lock from "../../assets/icons/lock.svg";
+import { useNavigate } from "react-router-dom";
+import { selectError } from "../../redux/auth/selectors";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
@@ -18,18 +20,23 @@ const validationSchema = Yup.object().shape({
     .required("To pole jest wymagane"),
 });
 
-export const LoginForm = () => {
+const LoginForm = () => {
   const dispatch = useDispatch();
   const error = useSelector((state) => state.auth.error);
+  const navigate = useNavigate();
 
-  const handleSubmit = (values, { resetForm }) => {
-    dispatch(logIn(values)).then((result) => {
+  const handleSubmit = async (values, { resetForm }) => {
+    try {
+      const result = await dispatch(logIn(values));
+
       if (logIn.fulfilled.match(result)) {
-        // history.push("/dashboard")
+        resetForm();
+        navigate("/");
       }
-    });
-
-    resetForm();
+    } catch (err) {
+      console.error(err.message);
+      dispatch(selectError("Login failed ⚠"));
+    }
   };
 
   return (

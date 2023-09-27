@@ -59,7 +59,12 @@ function App() {
       {isModalLogoutOpen && <ModalLogout />}
       <Suspense>
         <Routes>
-          <Route path="/login" element={<LoginPage />} />
+          <Route
+            path="/login"
+            element={
+              <RestrictedRoute redirectTo="/register" element={<LoginPage />} />
+            }
+          />
 
           {/* <Route path="/register" element={<RegistrationPage />} /> */}
           <Route
@@ -72,6 +77,7 @@ function App() {
             }
           />
           <Route path="/:activeBtn" element={<DashboardPage />} />
+
         </Routes>
       </Suspense>
     </>
