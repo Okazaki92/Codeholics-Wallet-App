@@ -6,7 +6,7 @@ import { NavMenuMobile } from "../../components/dashboard/navMenu/NavMenuMobile"
 import { NavMenu } from "../../components/dashboard/navMenu/NavMenu";
 import { Currency } from "../../components/Currency/Currency";
 import { TransactionDesk } from "../../components/dashboard/transaction/";
-import { Balance } from "../../components/Balance/Balance";
+import  Balance  from "../../components/Balance/Balance";
 import styles from "../HomePage/HomePage.module.css";
 
 const CurrencyPage = () => {
