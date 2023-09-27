@@ -1,0 +1,106 @@
+@media screen and (min-width: 768px) {
+  .transactionTable {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+  }
+
+  .transactionsText {
+    margin-top: 35px;
+    padding: 10px;
+    border-radius: 30px;
+    background-color: rgb(233, 193, 241);
+    text-align: center;
+    font-family: var(--primary-font-family);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 24px;
+  }
+  .headCategory,
+  .category {
+    padding-left: 40px;
+  }
+  .headSum,
+  .expensSum,
+  .incomeSum {
+    padding-right: 60px;
+  }
+
+  .category,
+  .comment,
+  .date,
+  .headDate,
+  .headCategory,
+  .headComment {
+    text-align: left;
+  }
+
+  .expensSum,
+  .incomeSum,
+  .balance,
+  .headSum,
+  .headBalance {
+    text-align: right;
+  }
+  .transactionTable th:first-child,
+  .bodyString td:first-child {
+    padding-left: 20px;
+  }
+  .transactionTable th:last-child,
+  .bodyString td:last-child {
+    padding-right: 20px;
+  }
+  .expensSum {
+    color: var(--pink);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 24px;
+  }
+
+  .incomeSum {
+    color: var(--turquoise);
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 24px;
+  }
+
+  .headString {
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: var(--white);
+  }
+
+  .bodyString:not(:last-child) {
+    border-bottom: 2px solid var(--border-table);
+    box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
+  }
+  .headString th {
+  }
+
+  .headString th:first-child {
+    border-top-left-radius: 1.875rem;
+    border-bottom-left-radius: 1.875rem;
+  }
+
+  .headString th:last-child {
+    border-top-right-radius: 1.875rem;
+    border-bottom-right-radius: 1.875rem;
+  }
+
+  .headString,
+  .bodyString {
+    height: 3.625rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .transactionTable {
+    margin-left: auto;
+    margin-right: auto;
+    width: 715px;
+    text-align: center;
+    border-collapse: collapse;
+  }
+}
