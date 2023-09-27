@@ -29,7 +29,7 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 27px;
-  transition: font-weight var(--t-duration) var(--t-t-function);
+  transition: font-weight var(--transition-duration) var(--timing-function);
 }
 
 .text:hover > .link,
@@ -59,18 +59,18 @@
 }
 
 .home {
-  color: var(--black);
+  color: var(--color-text-main);
 }
 
 .stat {
-  color: var(--black);
+  color: var(--color-text-main);
   font-weight: 700;
 }
 
 .icon {
   fill: var(--lightBlue);
   line-height: 100%;
-  transition: fill box-shadow var(--t-duration) var(--t-t-function);
+  transition: fill box-shadow var(--transition-duration) var(--timing-function);
 }
 
 .iconActive {
@@ -83,7 +83,7 @@
 .iconMobile {
   fill: var(--lightBlue);
   line-height: 100%;
-  transition: fill box-shadow var(--t-duration) var(--t-t-function);
+  transition: fill box-shadow var(--transition-duration) var(--timing-function);
 }
 
 .iconMobile:hover,

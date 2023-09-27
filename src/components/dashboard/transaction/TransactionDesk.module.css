@@ -53,14 +53,14 @@
     padding-right: 20px;
   }
   .expensSum {
-    color: var(--pink);
+    color: var(--color-text-third);
     font-size: 1rem;
     font-weight: 700;
     line-height: 24px;
   }
 
   .incomeSum {
-    color: var(--turquoise);
+    color: var(--color-btn);
     font-weight: 700;
     font-size: 1rem;
     line-height: 24px;
@@ -69,7 +69,7 @@
   .headString {
     padding-left: 20px;
     padding-right: 20px;
-    background-color: var(--white);
+    background-color: var(--color-text-fifth);
   }
 
   .bodyString:not(:last-child) {
