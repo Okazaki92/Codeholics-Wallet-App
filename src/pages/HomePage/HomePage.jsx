@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import Media from "react-media";
 import { ToastContainer, toast } from "react-toastify";
 
-
 // components
 
 import {
@@ -13,8 +12,8 @@ import {
 
 import { NavMenuMobile } from "../../components/dashboard/navMenu/NavMenuMobile";
 import { NavMenu } from "../../components/dashboard/navMenu/NavMenu";
-import { Currency } from "../../components/Currency/Currency";
-import { Balance } from "../../components/Balance/Balance";
+import { Currency } from "../../components/Currency/Currency.jsx";
+import Balance from "../../components/Balance/Balance";
 import styles from "./HomePage.module.css";
 
 const HomePage = () => {
