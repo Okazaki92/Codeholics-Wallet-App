@@ -1,56 +1,20 @@
-// import { useState } from "react";
-// import reactLogo from "./assets/react.svg";
-// import viteLogo from "/vite.svg";
-// import "./App.css";
-
-// function App() {
-//   const [count, setCount] = useState(0);
-
-//   return (
-//     <>
-//       <div>
-//         <a href="https://vitejs.dev" target="_blank">
-//           <img src={viteLogo} className="logo" alt="Vite logo" />
-//         </a>
-//         <a href="https://react.dev" target="_blank">
-//           <img src={reactLogo} className="logo react" alt="React logo" />
-//         </a>
-//       </div>
-//       <h1>Vite + React</h1>
-//       <div className="card">
-//         <button onClick={() => setCount((count) => count + 1)}>
-//           count is {count}
-//         </button>
-//         <p>
-//           Edit <code>src/App.jsx</code> and save to test HMR
-//         </p>
-//       </div>
-//       <p className="read-the-docs">
-//         Click on the Vite and React logos to learn more
-//       </p>
-//     </>
-//   );
-// }
-
-// export default App;
-
 import { Suspense, lazy } from "react";
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+// import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import RestrictedRoute from "./components/RestrictedRoute/RestrictedRoute";
-import Header from "./components/Header/Header";
 import ModalLogout from "./components/ModalLogout/ModalLogout";
+import Layout from "./layout/Layout";
 
 const RegistrationPage = lazy(() =>
   import("./pages/RegistrationPage/RegistrationPage")
 );
-const DashboardPage = lazy(() =>
-  import("./pages/DashboardPage/DashboardPage")
-);
-
+// const DashboardPage = lazy(() => import("./pages/DashboardPage/DashboardPage"));
 const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
+const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
+const StatisticPage = lazy(() => import("./pages/StatPage/StatPage"));
+const CurrencyPage = lazy(() => import("./pages/CurrencyPage/CurrencyPage"));
 
 function App() {
   const { isModalLogoutOpen } = useSelector((state) => state.global);
@@ -59,6 +23,7 @@ function App() {
       {isModalLogoutOpen && <ModalLogout />}
       <Suspense>
         <Routes>
+          <Route path="/" element={<Navigate to="/login" />} />
           <Route
             path="/login"
             element={
@@ -76,12 +41,17 @@ function App() {
               />
             }
           />
-          <Route path="/:activeBtn" element={<DashboardPage />} />
 
+          {/* <Route path="/:activeBtn" element={<DashboardPage />} /> */}
+          <Route element={<Layout />}>
+            <Route path="/home" element={<HomePage />} />
+            <Route path="/diagram" element={<StatisticPage />} />
+            <Route path="/currency" element={<CurrencyPage />} />
+          </Route>
+          <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
       </Suspense>
     </>
-
   );
 }
 
