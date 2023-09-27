@@ -1,0 +1,30 @@
+.background {
+  background: #e7eaf2;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .background::after {
+    content: url("../assets/icons/ellipse2.svg");
+    position: absolute;
+    z-index: -1;
+    top: 0px;
+    right: 0px;
+  }
+  .background::before {
+    content: url("../assets/icons/ellipse1.svg");
+    position: absolute;
+    z-index: -1;
+    bottom: -5px;
+    left: 0px;
+  }
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(25px);
+}
