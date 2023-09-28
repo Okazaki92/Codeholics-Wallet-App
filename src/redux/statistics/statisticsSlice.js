@@ -12,17 +12,18 @@ const statisticsSlice = createSlice({
       state.statistics = payload;
     },
   },
-  extraReducers: {
-    [fetchStatistics.pending]: (state, action) => {
-      state.isLoading = true;
-    },
-    [fetchStatistics.fulfilled]: (state, action) => {
-      state.statistics = action.payload;
-      state.isLoading = false;
-    },
-    [fetchStatistics.rejected]: (state, action) => {
-      state.isLoading = false;
-    },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchStatistics.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(fetchStatistics.fulfilled, (state, action) => {
+        state.statistics = action.payload;
+        state.isLoading = false;
+      })
+      .addCase(fetchStatistics.rejected, (state) => {
+        state.isLoading = false;
+      });
   },
 });
 

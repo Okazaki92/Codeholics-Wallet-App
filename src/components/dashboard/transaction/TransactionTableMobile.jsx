@@ -1,7 +1,4 @@
 import { useSelector } from "react-redux";
-
-
-import EllipsisText from "react-ellipsis-text";
 import styles from "./TransactionMobile.module.css";
 
 export const TransactionTableMobile = () => {
@@ -11,14 +8,14 @@ export const TransactionTableMobile = () => {
 
   return (
     <>
-      {/* {transactions.length === 0 && (
+      {transactions.length === 0 && (
         <>
           <p className={styles.transactionsText}>
             You haven't made any transactions yet
           </p>
         </>
-      )} */}
-      {transactions.length === 0 &&
+      )}
+      {transactions.length > 0 &&
         transactions.map(
           ({ _id, date, isIncome, category, comment, amount, balance }) => (
             <table
@@ -42,9 +39,7 @@ export const TransactionTableMobile = () => {
                   <td> {date} </td>
                   <td>{isIncome ? "+" : "-"}</td>
                   <td>{category}</td>
-                  <td>
-                    <EllipsisText text={comment} length={16} />
-                  </td>
+                  <td>{comment}</td>
                   <td
                     className={`${
                       isIncome ? styles.incomeSum : styles.expensSum
