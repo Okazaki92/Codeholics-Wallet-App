@@ -11,14 +11,14 @@ export const TransactionTableMobile = () => {
 
   return (
     <>
-      {transactions.length === 0 && (
+      {/* {transactions.length === 0 && (
         <>
           <p className={styles.transactionsText}>
             You haven't made any transactions yet
           </p>
         </>
-      )}
-      {transactions.length > 0 &&
+      )} */}
+      {transactions.length === 0 &&
         transactions.map(
           ({ _id, date, isIncome, category, comment, amount, balance }) => (
             <table

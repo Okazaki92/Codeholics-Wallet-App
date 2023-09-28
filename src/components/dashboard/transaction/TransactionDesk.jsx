@@ -8,14 +8,14 @@ export const TransactionDesk = () => {
   const { transactions } = useSelector((state) => state.transactions);
   return (
     <>
-      {transactions.length === 0 && (
+      {/* {transactions.length === 0 && (
         <>
           <p className={styles.transactionsText}>
             You haven't made any transactions yet
           </p>
         </>
-      )}
-      {transactions.length > 0 && (
+      )} */}
+      {transactions.length === 0 && (
         <>
           <table className={styles.transactionTable}>
             <thead>
