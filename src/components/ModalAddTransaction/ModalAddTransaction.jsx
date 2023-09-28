@@ -3,7 +3,7 @@ import css from "./ModalAddTransaction.module.css";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-import { Formik, Form, } from "formik";
+import { Formik, Form } from "formik";
 import * as Yup from "yup";
 
 import {
@@ -13,25 +13,22 @@ import {
   MyData,
 } from "./FormFields/FormFields";
 
-import {Switch} from './Switch/Switch'
+import { Switch } from "./Switch/Switch";
 
 // import {Textarea} from '../../components/Inputs/Textarea'
 
 import callendar from "../../assets/icons/callendar.svg";
-import close from '../../assets/icons/close.svg';
+import close from "../../assets/icons/close.svg";
 
-import { setIsModalAddTransactionOpen } from '../../redux/global/globalSlice';
+import { setIsModalAddTransactionOpen } from "../../redux/global/globalSlice";
 // import {addTransaction} from '../../redux/transactions/transactionSlice'
 
-import transactionsOperations from '../../redux/transactions/transactionOperations'
-
+import transactionsOperations from "../../redux/transactions/transactionOperations";
 
 export const ModalAddTransaction = () => {
-
   const [isChecked, setIsChecked] = useState(false);
   const handleCheckboxChange = () => {
     setIsChecked((isChecked) => !isChecked);
-   
   };
 
   const dispatch = useDispatch();
@@ -41,28 +38,27 @@ export const ModalAddTransaction = () => {
 
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.code === 'Escape') {
-        onClickClose()
+      if (e.code === "Escape") {
+        onClickClose();
       }
-    }
+    };
 
-    window.addEventListener('keydown', handleKeyDown)
+    window.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      window.removeEventListener('keydown', handleKeyDown)
-    }
+      window.removeEventListener("keydown", handleKeyDown);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch])
+  }, [dispatch]);
 
   const handleSubmit = (values) => {
-   console.log({
-        sum: values.sum,
-        comment: values.comment,
-        date: values.date,
-        income: isChecked,
-        category: isChecked ? 'income' : values.category,
-       
-      });
+    console.log({
+      sum: values.sum,
+      comment: values.comment,
+      date: values.date,
+      income: isChecked,
+      category: isChecked ? "income" : values.category,
+    });
 
     //   dispatch(transactionsOperations.addTransaction({
     //     sum: values.sum,
@@ -71,33 +67,30 @@ export const ModalAddTransaction = () => {
     //     income: isChecked,
     //     category: isChecked ? 'income' : values.category,
     //   }))
-
-  }
+  };
 
   return (
     <>
       <div className={css.backdrop}>
         <div className={css.modal}>
-          <button className={css.closeModalBtn} onClick={onClickClose}> <img
-                    className={css.closeModalBtn}
-                    src={close}
-                    alt="Close icon"
-                  /></button>
+          <button className={css.closeModalBtn} onClick={onClickClose}>
+            {" "}
+            <img className={css.closeModalBtn} src={close} alt="Close icon" />
+          </button>
           <Formik
             initialValues={{
               comment: "",
               sum: "",
-              income: isChecked, 
-              category: "", 
+              income: isChecked,
+              category: "",
               date: new Date(),
             }}
             validationSchema={Yup.object({
               income: Yup.bool(),
               comment: Yup.string().max(150, "Must be 150 characters or less"),
-              sum: Yup.number()
-                .required("Amount is required"),
-               category: Yup.string(),
-                // category: Yup.string().required('test')
+              sum: Yup.number().required("Amount is required"),
+              category: Yup.string(),
+              // category: Yup.string().required('test')
               // category: Yup.mixed().when("income", {
               //   is: (income) => !income,
               //   then: () =>
@@ -106,10 +99,9 @@ export const ModalAddTransaction = () => {
               // }),
             })}
             onSubmit={(values, { setSubmitting, resetForm }) => {
-
-               handleSubmit(values);
-               resetForm();
-            setSubmitting(false);
+              handleSubmit(values);
+              resetForm();
+              setSubmitting(false);
               // setTimeout(() => {
               //   alert(JSON.stringify(values, null, 2));
               //   setSubmitting(false);
@@ -119,17 +111,25 @@ export const ModalAddTransaction = () => {
           >
             <Form className={css.form}>
               <p className={css.title}>Add transaction </p>
-              
 
-            <Switch name="income"
+              <Switch
+                name="income"
                 checked={isChecked}
                 onClick={handleCheckboxChange}
-                />
+              />
 
               {!isChecked && (
                 <div className={css.selectWrapper}>
-                  <MySelect className={css.select} name="category" >
-                    <option value="" disabled >Select a category</option>
+                  <MySelect
+                    className={css.select}
+                    name="category"
+                    onfocus="this.size=6;"
+                    onblur="this.size=0;"
+                    onchange="this.size=1; this.blur()"
+                  >
+                    <option value="" disabled>
+                      Select a category
+                    </option>
                     <option value="Main expenses">Main expenses</option>
                     <option value="Products">Products</option>
                     <option value="Car">Car</option>
@@ -146,16 +146,14 @@ export const ModalAddTransaction = () => {
 
               <div className={css.amountAndDate}>
                 <div className={css.numberWrapper}>
-                
-                <MyTextInput
-                  name="sum"
-                  type="number"
-                  placeholder="0.00"
-                  className={css.amountInput}
-                  
-                />
+                  <MyTextInput
+                    name="sum"
+                    type="number"
+                    placeholder="0.00"
+                    className={css.amountInput}
+                  />
                 </div>
-               
+
                 <div className={css.dateWrapper}>
                   <MyData
                     name="date"
@@ -194,4 +192,3 @@ export const ModalAddTransaction = () => {
     </>
   );
 };
-
