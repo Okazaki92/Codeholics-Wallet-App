@@ -1,11 +1,11 @@
 import { Fragment } from "react";
 import Media from "react-media";
 
-import { NavMenuMobile } from "../../components/dashboard/navMenu/NavMenuMobile";
-import { NavMenu } from "../../components/dashboard/navMenu/NavMenu";
+// import { NavMenuMobile } from "../../components/dashboard/navMenu/NavMenuMobile";
+// import { NavMenu } from "../../components/dashboard/navMenu/NavMenu";
 import styles from "./StatPage.module.css";
-import Balance from "../../components/Balance/Balance";
-import { Currency } from "../../components/Currency/Currency";
+// import Balance from "../../components/Balance/Balance";
+// import { Currency } from "../../components/Currency/Currency";
 import Chart from "../../components/Chart/Chart";
 import Table from "../../components/Table/Table";
 // import { Diagram } from "../components";
@@ -73,7 +73,7 @@ const StatPage = () => {
         <Fragment>
           {matches.small && (
             <>
-              <NavMenuMobile />
+              {/* <NavMenuMobile /> */}
               <div className={styles.mobDiagram}>
                 <h3 className={styles.stat}>Statistic</h3>
                 <Chart dataToRender={dataToRender} />
@@ -85,13 +85,13 @@ const StatPage = () => {
           )}
           {matches.medium && (
             <>
-              <div className={styles.currency}>
+              {/* <div className={styles.currency}>
                 <div>
                   <NavMenu />
                   <Balance />
                 </div>
                 <Currency />
-              </div>
+              </div> */}
               <div className={styles.right}>
                 <h3 className={styles.stat}>Statistic</h3>
                 <div className={styles.chart}>
@@ -107,11 +107,11 @@ const StatPage = () => {
           )}
           {matches.large && (
             <div className={styles.wrap}>
-              <div className={styles.left}>
+              {/* <div className={styles.left}>
                 <NavMenu />
                 <Balance />
                 <Currency />
-              </div>
+              </div> */}
               <div className={styles.right}>
                 <h3 className={styles.stat}>Statistic</h3>
                 <div className={styles.chart}>
