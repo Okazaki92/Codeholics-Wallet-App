@@ -31,7 +31,7 @@ const LoginForm = () => {
 
       if (logIn.fulfilled.match(result)) {
         resetForm();
-        navigate("/");
+        navigate("/home");
       }
     } catch (err) {
       console.error(err.message);
@@ -70,13 +70,14 @@ const LoginForm = () => {
             >
               LOG IN
             </button>
-            <Link to="/register"></Link>
-            <button
-              type="button"
-              className={`${css.button} ${css["registration-button"]}`}
-            >
-              REGISTER
-            </button>
+            <Link to="/register">
+              <button
+                type="button"
+                className={`${css.button} ${css["registration-button"]}`}
+              >
+                REGISTER
+              </button>
+            </Link>
             {error && <div className={css.error}>{error}</div>}
           </div>
         </Form>

@@ -23,13 +23,8 @@ function App() {
       {isModalLogoutOpen && <ModalLogout />}
       <Suspense>
         <Routes>
-          <Route path="/" element={<Navigate to="/login" />} />
-          <Route
-            path="/login"
-            element={
-              <RestrictedRoute redirectTo="/register" element={<LoginPage />} />
-            }
-          />
+          <Route path="/" element={<Navigate to="/login" />} /> 
+          <Route path="/login" element={<LoginPage />} />
 
           {/* <Route path="/register" element={<RegistrationPage />} /> */}
           <Route
