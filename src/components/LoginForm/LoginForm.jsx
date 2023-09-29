@@ -31,7 +31,7 @@ const LoginForm = () => {
 
       if (logIn.fulfilled.match(result)) {
         resetForm();
-        navigate("/homepage");
+        navigate("/home");
       }
     } catch (err) {
       console.error(err.message);
