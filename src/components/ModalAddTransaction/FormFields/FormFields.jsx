@@ -7,6 +7,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 import css from "./FormFields.module.css";
+import callendar from "../../../assets/icons/callendar.svg";
 
 export const MyTextInput = ({ ...props }) => {
   const [field, meta] = useField(props);
@@ -25,7 +26,7 @@ export const MyTextArea = ({ ...props }) => {
   return (
     <>
       <textarea
-        rows="2"
+        rows="1"
         cols="10"
         className="text-input"
         {...field}
@@ -50,72 +51,6 @@ export const MySelect = ({ ...props }) => {
   );
 };
 
-// export const SwitchModal = () => {
-//   const [checked, setChecked] = useState(false);
-//   const handleChange = (nextChecked) => {
-//     setChecked(nextChecked);
-//   };
-
-//   return (
-//     <>
-//       <Switch
-//         checked={checked}
-//         onChange={handleChange}
-//         handleDiameter={28}
-//         offColor="#fff"
-//         onColor="#fff"
-//         offHandleColor="#24CCA7"
-//         onHandleColor="#FF6596"
-//         height={30}
-//         width={70}
-//         borderRadius={50}
-//         uncheckedIcon={
-//           <div
-//             style={{
-//               display: "flex",
-//               justifyContent: "center",
-//               alignItems: "center",
-//               height: "100%",
-//               fontSize: 15,
-//               color: "orange",
-//               paddingRight: 2,
-//             }}
-//           ></div>
-//         }
-//         checkedIcon={false}
-//         uncheckedHandleIcon={
-//           <div
-//             style={{
-//               display: "flex",
-//               justifyContent: "center",
-//               alignItems: "center",
-//               height: "100%",
-//               fontSize: 20,
-//               color: "white",
-//             }}
-//           >
-//             +
-//           </div>
-//         }
-//         checkedHandleIcon={
-//           <div
-//             style={{
-//               display: "flex",
-//               justifyContent: "center",
-//               alignItems: "center",
-//               height: "100%",
-//               color: "white",
-//               fontSize: 18,
-//             }}
-//           >
-//             -
-//           </div>
-//         }
-//       />
-//     </>
-//   );
-// };
-
 export const MyData = ({ ...props }) => {
   const [field, meta, helpers] = useField(props);
   return (
@@ -123,15 +58,19 @@ export const MyData = ({ ...props }) => {
       <DatePicker
         {...field}
         {...props}
+      
         selected={field.value}
         onChange={(value) => {
           helpers.setValue(value);
         }}
-        classname={css.date}
+        // classname={css.date}
       />
+
+      <img className={css.iconCallendar} src={callendar} alt="Callendar icon" />
       {meta.touched && meta.error ? (
         <div className="error">{meta.error}</div>
       ) : null}
+      
     </>
   );
 };

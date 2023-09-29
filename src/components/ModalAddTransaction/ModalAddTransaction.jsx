@@ -25,6 +25,8 @@ import { setIsModalAddTransactionOpen } from "../../redux/global/globalSlice";
 
 import transactionsOperations from "../../redux/transactions/transactionOperations";
 
+
+
 export const ModalAddTransaction = () => {
   const [isChecked, setIsChecked] = useState(false);
   const handleCheckboxChange = () => {
@@ -73,10 +75,7 @@ export const ModalAddTransaction = () => {
     <>
       <div className={css.backdrop}>
         <div className={css.modal}>
-          <button className={css.closeModalBtn} onClick={onClickClose}>
-            {" "}
-            <img className={css.closeModalBtn} src={close} alt="Close icon" />
-          </button>
+       
           <Formik
             initialValues={{
               comment: "",
@@ -90,9 +89,9 @@ export const ModalAddTransaction = () => {
               comment: Yup.string().max(150, "Must be 150 characters or less"),
               sum: Yup.number().required("Amount is required"),
               category: Yup.string(),
-              // category: Yup.string().required('test')
+            
               // category: Yup.mixed().when("income", {
-              //   is: (income) => !income,
+              //   is: (income) => income,
               //   then: () =>
               //     Yup.mixed().required("Please choose transaction category."),
               //   otherwise: () => Yup.mixed().notRequired(),
@@ -102,14 +101,14 @@ export const ModalAddTransaction = () => {
               handleSubmit(values);
               resetForm();
               setSubmitting(false);
-              // setTimeout(() => {
-              //   alert(JSON.stringify(values, null, 2));
-              //   setSubmitting(false);
-              //   resetForm();
-              // }, 400);
+          
             }}
           >
             <Form className={css.form}>
+            <button className={css.closeModalBtn} onClick={onClickClose}>
+          
+            <img className={css.closeModalBtn} src={close} alt="Close icon" />
+          </button>
               <p className={css.title}>Add transaction </p>
 
               <Switch
@@ -120,12 +119,10 @@ export const ModalAddTransaction = () => {
 
               {!isChecked && (
                 <div className={css.selectWrapper}>
+                
                   <MySelect
                     className={css.select}
                     name="category"
-                    onfocus="this.size=6;"
-                    onblur="this.size=0;"
-                    onchange="this.size=1; this.blur()"
                   >
                     <option value="" disabled>
                       Select a category
@@ -159,11 +156,6 @@ export const ModalAddTransaction = () => {
                     name="date"
                     dateFormat="dd.MM.yyyy"
                     className={css.date}
-                  />
-                  <img
-                    className={css.iconCallendar}
-                    src={callendar}
-                    alt="Callendar icon"
                   />
                 </div>
               </div>

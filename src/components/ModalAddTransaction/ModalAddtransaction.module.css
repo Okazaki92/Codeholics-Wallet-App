@@ -32,17 +32,8 @@
     height: 160px;
     width: 130px;
   }
-  
-  .btnAdd {
-    background: #24cca7;
-    margin-bottom: 20px;
-    color: #fff;
-    border: 0;
-    margin-bottom: 20px;
-  }
-  
   .btn {
-    width: calc(100% - 20px);
+    width: 100%;
     height: 50px;
     border-radius: 20px;
     font-size: 18px;
@@ -53,6 +44,14 @@
     text-transform: uppercase;
   }
   
+  .btnAdd {
+    background: #24cca7;
+    margin-bottom: 20px;
+    color: #fff;
+    border: 0;
+    margin-bottom: 20px;
+  }
+
   .btnClose {
     background-color: #fff;
     border: solid 1px #4a56e2;
@@ -76,6 +75,7 @@
     color: #000;
     min-width: 320px;
     padding-inline: 20px;
+    padding-inline:10px;
     
   }
   
@@ -89,16 +89,21 @@
   }
   
   .amountInput {
+    
     border: none;
     border-bottom: 1px solid #e0e0e0;
-    width: calc(100% - 40px);
+    width: 100%;
     outline: none;
-    padding-inline: 20px;
+    /* width: calc(100% - 20px); */
+    margin: 0 auto;
+    padding-left: 20px;
     padding-bottom: 2px;
     font-size: 18px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+    display: flex;
+    justify-content: center;
   }
   .amountInput::placeholder {color: #e0e0e0;
     
@@ -117,6 +122,7 @@ line-height: normal;
     border: none;
     border-bottom: 1px solid #e0e0e0;
     width: 100%;
+    height:85px; 
     outline: none;
     resize: none;
     font-size: 18px;
@@ -125,6 +131,7 @@ line-height: normal;
     line-height: normal;
     margin-block: 40px;
     padding-top: 40px;
+    width: calc(100% - 20px);
   }
   
   .comment::placeholder {
@@ -139,7 +146,7 @@ line-height: normal;
   
   .date {
     border: none;
-    /* width: calc(100% - 40px); */
+    width: calc(100% - 20px);
     outline: none;
     padding-inline: 20px;
     font-size: 18px;
@@ -151,9 +158,11 @@ line-height: normal;
   }
   
   .dateWrapper {
+  
     border: none;
     border-bottom: 1px solid #e0e0e0;
-    width: calc(100% - 40px);
+    width: calc(100% - 20px);
+    margin: 0 auto;
     outline: none;
     padding-bottom: 3px;
     padding-inline: 20px;
@@ -163,11 +172,12 @@ line-height: normal;
     line-height: normal;
     display: flex;
     justify-content: center;
-    position: relative;
+    /* position: relative; */
    
   }
   
   .iconCallendar {
+    display:block;
     position: absolute;
     top: 0;
     right: 120px;
@@ -187,7 +197,7 @@ line-height: normal;
   }
   
   .selectWrapper {
-    width: 100%;
+    width: calc(100% - 20px);
     border-bottom: 1px solid #e0e0e0;
     display: flex;
     justify-content: center;
@@ -242,12 +252,15 @@ line-height: normal;
   
   @media screen and (min-width: 768px) {
     .form {
+      /* height: 640px; */
       border-radius: 20px;
+      position: relative;
+    
       
     }
   
     .modal {
-      position: fixed;
+      /* position: fixed; */
       /* top:15%; */
       display: flex;
       justify-content: center;
@@ -255,7 +268,8 @@ line-height: normal;
       /* height: 10px; */
       border-radius: 20px;
       /* margin: auto 0; */
-      height: 530px;
+      height: 510px;
+      width: 540px;
       /* min-height: 530px; */
       
     }
@@ -282,7 +296,7 @@ line-height: normal;
       /* color: rgb(21, 22, 23); */
       position: absolute;
       right: 10px;
-      top: -25px;
+      top: 10px;
       font-size: 18px;
       display: block;
       background-color: white;
@@ -294,18 +308,39 @@ line-height: normal;
     .amountAndDate {
       display: flex;
       flex-direction: row;
+      width: calc(100% - 20px);
       
     }
+
+    .amountInput {
+      text-align: center;}
   
     .dateWrapper {
-    align-items:flex-end;}
-  
-    .iconCallendar {
-      top: 36px;
+    align-items:flex-end;
+ }
+  .date {
+    position: relative;
+  } 
+    /* .iconCallendar {
+      position:absolute;
+      top: 5px;
       right: 120px;
      
-    }
+    } */
     
+      
+  .btn {
+    width: 300px;
+    height: 50px;
+    border-radius: 20px;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+  }
+  
   }
   
   
