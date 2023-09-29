@@ -6,7 +6,6 @@ nav {
   @media (min-width: 768px) {
     flex-direction: column;
     padding-top: 40px;
-    padding-left: 32px;
     gap: 15px;
   }
 }

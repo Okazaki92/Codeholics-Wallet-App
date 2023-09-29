@@ -1,42 +1,34 @@
-
-import { lazy, Suspense, useState } from "react";
-import { useParams } from "react-router-dom";
+import css from "./DashboardPage.module.css";
+import { Suspense } from "react";
+import { Outlet } from "react-router-dom";
 import Header from "../../components/Header/Header";
-
-import PurpleEllipse from "../../assets/icons/ellipse1.svg";
-import PeachEllipse from "../../assets/icons/ellipse2.svg";
-import styles from "../DashboardPage/DashboardPage.module.css";
-
-const HomePage = lazy(() => import("../HomePage/HomePage"));
-const StatPage = lazy(() => import("../StatPage/StatPage"));
-const CurrencyPage = lazy(() => import("../CurrencyPage/CurrencyPage"));
-
+import { Loader } from "../../components/Loader/Loader";
+import Navigation from "../../components/Navigation/Navigation";
+import Balance from "../../components/Balance/Balance";
+import { Currency } from "../../components/Currency/Currency";
 
 const DashboardPage = () => {
-     const { activeBtn } = useParams();
   return (
-    <>
-      <img className={styles.purple} src={PurpleEllipse} alt="logo" />
-      <img className={styles.peach} src={PeachEllipse} alt="logo" />
-      <div className={styles.dash}>
-        <Header />
-        {activeBtn === "home" && (
-          <div>
-            <HomePage />
+    <div className={css["background"]}>
+      <Header />
+      <div className={css["container"]}>
+        <div className={css["dashboard-section"]}>
+          <div className={css["dashboard-section__primary"]}>
+            <Navigation />
+            <Balance />
           </div>
-        )}
-        {activeBtn === "diagram" && (
-          <div>
-            <StatPage />
+          <div className={css["dashboard-section__primary"]}>
+            <Currency />
           </div>
-        )}
-        {activeBtn === "currency" && (
-          <div>
-            <CurrencyPage />
-          </div>
-        )}
+        </div>
+        <div className={css["page-section"]}>
+          <Suspense fallback={<Loader />}>
+            <Outlet />
+          </Suspense>
+        </div>
       </div>
-    </>
+    </div>
   );
 };
+
 export default DashboardPage;

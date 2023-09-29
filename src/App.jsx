@@ -5,12 +5,12 @@ import { useSelector } from "react-redux";
 // import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import RestrictedRoute from "./components/RestrictedRoute/RestrictedRoute";
 import ModalLogout from "./components/ModalLogout/ModalLogout";
-import Layout from "./layout/Layout";
+// import Layout from "./layout/Layout";
 
 const RegistrationPage = lazy(() =>
   import("./pages/RegistrationPage/RegistrationPage")
 );
-// const DashboardPage = lazy(() => import("./pages/DashboardPage/DashboardPage"));
+const DashboardPage = lazy(() => import("./pages/DashboardPage/DashboardPage"));
 const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const StatisticPage = lazy(() => import("./pages/StatPage/StatPage"));
@@ -43,7 +43,7 @@ function App() {
           />
 
           {/* <Route path="/:activeBtn" element={<DashboardPage />} /> */}
-          <Route element={<Layout />}>
+          <Route element={<DashboardPage />}>
             <Route path="/home" element={<HomePage />} />
             <Route path="/diagram" element={<StatisticPage />} />
             <Route path="/currency" element={<CurrencyPage />} />
