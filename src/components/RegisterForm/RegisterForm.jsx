@@ -32,7 +32,6 @@ const RegisterForm = () => {
           password: values.password,
         })
       );
-      console.log(values);
       resetForm();
     },
   });

@@ -18,7 +18,7 @@ const Navigation = () => {
         </svg>
         <span className={css["nav__text"]}>Statistcs </span>
       </NavLink>
-      <NavLink to="/diagram">
+      <NavLink to="/currency">
         <svg className={css["nav__icon"]}>
           <use href={icon + `#icon__baseline-dolar`} />
         </svg>
