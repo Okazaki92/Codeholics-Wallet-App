@@ -12,12 +12,12 @@ import callendar from "../../../assets/icons/callendar.svg";
 export const MyTextInput = ({ ...props }) => {
   const [field, meta] = useField(props);
   return (
-    <>
+    <div className={css.sum}>
       <input className="text-input" {...field} {...props} />
       {meta.touched && meta.error ? (
         <div className="error">{meta.error}</div>
       ) : null}
-    </>
+    </div>
   );
 };
 
@@ -54,7 +54,7 @@ export const MySelect = ({ ...props }) => {
 export const MyData = ({ ...props }) => {
   const [field, meta, helpers] = useField(props);
   return (
-    <>
+    <label className={css.date}>
       <DatePicker
         {...field}
         {...props}
@@ -71,7 +71,7 @@ export const MyData = ({ ...props }) => {
         <div className="error">{meta.error}</div>
       ) : null}
       
-    </>
+    </label>
   );
 };
 

@@ -15,9 +15,7 @@ import {
 
 import { Switch } from "./Switch/Switch";
 
-// import {Textarea} from '../../components/Inputs/Textarea'
 
-import callendar from "../../assets/icons/callendar.svg";
 import close from "../../assets/icons/close.svg";
 
 import { setIsModalAddTransactionOpen } from "../../redux/global/globalSlice";
@@ -88,7 +86,7 @@ export const ModalAddTransaction = () => {
               income: Yup.bool(),
               comment: Yup.string().max(150, "Must be 150 characters or less"),
               sum: Yup.number().required("Amount is required"),
-              category: Yup.string(),
+              // category: Yup.string(),
             })}
             onSubmit={(values, { setSubmitting, resetForm }) => {
               handleSubmit(values);

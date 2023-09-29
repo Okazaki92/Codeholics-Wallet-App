@@ -91,10 +91,10 @@
   .amountInput {
     
     border: none;
-    border-bottom: 1px solid #e0e0e0;
+    /* border-bottom: 1px solid #e0e0e0; */
     width: 100%;
     outline: none;
-    /* width: calc(100% - 20px); */
+    width: calc(100% - 20px);
     margin: 0 auto;
     padding-left: 20px;
     padding-bottom: 2px;
@@ -176,16 +176,7 @@ line-height: normal;
    
   }
   
-  .iconCallendar {
-    display:block;
-    position: absolute;
-    top: 0;
-    right: 120px;
-    cursor: pointer;
-    display: block;
-    width: 24px;
-    height: 24px;
-  }
+  
   
   .amountAndDate {
     width: 100%;
@@ -258,6 +249,10 @@ line-height: normal;
     
       
     }
+
+    .amountInput {
+    
+      border: none;}
   
     .modal {
       /* position: fixed; */

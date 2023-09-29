@@ -1,0 +1,34 @@
+.sum {
+    display: flex;
+    flex-direction: row;
+    
+    margin: 0 auto;
+    border-bottom: 1px solid #e0e0e0;
+    width: calc(100% - 20px);
+    
+}
+
+
+@media screen and (min-width: 768px) {
+.sum {border-bottom: 1px solid #e0e0e0;
+width: 100%;}
+
+}
+
+.date {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+
+.iconCallendar {
+    display:block;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    cursor: pointer;
+    display: block;
+    width: 24px;
+    height: 24px;
+  }
