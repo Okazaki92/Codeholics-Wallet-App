@@ -22,14 +22,14 @@
   @media screen and (max-width: 767px) {
     .position {
       right: 20px;
-      bottom: 30px;
+      bottom: 80px;
     }
   }
   
   @media screen and (min-width: 768px) {
     .position {
       right: 40px;
-      bottom: 40px;
+      bottom: 80px;
     }
   }
   

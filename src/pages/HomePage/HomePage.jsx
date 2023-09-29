@@ -16,6 +16,12 @@ import {
 // import Balance from "../../components/Balance/Balance";
 import styles from "./HomePage.module.css";
 
+
+import ButtonAddTransaction from "./../../components/ButtonAddTransaction/ButtonAddTransaction"
+import { ModalAddTransaction } from '../../components/ModalAddTransaction/ModalAddTransaction'
+import { selectIsModalAddTransactionOpen } from '../../redux/global/globalSelectors'
+
+
 const HomePage = () => {
   const { error } = useSelector((state) => state.transactions);
 
@@ -24,6 +30,8 @@ const HomePage = () => {
       toast(error);
     }
   }, [error]);
+
+  const isModalAddTransaction = useSelector(selectIsModalAddTransactionOpen)
 
   return (
     <>
@@ -34,10 +42,13 @@ const HomePage = () => {
           large: "(min-width: 1280px)",
         }}
       >
+        
         {(matches) => (
           <Fragment>
             {matches.small && (
               <>
+                <ButtonAddTransaction/>
+                  {isModalAddTransaction && <ModalAddTransaction/>} 
                 <ToastContainer />
                 {/* <NavMenuMobile />
                 <Balance /> */}
@@ -48,6 +59,9 @@ const HomePage = () => {
             )}
             {matches.medium && (
               <>
+                <ButtonAddTransaction/>
+                  {isModalAddTransaction && <ModalAddTransaction/>} 
+
                 <ToastContainer />
                 <div className={styles.currency}>
                   {/* <div className={styles.nav_ballance}>
@@ -63,6 +77,8 @@ const HomePage = () => {
             )}
             {matches.large && (
               <>
+                <ButtonAddTransaction/>
+                  {isModalAddTransaction && <ModalAddTransaction/>} 
                 <ToastContainer />
                 <div className={styles.largeSize}>
                   {/* <div className={styles.leftSize}>

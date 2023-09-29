@@ -1,0 +1,102 @@
+.switch {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    justify-content: center;
+    
+  }
+  
+  .switchText {
+    text-align: right;
+    font-family: Circe;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin: 0;
+    align-items: center;
+    transition: color 0.5s;
+  
+  }
+  
+  .switchSlider {
+      width: 80px;
+      height: 40px;
+      border-radius: 30px;
+      border: 1px solid #E0E0E0;
+      position: relative;
+      cursor: pointer;
+  }
+  
+  .switchSlider  &::after {
+      content: '';
+      width: 44px;
+      height: 44px;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 100%;
+      transition: all 0.5s;
+      box-shadow: 0 10px 20px 
+     
+    }
+  
+  
+  .imgRight {
+   width: 80px;
+   height: 80px;
+   position: absolute;
+   top: 65%;
+   left: 80%;
+   transform: translate(-50%, -50%);
+   transition: all 0.5s;
+   
+   z-index: 1000;
+  }
+  
+  
+  .imgLeft {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 65%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    transition: all 0.5s;
+    z-index: 1000;
+  
+  } 
+  
+  
+  .leftBtb {
+    left: 10%;
+  }
+  
+  .invisibleBtn {
+    opacity:0;
+  }
+  
+  .visibleBtn {
+    opacity:1;
+  }
+  
+  
+  .switchCheckbox {
+      visibility: hidden;
+      opacity: 0;
+      width: 0;
+      height: 0;
+  }
+  
+  
+  .green {
+    color:#24CCA7;
+  }
+  
+  .gray {
+    color:#E0E0E0;
+  }
+  
+  .pink {
+    color: #FF6596;
+  }
