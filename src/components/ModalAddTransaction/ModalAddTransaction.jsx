@@ -62,13 +62,13 @@ export const ModalAddTransaction = () => {
       category: isChecked ? "income" : values.category,
     });
 
-    //   dispatch(transactionsOperations.addTransaction({
-    //     sum: values.sum,
-    //     comment: values.comment,
-    //     date: values.date,
-    //     income: isChecked,
-    //     category: isChecked ? 'income' : values.category,
-    //   }))
+      dispatch(transactionsOperations.addTransaction({
+        sum: values.sum,
+        comment: values.comment,
+        date: values.date,
+        income: isChecked,
+        category: isChecked ? 'income' : values.category,
+      }))
   };
 
   return (
@@ -89,13 +89,6 @@ export const ModalAddTransaction = () => {
               comment: Yup.string().max(150, "Must be 150 characters or less"),
               sum: Yup.number().required("Amount is required"),
               category: Yup.string(),
-            
-              // category: Yup.mixed().when("income", {
-              //   is: (income) => income,
-              //   then: () =>
-              //     Yup.mixed().required("Please choose transaction category."),
-              //   otherwise: () => Yup.mixed().notRequired(),
-              // }),
             })}
             onSubmit={(values, { setSubmitting, resetForm }) => {
               handleSubmit(values);
