@@ -3,7 +3,6 @@ import transactionsOperations from "./transactionOperations.js";
 
 const initialState = {
   transactions: [],
-  totalBalance: 0,
   isLoading: false,
   error: null,
 };
@@ -17,10 +16,6 @@ export const transactionsSlice = createSlice({
     },
     setTransactions(state, action) {
       state.transactions = action.payload.lastTransactions;
-      state.totalBalance = action.payload.user.balance;
-    },
-    setBalance(state, { payload }) {
-      state.totalBalance = payload;
     },
   },
   extraReducers: {
@@ -30,8 +25,6 @@ export const transactionsSlice = createSlice({
     },
     [transactionsOperations.getTransactions.fulfilled]: (state, action) => {
       state.transactions = action.payload;
-      state.totalBalance =
-        action.payload.length === 0 ? 0 : action.payload[0].balance;
       state.isLoading = false;
     },
     [transactionsOperations.getTransactions.rejected]: (state, action) => {
@@ -44,8 +37,7 @@ export const transactionsSlice = createSlice({
       state.error = null;
     },
 
-    [transactionsOperations.addTransaction.fulfilled]: (state, action) => {
-      state.totalBalance = action.payload.balance;
+    [transactionsOperations.addTransaction.fulfilled]: (state) => {
       state.isLoading = false;
     },
 
@@ -56,6 +48,5 @@ export const transactionsSlice = createSlice({
   },
 });
 
-export  const { resetTransactions, setTransactions, setBalance } =
-  transactionsSlice.actions;
+export const { resetTransactions, setTransactions } = transactionsSlice.actions;
 export const transactionReducer = transactionsSlice.reducer;
