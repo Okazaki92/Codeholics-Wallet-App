@@ -7,7 +7,8 @@ const getUserBalance = createAsyncThunk(
   async (_, { rejectWithValue, dispatch }) => {
     try {
       const response = await axios.get("/api/users/current");
-      const balance = response.data.data.data.balance;
+      console.log(response);
+      const balance = response.data.data.balance;
       dispatch(setTotalBalance(balance));
       return balance;
     } catch (error) {
