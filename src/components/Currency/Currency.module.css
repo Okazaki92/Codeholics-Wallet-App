@@ -55,7 +55,7 @@
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1280px) {
   .currencyWrap {
     height: 330px;
     max-width: 390px;
