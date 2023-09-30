@@ -3,6 +3,7 @@ import { transactionsSlice } from "./transactions/transactionSlice.js";
 import { authReducer } from "./auth/authSlice";
 import { statisticsReducer } from "./statistics/statisticsSlice.js";
 import { transactionReducer } from "./transactions/transactionSlice.js";
+import { categoriesReducer } from "./category/categoriesSlice.js";
 import {
   persistStore,
   persistReducer,
@@ -32,6 +33,7 @@ export const store = configureStore({
     statistics: statisticsReducer,
     global: globalReducer,
     finance: financeReducer,
+    categories: categoriesReducer,
   },
   middleware: (getDeafualtMiddleware) =>
     getDeafualtMiddleware({

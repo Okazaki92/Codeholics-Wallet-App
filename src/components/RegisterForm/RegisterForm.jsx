@@ -27,11 +27,12 @@ const RegisterForm = () => {
     onSubmit: (values, { resetForm }) => {
       dispatch(
         register({
-          firstName: values.firstName,
+          name: values.firstName,
           email: values.email,
           password: values.password,
         })
       );
+
       resetForm();
     },
   });

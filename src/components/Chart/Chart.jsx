@@ -60,12 +60,12 @@ const DoughnutChart = ({ dataToRender }) => {
   // ];
 
   const data = {
-    labels: dataToRender.map((item) => item.category),
+    labels: dataToRender.map((item) => item.name),
     // labels: ["Red", "Black"],
     datasets: [
       {
         label: "Amount",
-        data: dataToRender.map((item) => item.amount),
+        data: dataToRender.map((item) => item.sum),
         // data: [333, 555],
         backgroundColor: dataToRender.map((item) => item.color),
         // backgroundColor: [
