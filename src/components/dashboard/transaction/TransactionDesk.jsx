@@ -55,7 +55,7 @@ export const TransactionDesk = () => {
                   <TransactionTableDesk
                     key={_id}
                     date={date}
-                    isIncome={income}
+                    income={income}
                     category={category}
                     comment={comment}
                     sum={sum}
