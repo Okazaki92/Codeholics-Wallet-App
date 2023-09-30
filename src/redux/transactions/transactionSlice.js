@@ -1,11 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 import transactionsOperations from "./transactionOperations.js";
+import fetchCategories from "./transactionOperations.js";
 
 const initialState = {
   operations: [],
-  totalBalance: 0,
+  categories: [],
   isLoading: false,
   error: null,
+  income: [],
+  expense: [],
 };
 
 export const transactionsSlice = createSlice({
@@ -17,10 +20,9 @@ export const transactionsSlice = createSlice({
     },
     setTransactions(state, action) {
       state.transactions = action.payload.lastTransactions;
-      state.totalBalance = action.payload.user.balance;
     },
-    setBalance(state, { payload }) {
-      state.totalBalance = payload;
+    addCategories(state, { payload }) {
+      state.categories = payload;
     },
   },
   extraReducers: {
@@ -30,8 +32,6 @@ export const transactionsSlice = createSlice({
     },
     [transactionsOperations.getTransactions.fulfilled]: (state, action) => {
       state.operations = action.payload;
-      // state.totalBalance =
-      //   action.payload.length === 0 ? 0 : action.payload[0].balance;
       state.isLoading = false;
     },
     [transactionsOperations.getTransactions.rejected]: (state, action) => {
@@ -44,18 +44,28 @@ export const transactionsSlice = createSlice({
       state.error = null;
     },
 
-    [transactionsOperations.addTransaction.fulfilled]: (state, action) => {
-      state.totalBalance = action.payload.balance;
+    [transactionsOperations.addTransaction.fulfilled]: (state) => {
       state.isLoading = false;
     },
 
     [transactionsOperations.addTransaction.rejected]: (state, action) => {
-      state.error = action.payload.response.data.message;
+      state.error = "error";
+      state.isLoading = false;
+    },
+    [fetchCategories.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [fetchCategories.fulfilled]: (state, { payload }) => {
+      state.income = [...payload.income];
+      state.expense = [...payload.expense];
+      state.isLoading = false;
+    },
+    [fetchCategories.rejected]: (state) => {
       state.isLoading = false;
     },
   },
 });
 
-export  const { resetTransactions, setTransactions, setBalance } =
+export const { resetTransactions, setTransactions, addCategories } =
   transactionsSlice.actions;
 export const transactionReducer = transactionsSlice.reducer;

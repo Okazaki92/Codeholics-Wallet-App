@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { transactionsSlice }   from "./transactions/transactionSlice.js";
+import { transactionsSlice } from "./transactions/transactionSlice.js";
 import { authReducer } from "./auth/authSlice";
-import { statisticsReducer } from './statistics/statisticsSlice.js'
-import {transactionReducer} from './transactions/transactionSlice.js'
+import { statisticsReducer } from "./statistics/statisticsSlice.js";
+import { transactionReducer } from "./transactions/transactionSlice.js";
 import {
   persistStore,
   persistReducer,
@@ -16,6 +16,7 @@ import {
 import storage from "redux-persist/lib/storage";
 
 import { globalReducer } from "./global/globalSlice";
+import { financeReducer } from "./finance/financeSlice.js";
 
 // Persisting token field from auth slice to localstorage
 const authPersistConfig = {
@@ -30,6 +31,7 @@ export const store = configureStore({
     transactions: transactionReducer,
     statistics: statisticsReducer,
     global: globalReducer,
+    finance: financeReducer,
   },
   middleware: (getDeafualtMiddleware) =>
     getDeafualtMiddleware({
