@@ -43,7 +43,7 @@ export const MySelect = ({ ...props }) => {
   const [field, meta] = useField(props);
   return (
     <div>
-      <select required {...field} {...props} />
+      <select {...field} {...props} />
       {meta.touched && meta.error ? (
         <div className={css.error}>{meta.error}</div>
       ) : null}

@@ -1,16 +1,24 @@
 import { useEffect } from "react";
 import css from "./Balance.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { setBalance } from "../../redux/transactions/transactionSlice";
+import financeOperations from "../../redux/finance/financeOperations";
+import { setTotalBalance } from "../../redux/finance/financeSlice";
 import formatNumberWithSpaces from "../../utils/formatBalanaceNumber";
 
 const Balance = () => {
   const dispatch = useDispatch();
-  const totalBalance = useSelector((state) => state.transactions.totalBalance);
+  const totalBalance = useSelector((state) => state.finance.totalBalance);
 
   useEffect(() => {
-    dispatch(setBalance(totalBalance));
-  }, [dispatch, totalBalance]);
+    dispatch(financeOperations.getUserBalance())
+      .unwrap()
+      .then((balance) => {
+        dispatch(setTotalBalance(balance));
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }, [dispatch]);
 
   return (
     <div className={css.balanceBox}>
