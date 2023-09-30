@@ -1,22 +1,34 @@
 import { useSelector } from "react-redux";
 
+
 import styles from "./TransactionDesk.module.css";
 import { TransactionTableDesk } from "./TransactionTableDesk";
 
+// import transactionsOperations from "../../../redux/transactions/transactionOperations";
+
+import { selectTransactions } from "../../../redux/transactions/transactionSelectors";
+
 export const TransactionDesk = () => {
 
-  const { transactions } = useSelector((state) => state.transactions);
+
+
+  const  transactionsAll  = useSelector(selectTransactions);
+  
+
+  // console.log(transactionsAll)
+
   return (
     <>
-      {transactions.length === 0 && (
+    
+      {transactionsAll.length === 0 && (
         <>
           <p className={styles.transactionsText}>
-            {" "}
+          
             You haven't made any transactions yet
           </p>
         </>
       )}
-      {transactions.length > 0 && (
+      {transactionsAll.length > 0 && (
         <>
           <table className={styles.transactionTable}>
             <thead>
@@ -26,32 +38,28 @@ export const TransactionDesk = () => {
                 <th className={styles.headCategory}>Category</th>
                 <th className={styles.headComment}>Comment</th>
                 <th className={styles.headSum}>Sum</th>
-                <th className={styles.headBalance}>Balance</th>
+                {/* <th className={styles.headBalance}>Balance</th> */}
               </tr>
             </thead>
             <tbody className="">
-              {transactions.map(
+              {transactionsAll.map(
                 ({
                   _id,
                   date,
-                  isIncome,
+                  income,
                   category,
                   comment,
-                  amount,
+                  sum,
                   balance,
                 }) => (
                   <TransactionTableDesk
                     key={_id}
                     date={date}
-                    isIncome={isIncome}
+                    income={income}
                     category={category}
                     comment={comment}
-                    sum={amount
-                      .toString()
-                      .replace(/\B(?=(\d{3})+(?!\d))/g, " ")}
-                    balance={balance
-                      .toString()
-                      .replace(/\B(?=(\d{3})+(?!\d))/g, " ")}
+                    sum={sum}
+                    balance={balance}
                   />
                 )
               )}

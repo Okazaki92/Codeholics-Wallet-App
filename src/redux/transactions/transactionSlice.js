@@ -3,7 +3,7 @@ import transactionsOperations from "./transactionOperations.js";
 import fetchCategories from "./transactionOperations.js";
 
 const initialState = {
-  transactions: [],
+  operations: [],
   categories: [],
   isLoading: false,
   error: null,
@@ -31,7 +31,7 @@ export const transactionsSlice = createSlice({
       state.isLoading = true;
     },
     [transactionsOperations.getTransactions.fulfilled]: (state, action) => {
-      state.transactions = action.payload;
+      state.operations = action.payload;
       state.isLoading = false;
     },
     [transactionsOperations.getTransactions.rejected]: (state, action) => {

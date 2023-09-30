@@ -60,6 +60,7 @@ export const ModalAddTransaction = () => {
       category: isChecked ? "income" : values.category,
     });
 
+    // dispatch(transactionsOperations.getTransactions())
       dispatch(transactionsOperations.addTransaction({
         sum: values.sum,
         comment: values.comment,
