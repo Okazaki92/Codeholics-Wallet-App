@@ -18,7 +18,7 @@ export const register = createAsyncThunk(
   "auth/register",
   async (credentials, thunkAPI) => {
     try {
-      const res = await axios.post("/api/users/signup", credentials);
+      const res = await axios.post("/api/users/register", credentials);
       // After successful registration, add the token to the HTTP header
       setAuthHeader(res.data.token);
       return res.data;
@@ -37,10 +37,15 @@ export const logIn = createAsyncThunk(
     try {
       const resp = await axios.post("api/users/login", credentials);
       const { token, user } = resp.data;
-
-      thunkAPI.dispatch(setAuthSuccess({ token, user }));
-      setAuthHeader(token);
-      return await resp.data;
+      if (resp.status === 200 && token && user) {
+        thunkAPI.dispatch(setAuthSuccess({ token, user }));
+        setAuthHeader(token);
+        return await resp.data;
+      } else {
+        console.error("Logowanie nie powiodło się");
+        thunkAPI.dispatch(setAuthError("Login failed ⚠"));
+        return thunkAPI.rejectWithValue("Login failed ⚠");
+      }
     } catch (err) {
       console.error(err.message);
       thunkAPI.dispatch(setAuthError("Login failed ⚠"));

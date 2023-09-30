@@ -25,8 +25,12 @@ function App() {
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<Navigate to="/login" />} />
-          <Route path="/login" element={<LoginPage />} />
-
+          <Route
+            path="/login"
+            element={
+              <RestrictedRoute redirectTo="/home" component={<LoginPage />} />
+            }
+          />
           {/* <Route path="/register" element={<RegistrationPage />} /> */}
           <Route
             path="/register"
