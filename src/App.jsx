@@ -8,6 +8,7 @@ import ModalLogout from "./components/ModalLogout/ModalLogout";
 import { Loader } from "./components/Loader/Loader";
 import { selectIsRefreshing } from "./redux/auth/selectors";
 import { refreshUser } from "./redux/auth/operations";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 // import Layout from "./layout/Layout";
 
 const RegistrationPage = lazy(() =>
@@ -53,9 +54,18 @@ function App() {
 
           {/* <Route path="/:activeBtn" element={<DashboardPage />} /> */}
           <Route element={<DashboardPage />}>
-            <Route path="/home" element={<HomePage />} />
-            <Route path="/diagram" element={<StatisticPage />} />
-            <Route path="/currency" element={<CurrencyPage />} />
+            <Route
+              path="/home"
+              element={<PrivateRoute component={<HomePage />} />}
+            />
+            <Route
+              path="/diagram"
+              element={<PrivateRoute component={<StatisticPage />} />}
+            />
+            <Route
+              path="/currency"
+              element={<PrivateRoute component={<CurrencyPage />} />}
+            />
           </Route>
           <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
