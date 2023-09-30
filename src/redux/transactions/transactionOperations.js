@@ -7,7 +7,7 @@ const getTransactions = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const response = await axios.get("/api/transactions");
-      return response.data.data.lastTransactions;
+      return response.data.data.transactions;
     } catch (error) {
       return rejectWithValue(error);
     }

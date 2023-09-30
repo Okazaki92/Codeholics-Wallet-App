@@ -20,7 +20,7 @@ export const transactionsSlice = createSlice({
       state.transactions = [];
     },
     setTransactions(state, action) {
-      state.transactions = action.payload.lastTransactions;
+      state.transactions = action.payload.transactions;
       state.totalBalance = action.payload.user.balance;
     },
     setBalance(state, { payload }) {
