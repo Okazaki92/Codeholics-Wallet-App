@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import RestrictedRoute from "./components/RestrictedRoute/RestrictedRoute";
 import ModalLogout from "./components/ModalLogout/ModalLogout";
 import { Loader } from "./components/Loader/Loader";
+import { selectIsRefreshing } from "./redux/auth/selectors";
 import { refreshUser } from "./redux/auth/operations";
 // import Layout from "./layout/Layout";
 
@@ -19,12 +20,15 @@ const StatisticPage = lazy(() => import("./pages/StatPage/StatPage"));
 const CurrencyPage = lazy(() => import("./pages/CurrencyPage/CurrencyPage"));
 
 function App() {
+  const isRefreshing = useSelector(selectIsRefreshing);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(refreshUser());
   });
   const { isModalLogoutOpen } = useSelector((state) => state.global);
-  return (
+  return isRefreshing ? (
+    <>...</>
+  ) : (
     <>
       {isModalLogoutOpen && <ModalLogout />}
       <Suspense fallback={<Loader />}>
