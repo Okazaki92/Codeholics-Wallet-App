@@ -17,12 +17,11 @@ const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const StatisticPage = lazy(() => import("./pages/StatPage/StatPage"));
 const CurrencyPage = lazy(() => import("./pages/CurrencyPage/CurrencyPage"));
 
-const dispatch = useDispatch();
+function App() {
+  const dispatch = useDispatch();
   useEffect(() => {
     dispatch(refreshUser());
   });
-
-function App() {
   const { isModalLogoutOpen } = useSelector((state) => state.global);
   return (
     <>
