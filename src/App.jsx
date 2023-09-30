@@ -1,7 +1,7 @@
 import { Suspense, lazy } from "react";
 import "./App.css";
 import { Route, Routes, Navigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 // import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import RestrictedRoute from "./components/RestrictedRoute/RestrictedRoute";
 import ModalLogout from "./components/ModalLogout/ModalLogout";
@@ -16,6 +16,11 @@ const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const StatisticPage = lazy(() => import("./pages/StatPage/StatPage"));
 const CurrencyPage = lazy(() => import("./pages/CurrencyPage/CurrencyPage"));
+
+const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(refreshUser());
+  });
 
 function App() {
   const { isModalLogoutOpen } = useSelector((state) => state.global);
