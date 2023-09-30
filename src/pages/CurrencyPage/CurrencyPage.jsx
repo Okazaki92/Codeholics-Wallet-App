@@ -1,16 +1,17 @@
-import { Fragment, useEffect } from "react";
-import Media from "react-media";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
-import { NavMenuMobile } from "../../components/dashboard/navMenu/NavMenuMobile";
-import { NavMenu } from "../../components/dashboard/navMenu/NavMenu";
-// import { Currency } from "../components";
-import { TransactionDesk } from "../../components/dashboard/transaction/";
-// import { Ballance } from "../components";
-import styles from "../HomePage/HomePage.module.css";
+import { Currency } from "../../components/Currency/Currency";
+import Media from "react-media";
+import { Navigate } from "react-router-dom";
 
 const CurrencyPage = () => {
   const { error } = useSelector((state) => state.transactions);
+
+  const styleCurrency = {
+    display: "flex",
+    justifyContent: "center",
+  };
 
   useEffect(() => {
     if (error) {
@@ -20,58 +21,14 @@ const CurrencyPage = () => {
 
   return (
     <>
-      <Media
-        queries={{
-          small: "(max-width: 768px)",
-          medium: "(min-width: 769px) and (max-width: 1280px)",
-          large: "(min-width: 1281px)",
-        }}
-      >
-        {(matches) => (
-          <Fragment>
-            {matches.small && (
-              <>
-                <NavMenuMobile />
-                <div className={styles.currencyMob}>
-                  {/* <Currency /> */}
-                </div>
-              </>
-            )}
-            {matches.medium && (
-              <>
-                <ToastContainer />
-                <div className={styles.currency}>
-                  <div className={styles.nav_ballance}>
-                    <NavMenu />
-                    {/* <Ballance /> */}
-                  </div>
-                  {/* <Currency /> */}
-                </div>
-                <div className={styles.containerTable}>
-                  <TransactionDesk />
-                </div>
-              </>
-            )}
-            {matches.large && (
-              <>
-                <ToastContainer />
-                <div className={styles.largeSize}>
-                  <div className={styles.leftSize}>
-                    <NavMenu />
-                    {/* <Ballance />
-                    <Currency /> */}
-                  </div>
-                  <div className={styles.rightSize}>
-                    <div className={styles.containerTable}>
-                      <TransactionDesk />
-                    </div>
-                  </div>
-                </div>
-              </>
-            )}
-          </Fragment>
-        )}
-      </Media>
+      <ToastContainer />
+      <div style={styleCurrency}>
+        <Media queries={{ mobile: { maxWidth: 767 } }}>
+          {(matches) =>
+            matches.mobile ? <Currency /> : <Navigate to="/home" />
+          }
+        </Media>
+      </div>
     </>
   );
 };

@@ -17,7 +17,7 @@ const DashboardPage = () => {
             <Navigation />
             <Balance />
           </div>
-          <div className={css["dashboard-section__primary"]}>
+          <div className={css["dashboard-section__currency"]}>
             <Currency />
           </div>
         </div>

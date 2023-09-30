@@ -26,10 +26,11 @@
 
 .container {
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 60px);
   backdrop-filter: blur(25px);
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
   @media (max-width: 767px) {
     flex-direction: column;
     gap: 32px;
@@ -43,11 +44,17 @@
 }
 
 .page-section {
+  position: relative;
   padding-left: 32px;
   padding-right: 32px;
   width: 100%;
 }
 
+@media (max-width: 767px) {
+  .dashboard-section__currency {
+    display: none;
+  }
+}
 @media (min-width: 768px) {
   .dashboard-section {
     padding-left: 32px;

@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 // import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import RestrictedRoute from "./components/RestrictedRoute/RestrictedRoute";
 import ModalLogout from "./components/ModalLogout/ModalLogout";
+import { Loader } from "./components/Loader/Loader";
 // import Layout from "./layout/Layout";
 
 const RegistrationPage = lazy(() =>
@@ -21,7 +22,7 @@ function App() {
   return (
     <>
       {isModalLogoutOpen && <ModalLogout />}
-      <Suspense>
+      <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<Navigate to="/login" />} />
           <Route
