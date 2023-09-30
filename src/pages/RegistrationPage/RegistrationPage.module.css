@@ -33,96 +33,10 @@
     padding-bottom: 36px;
 }
 
-
 /* Logo */
-.logo {
-    width: 119.464px;
-    height: 30px;
-}
 
 .desktopLogo {
     display: none;
-}
-
-/* Input */
-
-.inputList {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    row-gap: 36px;
-    padding-bottom: 40px;
-    padding-top: 55px;
-}
-
-.inputBox {
-    position: relative;
-    width: 280px;
-    background-color: white;
-}
-
-.inputBox__icon {
-    position: absolute;
-    top: 5px;
-    left: 15px;
-}
-
-.inputBox__input {
-    border: none;
-    border-bottom: solid 1px #E0E0E0;
-    color: #BDBDBD;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    padding-left: 54.5px;
-    height: 32px;
-    width: 225.5px;
-}
-
-
-/* Buttons */
-.registrationBtnList {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    row-gap: 20px;
-}
-
-.registrationBtn {
-    border-radius: 20px;
-    border: 1px solid #4A56E2;
-    background: #FFF;
-    width: 280px;
-    height: 50px;
-    color: #4A56E2;
-    text-align: center;
-    font-family: Circe;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: 1.8px;
-}
-
-.registrationBtnCurrentPage {
-    border-radius: 20px;
-    border: 1px solid #ffffff;
-    background: #24CCA7;
-    width: 280px;
-    height: 50px;
-    color: #ffffff;
-    text-align: center;
-    font-family: Circe;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: 1.8px;
 }
 
 @media screen and (min-width: 768px) {
@@ -143,45 +57,11 @@
         margin-bottom: 48px;
     }
 
-    .registrationBox {
-        width: 533px;
-        max-height: 616px;
-        border-radius: 20px;
-        background: #FFF;
-        padding-top: 40px;
-        padding-bottom: 66px;
-    }
-
     /* Logo */
     .logo {
         width: 181px;
         height: 40px;
     }
-
-    /* Input */
-
-    .inputBox {
-        width: 409.5px;
-    }
-
-    .inputBox__input {
-        width: 355px;
-    }
-
-
-    /* Buttons */
-
-
-    .registrationBtn {
-        width: 300px;
-
-    }
-
-    .registrationBtnCurrentPage {
-        width: 300px;
-
-    }
-
 }
 
 @media screen and (min-width: 1200px) {
@@ -191,26 +71,35 @@
         align-items: center;
         max-width: 100vw;
         height: 100vh;
-        background-image: url(/src/assets/icons/phoneImg.svg), url(/src/assets/icons/ellipse1.svg), url(/src/assets/icons/ellipse2.svg);
-        background-size: 618px 547px, 618px, 450px, cover;
+        background-image: url(/src/assets/icons/ellipse1.svg), url(/src/assets/icons/ellipse2.svg);
+        background-size: 547px, 618px, 450px, cover;
         background-repeat: no-repeat;
-        background-position: bottom 75% left calc(50% - 355px), bottom 0px left 0px, top 0px right 0px;
+        background-position: bottom 0px left 0px, top 0px right 0px;
+        min-height: 100vh;
     }
 
     .content {
         display: flex;
         flex-direction: row;
+        justify-content: center;
+        align-items: center;
         position: relative;
         width: 100%;
+        height: 100vh;
     }
 
     .registrationFormContainer {
-        margin-top: 52px;
-        margin-bottom: 52px;
-        padding-left: 107px;
-        padding-right: 91px;
-        /* position: relative; */
-
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.40);
+        backdrop-filter: blur(25px);
+        margin: 0 auto;
+        width: 60%;
+        max-height: 100vh;
+        max-width: 60%;
+        margin-right: 0;
     }
 
     .registrationBox {
@@ -220,21 +109,26 @@
         background: #FFF;
         padding-top: 40px;
         padding-bottom: 66px;
+        flex-grow: 1;
     }
 
     /* Logo */
-    .logo {
-        width: 181px;
-        height: 40px;
-    }
 
     .desktopLogo {
         display: flex;
-        align-items: end;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         height: 100vh;
         width: 40%;
         margin: 0 auto;
+        flex-grow: 0;
+    }
 
+    .imgPhone {
+        width: 468px;
+        height: 420px;
+        margin-top: 38px;
     }
 
     .headerRegistration {
@@ -245,33 +139,7 @@
         font-weight: 400;
         line-height: normal;
         width: 187px;
-        padding-bottom: 85px;
-        padding-left: 280px;
-
-    }
-
-    /* Input */
-
-    .inputBox {
-        width: 409.5px;
-    }
-
-    .inputBox__input {
-        width: 355px;
-    }
-
-
-    /* Buttons */
-
-
-    .registrationBtn {
-        width: 300px;
-
-    }
-
-    .registrationBtnCurrentPage {
-        width: 300px;
-
+        margin-left: 30px;
     }
 
 }
