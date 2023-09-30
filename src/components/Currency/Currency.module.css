@@ -58,7 +58,7 @@
 @media screen and (min-width: 1280px) {
   .currencyWrap {
     height: 330px;
-    max-width: 390px;
+    width: 393px;
     padding: 17px 44px;
     background-image: linear-gradient(
       to bottom,
