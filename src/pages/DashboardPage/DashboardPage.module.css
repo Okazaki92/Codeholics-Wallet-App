@@ -9,14 +9,14 @@
 
 @media (min-width: 768px) {
   .background::after {
-    content: url("../assets/icons/ellipse2.svg");
+    content: url("../../assets/icons/ellipse2.svg");
     position: absolute;
     z-index: -1;
     top: 0px;
     right: 0px;
   }
   .background::before {
-    content: url("../assets/icons/ellipse1.svg");
+    content: url("../../assets/icons/ellipse1.svg");
     position: absolute;
     z-index: -1;
     bottom: -5px;
