@@ -23,7 +23,7 @@ const Header = () => {
           </NavLink>
         </div>
         <div className={css["header__user"]}>
-          <span className={css["username"]}>{...}</span>
+          <span className={css["username"]}>name</span>
           <button type="button" className={css["exit-btn"]} onClick={openModal}>
             <svg className={css["exit-btn__icon"]} width="18" height="18">
               <use href={icon + `#icon__exit`} />
