@@ -24,7 +24,7 @@ function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(refreshUser());
-  });
+  }, [dispatch]);
   const { isModalLogoutOpen } = useSelector((state) => state.global);
   return isRefreshing ? (
     <>...</>
