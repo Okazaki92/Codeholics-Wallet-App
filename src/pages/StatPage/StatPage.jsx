@@ -21,7 +21,6 @@ const StatPage = () => {
 
   const cat = categories.map((category) => category.data);
   const cats = cat[0];
-  console.log(cats);
 
   const statistics = useSelector(selectStatistics);
 
@@ -51,8 +50,6 @@ const StatPage = () => {
     return arr;
   });
 
-  console.log(arrStats);
-
   let allArray = [];
 
   const creatNewArray = () => {
@@ -67,13 +64,12 @@ const StatPage = () => {
   };
 
   creatNewArray();
-  console.log(allArray);
 
   return (
     <div className={css["stats-container"]}>
       <p className={css["stats-title"]}>Statistics</p>
       <div className={css["stats-section"]}>
-        <Chart dataToRender={allArray} />
+        <Chart dataToRender={allArray} statistics={statistics} />
         {/* <Table dataToRender={cat} statistics={statistics} /> */}
         <Table dataToRender={allArray} statistics={statistics} />
       </div>
