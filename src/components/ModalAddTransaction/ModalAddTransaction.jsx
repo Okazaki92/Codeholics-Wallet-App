@@ -86,6 +86,11 @@ export const ModalAddTransaction = () => {
               income: Yup.bool(),
               comment: Yup.string().max(150, "Must be 150 characters or less"),
               sum: Yup.number().required("Amount is required"),
+              category: Yup.mixed().when('income', {
+                is: income => !income,
+                then: () => Yup.mixed().required('Please choose transaction category.'),
+                otherwise: () => Yup.mixed().notRequired(),
+              }),
               // category: Yup.string(),
             })}
             onSubmit={(values, { setSubmitting, resetForm }) => {
@@ -106,6 +111,7 @@ export const ModalAddTransaction = () => {
                 name="income"
                 checked={isChecked}
                 onClick={handleCheckboxChange}
+                type="checkbox"
               />
 
               {!isChecked && (
