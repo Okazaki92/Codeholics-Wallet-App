@@ -8,6 +8,7 @@ import { useAuth } from "../../hooks/useAuth";
 
 const Header = () => {
   const { user } = useAuth();
+  console.log(user, user.name)
   const dispatch = useDispatch();
 
   const openModal = () => {
@@ -22,7 +23,7 @@ const Header = () => {
           </NavLink>
         </div>
         <div className={css["header__user"]}>
-          <span className={css["username"]}>{user.user.name}</span>
+          <span className={css["username"]}>{...}</span>
           <button type="button" className={css["exit-btn"]} onClick={openModal}>
             <svg className={css["exit-btn__icon"]} width="18" height="18">
               <use href={icon + `#icon__exit`} />
