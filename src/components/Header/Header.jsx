@@ -8,7 +8,7 @@ import { useAuth } from "../../hooks/useAuth";
 
 const Header = () => {
   const { user } = useAuth();
-  console.log(user, user.name)
+  console.log(user)
   const dispatch = useDispatch();
 
   const openModal = () => {
