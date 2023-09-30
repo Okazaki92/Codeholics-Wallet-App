@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import transactionsOperations from "./transactionOperations.js";
 
 const initialState = {
-  transactions: [],
+  operations: [],
   totalBalance: 0,
   isLoading: false,
   error: null,
@@ -29,9 +29,9 @@ export const transactionsSlice = createSlice({
       state.isLoading = true;
     },
     [transactionsOperations.getTransactions.fulfilled]: (state, action) => {
-      state.transactions = action.payload;
-      state.totalBalance =
-        action.payload.length === 0 ? 0 : action.payload[0].balance;
+      state.operations = action.payload;
+      // state.totalBalance =
+      //   action.payload.length === 0 ? 0 : action.payload[0].balance;
       state.isLoading = false;
     },
     [transactionsOperations.getTransactions.rejected]: (state, action) => {

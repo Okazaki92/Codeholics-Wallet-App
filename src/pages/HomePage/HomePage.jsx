@@ -1,7 +1,9 @@
 import { Fragment, useEffect } from "react";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import Media from "react-media";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
+import { useSelector, useDispatch } from "react-redux";
+
 
 // components
 
@@ -21,15 +23,31 @@ import ButtonAddTransaction from "./../../components/ButtonAddTransaction/Button
 import { ModalAddTransaction } from '../../components/ModalAddTransaction/ModalAddTransaction'
 import { selectIsModalAddTransactionOpen } from '../../redux/global/globalSelectors'
 
+import transactionsOperations from "../../redux/transactions/transactionOperations";
+
+// import { selectTransactions } from "../../redux/transactions/transactionSelectors";
+
 
 const HomePage = () => {
-  const { error } = useSelector((state) => state.transactions);
+  // const { error } = useSelector((state) => state.transactions);
+
+  // useEffect(() => {
+  //   if (error) {
+  //     toast(error);
+  //   }
+  // }, [error]);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    if (error) {
-      toast(error);
-    }
-  }, [error]);
+    dispatch(transactionsOperations.getTransactions());
+  }, [dispatch]);
+
+  // const  transactionsAll  = useSelector(selectTransactions);
+  
+
+  // console.log(transactionsAll)
+
 
   const isModalAddTransaction = useSelector(selectIsModalAddTransactionOpen)
 
