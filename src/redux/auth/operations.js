@@ -36,11 +36,11 @@ export const logIn = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const resp = await axios.post("/api/users/login", credentials);
-      const { token, user } = resp.data;
-      if (resp.status === 200) {
+      const { token, user } = resp.data.data;
+      if (resp.status === 200 && token && user) {
         thunkAPI.dispatch(setAuthSuccess({ token, user }));
         setAuthHeader(token);
-        return await resp.data;
+        return await resp.data.data;
       } else {
         console.error("Logowanie nie powiodło się");
         thunkAPI.dispatch(setAuthError("Login failed ⚠"));
@@ -60,7 +60,7 @@ export const logIn = createAsyncThunk(
  */
 export const logOut = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
   try {
-    await axios.post("/api/users/logout");
+    await axios.get("/api/users/logout");
     // After a successful logout, remove the token from the HTTP header
     clearAuthHeader();
   } catch (error) {
@@ -88,7 +88,7 @@ export const refreshUser = createAsyncThunk(
       // If there is a token, add it to the HTTP header and perform the request
       setAuthHeader(persistedToken);
       const res = await axios.get("/api/users/current");
-      return res.data;
+      return res.data.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
