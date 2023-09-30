@@ -50,5 +50,4 @@ const transactionsOperations = {
   fetchCategories,
 };
 
-
 export default transactionsOperations;
