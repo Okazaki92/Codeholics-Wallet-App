@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { setTotalBalance } from "../../redux/finance/financeSlice";
 
 const getTransactions = createAsyncThunk(
   "transactions/getTransactions",
@@ -22,6 +23,10 @@ const addTransaction = createAsyncThunk(
     try {
       const response = await axios.post("/api/transactions", trasaction);
       console.log("addTrans", response);
+
+      const newTotalBalance = response.data.data.balance;
+      dispatch(setTotalBalance(newTotalBalance));
+
       dispatch(getTransactions());
       toast(response.data.message);
       return response.data.data;
