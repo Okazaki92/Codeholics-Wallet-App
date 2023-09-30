@@ -2,6 +2,7 @@ import css from "./ModalLogout.module.css";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { setIsModalLogoutOpen } from "../../redux/global/globalSlice";
+import { logOut } from "../../redux/auth/operations";
 
 const ModalLogout = () => {
   const dispatch = useDispatch();
@@ -35,7 +36,11 @@ const ModalLogout = () => {
       <div className={css["modal-container"]}>
         <p className={css["modal-text"]}>Are you sure you want to logout?</p>
         <div className={css["modal-buttons"]}>
-          <button type="button" className={css["logout-btn"]}>
+          <button
+            type="button"
+            className={css["logout-btn"]}
+            onClick={() => dispatch(logOut())}
+          >
             Yes
           </button>
           <button

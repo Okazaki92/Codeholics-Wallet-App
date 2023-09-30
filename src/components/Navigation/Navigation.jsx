@@ -16,7 +16,7 @@ const Navigation = () => {
         <svg className={css["nav__icon"]}>
           <use href={icon + `#icon__baseline-timeline`} />
         </svg>
-        <span className={css["nav__text"]}>Statistcs </span>
+        <span className={css["nav__text"]}>Statistics </span>
       </NavLink>
       <NavLink to="/currency">
         <svg className={css["nav__icon"]}>
