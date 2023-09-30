@@ -11,6 +11,15 @@ const ModalLogout = () => {
     dispatch(setIsModalLogoutOpen(false));
   };
 
+  const handleLogout = async () => {
+    try {
+      dispatch(setIsModalLogoutOpen(false));
+      await dispatch(logOut());
+    } catch (error) {
+      console.error("Error during logout:", error);
+    }
+  };
+
   const handleKeyPress = (event) => {
     if (event.key === "Escape") {
       handleCloseModal();
@@ -39,7 +48,7 @@ const ModalLogout = () => {
           <button
             type="button"
             className={css["logout-btn"]}
-            onClick={() => dispatch(logOut())}
+            onClick={handleLogout}
           >
             Yes
           </button>
