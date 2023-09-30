@@ -28,9 +28,26 @@ const addTransaction = createAsyncThunk(
   }
 );
 
+axios.defaults.baseURL =
+  "https://codeholics-wallet-app-c8b1a2de9f25.herokuapp.com";
+
+ const fetchCategories = createAsyncThunk(
+   "transactions/getCategories",
+   async (_, { dispatch, rejectWithValue }) => {
+     try {
+       const { data } = await axios.get("/api/transactions/categories");
+       return data.data.categories;
+     } catch (err) {
+       return rejectWithValue(err.response.data);
+     }
+   }
+ );
+
+
 const transactionsOperations = {
   getTransactions,
   addTransaction,
+  fetchCategories,
 };
 
 
