@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import transactionsOperations from "./transactionOperations.js";
-import fetchCategories  from "./transactionOperations.js";
+import fetchCategories from "./transactionOperations.js";
 
 const initialState = {
   transactions: [],
@@ -22,7 +22,7 @@ export const transactionsSlice = createSlice({
       state.transactions = action.payload.lastTransactions;
     },
     addCategories(state, { payload }) {
-       state.categories = payload;
+      state.categories = payload;
     },
   },
   extraReducers: {
@@ -49,7 +49,7 @@ export const transactionsSlice = createSlice({
     },
 
     [transactionsOperations.addTransaction.rejected]: (state, action) => {
-      state.error = action.payload.response.data.message;
+      state.error = "error";
       state.isLoading = false;
     },
     [fetchCategories.pending]: (state) => {
@@ -66,7 +66,6 @@ export const transactionsSlice = createSlice({
   },
 });
 
-
-export  const { resetTransactions, setTransactions, addCategories } =
+export const { resetTransactions, setTransactions, addCategories } =
   transactionsSlice.actions;
 export const transactionReducer = transactionsSlice.reducer;
