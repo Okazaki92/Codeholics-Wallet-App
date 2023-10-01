@@ -8,8 +8,18 @@ import {
 import { Doughnut } from "react-chartjs-2";
 import css from "./Chart.module.css";
 
+import { useState, useEffect } from "react";
+
 const DoughnutChart = ({ dataToRender, statistics }) => {
   ChartJS.register(ArcElement, Tooltip, Legend, Colors);
+
+  const [showChart, setShowChart] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShowChart(true);
+    }, 500);
+  }, []);
 
   let color = "";
 
@@ -42,13 +52,11 @@ const DoughnutChart = ({ dataToRender, statistics }) => {
       const { ctx } = chart;
       ctx.save();
       ctx.font = "bold 18px sans-serif";
-      // ctx.fillStyle = "#000000";
       ctx.fillStyle = `${color}`;
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
       ctx.fillText(
-        // `$${balance}`,
-        `${statistics.income - statistics.expenses}$`,
+        `$${statistics.income - statistics.expenses}`,
         chart.getDatasetMeta(0).data[0].x,
         chart.getDatasetMeta(0).data[0].y
       );
@@ -69,7 +77,13 @@ const DoughnutChart = ({ dataToRender, statistics }) => {
 
   return (
     <div className={css.chartWrap}>
-      <Doughnut data={data} options={options} plugins={[textCenter]}></Doughnut>
+      {showChart ? (
+        <Doughnut
+          data={data}
+          options={options}
+          plugins={[textCenter]}
+        ></Doughnut>
+      ) : null}
     </div>
   );
 };

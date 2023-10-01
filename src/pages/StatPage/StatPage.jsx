@@ -19,7 +19,7 @@ const StatPage = () => {
   }, [dispatch]);
   const categories = useSelector(selectCategories);
 
-  const cat = categories.map((category) => category.data);
+  const cat = categories?.map((category) => category.data);
   const cats = cat[0];
 
   const statistics = useSelector(selectStatistics);
@@ -38,7 +38,7 @@ const StatPage = () => {
 
   const newStats = statistics.arrCategory;
 
-  const arrStats = newStats.map((item) => {
+  const arrStats = newStats?.map((item) => {
     const name = Object.keys(item);
     const sum = Object.values(item);
 
@@ -53,8 +53,8 @@ const StatPage = () => {
   let allArray = [];
 
   const creatNewArray = () => {
-    cats.forEach((el1) => {
-      arrStats.forEach((el2) => {
+    cats?.forEach((el1) => {
+      arrStats?.forEach((el2) => {
         if (el1.name === el2.name) {
           const sum = el2.sum;
           allArray.push({ ...el1, sum });

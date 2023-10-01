@@ -50,12 +50,12 @@ const Table = ({ dataToRender, statistics }) => {
       <div className={css.resultsWrap}>
         <div className={css.results}>
           <p className={css.resultsTitle}>Expenses:</p>
-          <p className={css.resultsExpenses}>{statistics.expenses}</p>
+          <p className={css.resultsExpenses}>${statistics.expenses}</p>
         </div>
 
         <div className={css.results}>
           <p className={css.resultsTitle}>Income:</p>
-          <p className={css.resultsIncome}>{statistics.income}</p>
+          <p className={css.resultsIncome}>${statistics.income}</p>
         </div>
       </div>
     </div>
