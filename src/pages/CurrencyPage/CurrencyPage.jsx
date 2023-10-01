@@ -8,6 +8,8 @@ import { Navigate } from "react-router-dom";
 const CurrencyPage = () => {
   const { error } = useSelector((state) => state.transactions);
 
+  console.log("Se to działam");
+
   const styleCurrency = {
     display: "flex",
     justifyContent: "center",
