@@ -48,6 +48,7 @@
   max-width: 120px;
   font-size: var(--font-size-sec);
   text-wrap: wrap;
+  text-transform: capitalize;
 }
 
 .resultsWrap {
