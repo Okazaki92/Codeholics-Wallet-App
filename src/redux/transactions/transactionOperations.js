@@ -8,7 +8,7 @@ const getTransactions = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const response = await axios.get("/api/transactions");
-      // console.log(response.data.data.transactions)
+      console.log(response.data.data.transactions)
       console.log("getTrans", response.data.data);
       return response.data.data.transactions;
     } catch (error) {
@@ -51,10 +51,31 @@ const fetchCategories = createAsyncThunk(
   }
 );
 
+export const deleteTransaction = createAsyncThunk(
+  'tasks/deleteTransaction',
+  async (transactionId, {thunkAPI, dispatch}) => {
+    try {
+      const response = await axios.delete(`/api/transactions/${transactionId}`);
+      console.log(response.data)
+
+      const newTotalBalance = response.data.data.balance;
+      dispatch(setTotalBalance(newTotalBalance));
+
+      dispatch(getTransactions());
+
+      return response.data;
+     
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
 const transactionsOperations = {
   getTransactions,
   addTransaction,
   fetchCategories,
+  deleteTransaction
 };
 
 export default transactionsOperations;

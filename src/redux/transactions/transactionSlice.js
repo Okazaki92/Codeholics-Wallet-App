@@ -63,9 +63,30 @@ export const transactionsSlice = createSlice({
     [fetchCategories.rejected]: (state) => {
       state.isLoading = false;
     },
+
+    [transactionsOperations.deleteTransaction.pending]: (state) => {
+      state.isLoading = true;
+      state.error = null;
+    },
+
+    [transactionsOperations.deleteTransaction.fulfilled]: (state,action) => {
+      state.isLoading = false;
+        const index = state.operations.findIndex(
+        transaction => transaction.id === action.payload._id
+      );
+      state.operations.splice(index, 1);
+    },
+
+    [transactionsOperations.deleteTransaction.rejected]: (state, action) => {
+      state.error = "error";
+      state.isLoading = false;
+    
+    },
+
+
   },
 });
 
-export const { resetTransactions, setTransactions, addCategories } =
+export const { resetTransactions, setTransactions, addCategories, deleteTransaction } =
   transactionsSlice.actions;
 export const transactionReducer = transactionsSlice.reducer;

@@ -6,6 +6,8 @@ import { useDispatch } from "react-redux";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 
+import moment from 'moment'
+
 import {
   MySelect,
   MyTextInput,
@@ -55,7 +57,7 @@ export const ModalAddTransaction = () => {
     console.log({
       sum: values.sum,
       comment: values.comment,
-      date: values.date,
+      date: moment(values.date).format("YYYY-MM-DD"),
       income: isChecked,
       category: isChecked ? "income" : values.category,
     });
@@ -64,7 +66,7 @@ export const ModalAddTransaction = () => {
       dispatch(transactionsOperations.addTransaction({
         sum: values.sum,
         comment: values.comment,
-        date: values.date,
+        date: moment(values.date).format("YYYY-MM-DD"),
         income: isChecked,
         category: isChecked ? 'income' : values.category,
       }))

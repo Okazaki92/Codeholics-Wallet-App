@@ -50,16 +50,17 @@ export const TransactionDesk = () => {
                   category,
                   comment,
                   sum,
-                  balance,
+                  // balance,
                 }) => (
                   <TransactionTableDesk
                     key={_id}
+                    id={_id}
                     date={date}
                     income={income}
                     category={category}
                     comment={comment}
                     sum={sum}
-                    balance={balance}
+                    // balance={balance}
                   />
                 )
               )}
