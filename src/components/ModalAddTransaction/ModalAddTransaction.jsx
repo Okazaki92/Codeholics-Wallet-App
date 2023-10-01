@@ -79,7 +79,7 @@ export const ModalAddTransaction = () => {
        
           <Formik
             initialValues={{
-              comment: "",
+              comment: " ",
               sum: "",
               income: isChecked,
               category: "",

@@ -48,5 +48,4 @@ TransactionTableDesk.propTypes = {
   category: PropTypes.string,
   comment: PropTypes.string,
   sum: PropTypes.number,
-
 };
