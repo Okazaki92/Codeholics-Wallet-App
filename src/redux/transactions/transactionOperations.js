@@ -56,7 +56,7 @@ export const deleteTransaction = createAsyncThunk(
   async (transactionId, {thunkAPI, dispatch}) => {
     try {
       const response = await axios.delete(`/api/transactions/${transactionId}`);
-      console.log(response.data)
+      // console.log(response.data)
 
       const newTotalBalance = response.data.data.balance;
       dispatch(setTotalBalance(newTotalBalance));

@@ -18,7 +18,7 @@ export const TransactionTableMobile = () => {
   const dispatch = useDispatch();
 
   // const handleClick = () => {console.log(id)}
-  console.log(transactionsAll)
+  // console.log(transactionsAll)
   // const handleClick = (id) => {dispatch(transactionsOperations.deleteTransaction(id))}
 
   return (
