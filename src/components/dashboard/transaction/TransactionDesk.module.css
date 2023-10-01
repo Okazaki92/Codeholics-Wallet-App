@@ -1,3 +1,5 @@
+@import '../../../stylesheet/variables.css';
+
 @media screen and (min-width: 768px) {
   .transactionTable {
     margin-left: auto;
@@ -19,10 +21,12 @@
     font-size: 17px;
     line-height: 24px;
   }
+
   .headCategory,
   .category {
     padding-left: 40px;
   }
+
   .headSum,
   .expensSum,
   .incomeSum {
@@ -45,14 +49,12 @@
   .headBalance {
     text-align: right;
   }
+
   .transactionTable th:first-child,
   .bodyString td:first-child {
     padding-left: 20px;
   }
-  .transactionTable th:last-child,
-  .bodyString td:last-child {
-    padding-right: 20px;
-  }
+
   .expensSum {
     color: var(--pink);
     font-size: 1rem;
@@ -77,8 +79,6 @@
     border-bottom: 2px solid var(--border-table);
     box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
   }
-  /* .headString th {
-  } */
 
   .headString th:first-child {
     border-top-left-radius: 1.875rem;
@@ -94,13 +94,55 @@
   .bodyString {
     height: 3.625rem;
   }
-  
+
+  .buttons {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .editBtn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2px;
+    align-items: center;
+    border-radius: var(--border-radius-fourth);
+    border: none;
+    color: rgba(0, 0, 0, 0.80);
+    text-align: center;
+    font-family: var(--font-family-main);
+    font-size: var(--font-size-fifth);
+    letter-spacing: 0.28px;
+    background-color: transparent;
+  }
+
+  .btnDelete {
+    padding: 4px 12px;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--border-radius-fourth);
+    border: none;
+    background: #24CCA7;
+    color: var(--color-text-fifth);
+    text-align: center;
+    font-family: var(--font-family-main);
+    font-size: var(--font-size-fifth);
+  }
+
+  .thead {
+    border-radius: 30px;
+    background: #FFF;
+  }
 }
+
 @media screen and (min-width: 1280px) {
   .transactionTable {
     margin-left: auto;
     margin-right: auto;
-    width: 715px;
+    margin-top: 46px;
     text-align: center;
     border-collapse: collapse;
   }
