@@ -1,14 +1,12 @@
 import { useSelector } from "react-redux";
-
-
-
-
 import styles from "./TransactionMobile.module.css";
 
-
-// import transactionsOperations from "../../../redux/transactions/transactionOperations";
-
 import { selectTransactions } from "../../../redux/transactions/transactionSelectors";
+
+import  moment from 'moment';
+import transactionsOperations from "../../../redux/transactions/transactionOperations";
+import {useDispatch} from 'react-redux'
+
 
 
 
@@ -17,8 +15,11 @@ export const TransactionTableMobile = () => {
 
   const  transactionsAll  = useSelector(selectTransactions);
   
+  const dispatch = useDispatch();
 
-  // console.log(transactionsAll)
+  // const handleClick = () => {console.log(id)}
+  console.log(transactionsAll)
+  // const handleClick = (id) => {dispatch(transactionsOperations.deleteTransaction(id))}
 
   return (
     <>
@@ -31,7 +32,7 @@ export const TransactionTableMobile = () => {
       )}
       {transactionsAll.length > 0 &&
         transactionsAll.map(
-          ({ _id, date, income, category, comment, sum, balance }) => (
+          ({ _id, date, income, category, comment, sum}) => (
             <table
               key={_id}
               className={`${styles.transactionTable} ${
@@ -50,7 +51,7 @@ export const TransactionTableMobile = () => {
               </thead>
               <tbody className={styles.tbody}>
                 <tr>
-                  <td> {date} </td>
+                  <td> {moment(date).format("DD.MM.YYYY")} </td>
                   <td>{income ? "+" : "-"}</td>
                   <td>{category}</td>
                   <td>
@@ -66,7 +67,7 @@ export const TransactionTableMobile = () => {
                     {sum}
                   </td>
                   <td>
-                    {balance}
+                   <button type="button" onClick={() => dispatch(transactionsOperations.deleteTransaction(_id))}>Delete</button>
                   </td>
                 </tr>
               </tbody>

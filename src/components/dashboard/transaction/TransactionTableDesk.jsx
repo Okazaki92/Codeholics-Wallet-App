@@ -21,7 +21,7 @@ const handleClick = () => {dispatch(transactionsOperations.deleteTransaction(id)
   return (
     <>
       <tr className={styles.bodyString}>
-        <td className={styles.date}> {moment(date).format("YYYY-MM-DD")} </td>
+        <td className={styles.date}> {moment(date).format("DD.MM.YYYY")} </td>
         <td>{income ? "+" : "-"}</td>
         <td className={styles.category}>{category}</td>
         <td className={styles.comment}>
