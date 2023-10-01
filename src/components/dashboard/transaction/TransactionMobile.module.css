@@ -1,4 +1,4 @@
-/* @import '../../../variables/colors.css'; */
+@import '../../../stylesheet/variables.css';
 
 td {
   min-height: 50px;
@@ -8,9 +8,10 @@ td {
   .transactionTable {
     display: flex;
     align-content: stretch;
-
     border-collapse: collapse;
     margin-bottom: 0.5rem;
+    border-radius: 10px;
+    background: #FFF;
   }
 
   .transactionsText {
@@ -36,33 +37,34 @@ td {
     flex-grow: 1;
   }
 
-  .transactionTable th {
+  .transactionTable tr {
     text-transform: capitalize;
-    font-weight: 700;
+    font-weight: var(--font-weight);
     text-align: left;
     position: relative;
     display: flex;
     align-items: stretch;
   }
 
-  .transactionTable.expens th:not(:last-child):not(:first-child)::before {
+  .transactionTable.expens tr:not(:last-child):not(:first-child)::before {
     position: absolute;
     content: ' ';
     top: 0;
     left: 0;
-    background-color: var(--pink);
+    background-color: var(--color-background-pink);
     width: 0.3125rem;
     height: 100%;
   }
 
-  .transactionTable.income th:not(:last-child):not(:first-child)::before {
+  .transactionTable.income tr:not(:last-child):not(:first-child)::before {
     position: absolute;
     content: ' ';
     top: 0;
     left: 0;
-    background-color: var(--turquoise);
+    background-color: var(--color-background-turquoise);
     width: 0.3125rem;
     height: 100%;
+
   }
 
   .transactionTable td {
@@ -70,7 +72,7 @@ td {
     font-weight: 400;
   }
 
-  .transactionTable th,
+  /* .transactionTable th,
   .transactionTable td {
     font-family: var(--primary-font-family);
     font-style: normal;
@@ -80,84 +82,160 @@ td {
     padding: 0.75rem 1.25rem;
     display: block;
     background-color: var(--white);
-  }
+  } */
 
-  .transactionTable th:not(:last-child),
+  /* .transactionTable th:not(:last-child),
   .transactionTable td:not(:last-child) {
     border-bottom: 2px solid #dcdcdf;
-  }
-  .transactionTable.expens th:first-child,
-  .transactionTable.income th:first-child {
+  } */
+
+  .transactionTable.expens tr:first-child,
+  .transactionTable.income tr:first-child {
     border-top-left-radius: 10px;
   }
-  .transactionTable.expens th:last-child,
-  .transactionTable.income th:last-child {
+
+  .transactionTable.expens tr:last-child,
+  .transactionTable.income tr:last-child {
     border-bottom-left-radius: 10px;
   }
 
-  .transactionTable.expens th:first-child::before {
+  .transactionTable.expens tr:first-child::before {
     position: absolute;
     content: ' ';
     top: 2px;
     left: 0;
-    background-color: var(--pink);
+    background-color: var(--color-background-pink);
     width: 0.3125rem;
     height: 96%;
     border-top-left-radius: 10px;
   }
 
-  .transactionTable.expens th:last-child::before {
+  .transactionTable.expens tr:last-child::before {
     position: absolute;
     content: ' ';
     top: 0;
     left: 0;
-    background-color: var(--pink);
+    background-color: var(--color-background-pink);
     width: 0.3125rem;
     height: 98%;
     border-bottom-left-radius: 10px;
   }
 
-  .transactionTable.income th:first-child::before {
+  .transactionTable.income tr:first-child::before {
     position: absolute;
     content: ' ';
     top: 2px;
     left: 0;
-    background-color: var(--turquoise);
+    background-color: var(--color-background-turquoise);
     width: 0.3125rem;
     height: 96%;
     border-top-left-radius: 10px;
+
   }
 
-  .transactionTable.income th:last-child::before {
+  .transactionTable.income tr:last-child::before {
     position: absolute;
     content: ' ';
     top: 0;
     left: 0;
-    background-color: var(--turquoise);
+    background-color: var(---color-background-turquoise);
     width: 0.3125rem;
     height: 98%;
     border-bottom-left-radius: 10px;
   }
 
-  .transactionTable td:first-child {
+  /* .transactionTable td:first-child {
     border-top-right-radius: 10px;
   }
 
   .transactionTable td:last-child {
     border-bottom-right-radius: 10px;
-  }
+    position: relative;
+  } */
 
   .transactionTable .expensSum {
     color: var(--pink);
     font-size: 1rem;
-    font-weight: 700;
+    font-weight: var(--font-weight);
     line-height: 24px;
+    padding: 0.75rem 1.25rem;
   }
 
   .transactionTable .incomeSum {
-    color: var(--turquoise);
-    font-weight: 700;
+    color: var(--color-text-fourth);
+    font-weight: var(--font-weight);
     font-size: 1rem;
     line-height: 24px;
+    padding: 0.75rem 1.25rem;
+  }
+
+
+
+  .tableH {
+    color: #000;
+    font-family: Circe;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding: 0.75rem 1.25rem;
+  }
+
+  .tbody {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tableR {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 2px solid #dcdcdf;
+
+
+  }
+
+  .tableD {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1.25rem;
+  }
+
+
+  .btnDelete {
+    padding: 4px 12px;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--border-radius-fourth);
+    border: none;
+    background: #24CCA7;
+    color: var(--color-text-fifth);
+    text-align: center;
+    font-family: var(--font-family-main);
+    font-size: var(--font-size-fifth);
+  }
+
+  .editBtn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2px;
+    align-items: center;
+    border-radius: var(--border-radius-fourth);
+    border: none;
+    color: rgba(0, 0, 0, 0.80);
+    text-align: center;
+    font-family: var(--font-family-main);
+    font-size: var(--font-size-fifth);
+    letter-spacing: 0.28px;
+    background-color: white;
+    /* position: absolute;
+    right: 20px;
+    top: 16px */
+  }
+
+  .btnText {
+    width: 36px;
+    height: 18px;
   }
 }
