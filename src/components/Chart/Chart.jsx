@@ -22,6 +22,13 @@ const DoughnutChart = ({ dataToRender, statistics }) => {
   }, []);
 
   let color = "";
+  const balance =
+    statistics.income - statistics.expenses
+      ? statistics.income - statistics.expenses
+      : "0";
+  const labels = dataToRender.map((item) => item.name);
+  const backgroundColors = dataToRender.map((item) => item.color);
+  const dataValues = dataToRender.map((item) => item.sum);
 
   const colorBalance = () => {
     if (statistics.income > statistics.expenses) {
@@ -34,17 +41,30 @@ const DoughnutChart = ({ dataToRender, statistics }) => {
   colorBalance();
 
   const data = {
-    labels: dataToRender.map((item) => item.name),
+    labels: labels,
     datasets: [
       {
         label: "Amount",
-        data: dataToRender.map((item) => item.sum),
-        backgroundColor: dataToRender.map((item) => item.color),
-
+        data: dataValues,
+        backgroundColor: backgroundColors,
         borderWidth: 1,
       },
     ],
   };
+  const data2 = {
+    labels: ["No expenses"],
+    datasets: [
+      {
+        label: "",
+        data: [100],
+        backgroundColor: ["rgba(0, 0, 0,0.1)"],
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  const dataShow =
+    statistics.income === 0 && statistics.expenses === 0 ? data2 : data;
 
   const textCenter = {
     id: "textCenter",
@@ -55,11 +75,6 @@ const DoughnutChart = ({ dataToRender, statistics }) => {
       ctx.fillStyle = `${color}`;
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
-      ctx.fillText(
-        `$${statistics.income - statistics.expenses}`,
-        chart.getDatasetMeta(0).data[0].x,
-        chart.getDatasetMeta(0).data[0].y
-      );
     },
   };
 
@@ -77,13 +92,12 @@ const DoughnutChart = ({ dataToRender, statistics }) => {
 
   return (
     <div className={css.chartWrap}>
-      {showChart ? (
-        <Doughnut
-          data={data}
-          options={options}
-          plugins={[textCenter]}
-        ></Doughnut>
-      ) : null}
+      <Doughnut
+        data={dataShow}
+        options={options}
+        plugins={[textCenter]}
+      ></Doughnut>
+      <p className={css.balance}>$ {balance}</p>
     </div>
   );
 };

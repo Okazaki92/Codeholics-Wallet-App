@@ -29,3 +29,16 @@
     margin-bottom: 8px;
   }
 }
+
+.dropdown-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    gap: 32px;
+    div {
+      width: 100%;
+    }
+  }
+}
