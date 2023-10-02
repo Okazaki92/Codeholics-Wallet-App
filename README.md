@@ -42,6 +42,15 @@ The most we don't need some dark side stuff to be in our team
         - Fantasy books
 
 - [Dagmara Sobczak - Scrum Master Padawan]
+    > project goals:
+        - Login Page
+        - Login Form Component
+        - Login operations
+
+    > project difficulties:
+        - CSS pixel perfect functionality
+    > hobbies:
+        - Mind Working
 
 - [Doroda Dudzik - Developer - Padawan] -
     > project goals:
