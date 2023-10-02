@@ -70,12 +70,65 @@ export const deleteTransaction = createAsyncThunk(
     }
   }
 );
+// export const SaveEditedTransactionFunction = async (
+//   transactionId,
+//   editedTransaction
+// ) => {
+//   try {
+//     const response = await axios.patch(
+//       `/api/transactions/${transactionId}`,
+//       editedTransaction
+//     );
+//     console.log(response.data);
+//     return response.data;
+//   } catch (error) {
+//     throw error;
+//   }
+// };
 
+// export const saveEditedTransactionAsync = createAsyncThunk(
+//   "transactions/saveEditedTransaction",
+//   async ({ transactionId, editedTransaction }) => {
+//     try {
+//       const response = await SaveEditedTransactionFunction(
+//         transactionId,
+//         editedTransaction
+//       );
+//       console.log(response.data);
+//       return { transactionId, editedTransaction: response.data };
+//     } catch (error) {
+//       throw error;
+//     }
+//   }
+// );
+
+export const updateTransactionAsync = createAsyncThunk(
+  "tasks/updateTransaction",
+  async ({ transactionId, editedTransaction }, { thunkAPI, dispatch }) => {
+    try {
+      const response = await axios.patch(
+        `/api/transactions/${transactionId}`,
+        editedTransaction
+      );
+      console.log(response)
+      console.log(editedTransaction);
+ const updateTransaction = response.data.data.data;
+ dispatch(setTotalBalance(updateTransaction));
+ dispatch(getTransactions());
+ return response.data;
+    
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
 const transactionsOperations = {
   getTransactions,
   addTransaction,
   fetchCategories,
-  deleteTransaction
+  deleteTransaction,
+  // saveEditedTransactionAsync,
+  updateTransactionAsync
 };
 
 export default transactionsOperations;
