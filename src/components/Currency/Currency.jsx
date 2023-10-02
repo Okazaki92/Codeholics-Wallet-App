@@ -10,7 +10,7 @@ export const Currency = () => {
   const fetchCurrency = async () => {
     try {
       const response = await axios.get(
-        "https://api.nbp.pl/api/exchangerates/tables/c/"
+        "https://v6.exchangerate-api.com/v6/fd8e18a25622be6a63faefa5/latest/USD"
       );
 
       const data = response.data;
@@ -24,8 +24,8 @@ export const Currency = () => {
     fetchCurrency()
       .then((data) => {
         setIsLoading(true);
-        const rates = data.map((item) => item.rates);
-        setCurrencies(rates[0]);
+        const rates = data.conversion_rates;
+        setCurrencies(rates);
       })
       .catch((error) => setError(error))
       .finally(() => {
@@ -33,8 +33,8 @@ export const Currency = () => {
       });
   }, []);
 
-  const firstCodeCurrency = "EUR";
-  const secondCodeCurrency = "USD";
+  const pln = Number(currencies.PLN).toFixed(2);
+  const eur = Number(currencies.EUR).toFixed(2);
 
   return (
     <div className={css.currencyWrap}>
@@ -50,58 +50,37 @@ export const Currency = () => {
       <div className={css.currencyItemWrap}>
         <div className={css.currencyItem}>
           <ul className={css.currencyList}>
-            {currencies
-              .filter(({ code }) => code === firstCodeCurrency)
-              .map(({ code }) => (
-                <li className={css.currencyListItem} key={code}>
-                  {code}
-                </li>
-              ))}
-            {currencies
-              .filter(({ code }) => code === secondCodeCurrency)
-              .map(({ code }) => (
-                <li className={css.currencyListItem} key={code}>
-                  {code}
-                </li>
-              ))}
+            <li className={css.currencyListItem} key={"PLN"}>
+              PLN
+            </li>
+
+            <li className={css.currencyListItem} key={"EUR"}>
+              EUR
+            </li>
           </ul>
         </div>
 
         <div className={css.currencyItem}>
           <ul className={css.currencyList}>
-            {currencies
-              .filter(({ code }) => code === firstCodeCurrency)
-              .map(({ code, bid }) => (
-                <li className={css.currencyListItem} key={code}>
-                  {bid.toFixed(2)}
-                </li>
-              ))}
-            {currencies
-              .filter(({ code }) => code === secondCodeCurrency)
-              .map(({ code, bid }) => (
-                <li className={css.currencyListItem} key={code}>
-                  {bid.toFixed(2)}
-                </li>
-              ))}
+            <li className={css.currencyListItem} key={"PLN2"}>
+              {pln}
+            </li>
+
+            <li className={css.currencyListItem} key={"EUR2"}>
+              {eur}
+            </li>
           </ul>
         </div>
 
         <div className={css.currencyItem}>
           <ul className={css.currencyList}>
-            {currencies
-              .filter(({ code }) => code === firstCodeCurrency)
-              .map(({ code, ask }) => (
-                <li className={css.currencyListItem} key={code}>
-                  {ask.toFixed(2)}
-                </li>
-              ))}
-            {currencies
-              .filter(({ code }) => code === secondCodeCurrency)
-              .map(({ code, ask }) => (
-                <li className={css.currencyListItem} key={code}>
-                  {ask.toFixed(2)}
-                </li>
-              ))}
+            <li className={css.currencyListItem} key={"PLN3"}>
+              {pln}
+            </li>
+
+            <li className={css.currencyListItem} key={"EUR3"}>
+              {eur}
+            </li>
           </ul>
         </div>
       </div>

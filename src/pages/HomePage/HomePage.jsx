@@ -1,9 +1,7 @@
-import { Fragment, useEffect } from "react";
-// import { useSelector } from "react-redux";
+import { Fragment } from "react";
 import Media from "react-media";
 import { ToastContainer } from "react-toastify";
-import { useSelector, useDispatch } from "react-redux";
-
+import { useSelector } from "react-redux";
 
 // components
 
@@ -18,15 +16,11 @@ import {
 // import Balance from "../../components/Balance/Balance";
 import styles from "./HomePage.module.css";
 
+import ButtonAddTransaction from "./../../components/ButtonAddTransaction/ButtonAddTransaction";
+import { ModalAddTransaction } from "../../components/ModalAddTransaction/ModalAddTransaction";
+import { selectIsModalAddTransactionOpen } from "../../redux/global/globalSelectors";
 
-import ButtonAddTransaction from "./../../components/ButtonAddTransaction/ButtonAddTransaction"
-import { ModalAddTransaction } from '../../components/ModalAddTransaction/ModalAddTransaction'
-import { selectIsModalAddTransactionOpen } from '../../redux/global/globalSelectors'
-
-import transactionsOperations from "../../redux/transactions/transactionOperations";
-
-// import { selectTransactions } from "../../redux/transactions/transactionSelectors";
-
+import { TransactionPagination } from "../../components/Pagination/Pagination";
 
 const HomePage = () => {
   // const { error } = useSelector((state) => state.transactions);
@@ -37,19 +31,13 @@ const HomePage = () => {
   //   }
   // }, [error]);
 
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(transactionsOperations.getTransactions());
-  }, [dispatch]);
+  // const dispatch = useDispatch();
 
   // const  transactionsAll  = useSelector(selectTransactions);
-  
 
   // console.log(transactionsAll)
 
-
-  const isModalAddTransaction = useSelector(selectIsModalAddTransactionOpen)
+  const isModalAddTransaction = useSelector(selectIsModalAddTransactionOpen);
 
   return (
     <>
@@ -60,13 +48,12 @@ const HomePage = () => {
           large: "(min-width: 1280px)",
         }}
       >
-        
         {(matches) => (
           <Fragment>
             {matches.small && (
               <>
-                <ButtonAddTransaction/>
-                  {isModalAddTransaction && <ModalAddTransaction/>} 
+                <ButtonAddTransaction />
+                {isModalAddTransaction && <ModalAddTransaction />}
                 <ToastContainer />
                 {/* <NavMenuMobile />
                 <Balance /> */}
@@ -77,8 +64,8 @@ const HomePage = () => {
             )}
             {matches.medium && (
               <>
-                <ButtonAddTransaction/>
-                  {isModalAddTransaction && <ModalAddTransaction/>} 
+                <ButtonAddTransaction />
+                {isModalAddTransaction && <ModalAddTransaction />}
 
                 <ToastContainer />
                 <div className={styles.currency}>
@@ -95,8 +82,8 @@ const HomePage = () => {
             )}
             {matches.large && (
               <>
-                <ButtonAddTransaction/>
-                  {isModalAddTransaction && <ModalAddTransaction/>} 
+                <ButtonAddTransaction />
+                {isModalAddTransaction && <ModalAddTransaction />}
                 <ToastContainer />
                 <div className={styles.largeSize}>
                   {/* <div className={styles.leftSize}>
@@ -115,6 +102,7 @@ const HomePage = () => {
           </Fragment>
         )}
       </Media>
+      <TransactionPagination />
     </>
   );
 };

@@ -10,6 +10,8 @@ import walletLogo from "../../assets/wallet-logo.png";
 import emailIcon from "../../assets/icons/email.svg";
 import lockIcon from "../../assets/icons/lock.svg";
 import userIcon from "../../assets/icons/userIcon.svg";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -32,7 +34,7 @@ const RegisterForm = () => {
           password: values.password,
         })
       );
-
+      toast.info("Verification link sent to email. Check your mail.");
       resetForm();
     },
   });
@@ -135,6 +137,19 @@ const RegisterForm = () => {
           <button className={`${css.btn} ${css.btnRegister}`} type="submit">
             Register
           </button>
+
+          <ToastContainer
+            position="top-center"
+            autoClose={2000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+          />
           <Link className={`${css.btn} ${css.btnLogin}`} to="/login">
             Log In
           </Link>

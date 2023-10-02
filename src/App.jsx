@@ -9,6 +9,7 @@ import { Loader } from "./components/Loader/Loader";
 import { selectIsRefreshing } from "./redux/auth/selectors";
 import { refreshUser } from "./redux/auth/operations";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import Footer from "./components/Footer/Footer";
 // import Layout from "./layout/Layout";
 
 const RegistrationPage = lazy(() =>
@@ -41,8 +42,8 @@ function App() {
               <RestrictedRoute redirectTo="/home" component={<LoginPage />} />
             }
           />
-          {/* <Route path="/register" element={<RegistrationPage />} /> */}
-          <Route
+          <Route path="/register" element={<RegistrationPage />} />
+          {/* <Route
             path="/register"
             element={
               <RestrictedRoute
@@ -50,7 +51,7 @@ function App() {
                 component={<RegistrationPage />}
               />
             }
-          />
+          /> */}
 
           {/* <Route path="/:activeBtn" element={<DashboardPage />} /> */}
           <Route element={<DashboardPage />}>
@@ -69,6 +70,7 @@ function App() {
           </Route>
           <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
+        <Footer />
       </Suspense>
     </>
   );

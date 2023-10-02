@@ -1,4 +1,5 @@
 @import "../../stylesheet/variables.css";
+
 .background {
   background: var(--color-background-main);
   position: fixed;
@@ -15,6 +16,7 @@
     top: 0px;
     right: 0px;
   }
+
   .background::before {
     content: url("../../assets/icons/ellipse1.svg");
     position: absolute;
@@ -31,9 +33,10 @@
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+
   @media (max-width: 767px) {
     flex-direction: column;
-    gap: 32px;
+    /* gap: 32px; */
   }
 }
 
@@ -55,6 +58,7 @@
     display: none;
   }
 }
+
 @media (min-width: 768px) {
   .dashboard-section {
     padding-left: 32px;
@@ -76,7 +80,6 @@
     flex-direction: column;
     width: 480px;
     border-right: 1px solid var(--color-background-main);
-    filter: drop-shadow(1px 0px 0px rgba(255, 255, 255, 0.6))
-      drop-shadow(-1px 0px 0px rgba(0, 0, 0, 0.05));
+    filter: drop-shadow(1px 0px 0px rgba(255, 255, 255, 0.6)) drop-shadow(-1px 0px 0px rgba(0, 0, 0, 0.05));
   }
 }
