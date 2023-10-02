@@ -18,7 +18,7 @@ const DoughnutChart = ({ dataToRender, statistics }) => {
   useEffect(() => {
     setTimeout(() => {
       setShowChart(true);
-    }, 500);
+    }, 1500);
   }, []);
 
   let color = "";
@@ -27,7 +27,7 @@ const DoughnutChart = ({ dataToRender, statistics }) => {
     if (statistics.income > statistics.expenses) {
       color = "#24CCA7";
     } else {
-      color = "FF6596";
+      color = "#FF6596";
     }
   };
 

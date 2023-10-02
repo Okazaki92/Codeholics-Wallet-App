@@ -28,7 +28,7 @@ const StatPage = () => {
   // const currentYear = new Date().toISOString().slice(0, 4);
 
   const test = {
-    month: 10,
+    month: 11,
     year: 2023,
   };
 
