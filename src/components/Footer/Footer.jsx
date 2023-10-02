@@ -28,16 +28,17 @@ const Footer = () => {
           <div>
             <h2>Hello there! 👋</h2>
             <p>
-              💡 Our project get your attention? <br />
-              👇 Then you can find more information about us below
+              💡 Our project get your attention? 👉 Welcome on board then on our
+              Spaceship 👇 There you can find more information about us below
             </p>
           </div>
           <div>
             <h2>Who we are? 🎓</h2>
             <ul>
               <li>
-                ✔️ A tight-knit, creative and talented team of full stack
-                developers who are creating apps for different users.
+                ✔️A tight-knit, creative and talented team of full stack
+                developers Padawanans who are doing first steps on the bright
+                side of creating apps for different users.
               </li>
               <li>✔️ We are GoIT course graduates.</li>
               <li>
@@ -56,8 +57,8 @@ const Footer = () => {
                 competitive.
               </li>
               <li>
-                ✔️ Our documentation is simple, beautiful, and easy for
-                everyone.
+                ✔️Our documentation is simple, beautiful, and easy for everyone
+                like the bright side
               </li>
             </ul>
           </div>
@@ -65,9 +66,10 @@ const Footer = () => {
             <h2>Why we care? 📄</h2>
             <ul>
               <li>
-                ✔️ Because better documentation means easier understanding,
+                ✔️Because better documentation means easier understanding,
                 faster coding, less time to solve problems and bigger
-                satisfaction when everything is done.
+                satisfaction when everything is done. The most we don't need
+                some dark side stuff to be in our team
               </li>
             </ul>
           </div>
@@ -87,11 +89,13 @@ const Footer = () => {
           {selectedMember && (
             <TeamMember
               name={selectedMember.name}
+              avatar={selectedMember.avatar}
               role={selectedMember.role}
               goals={selectedMember.goals}
               difficulties={selectedMember.difficulties}
               hobbies={selectedMember.hobbies}
               linkedin={selectedMember.linkedin}
+              github={selectedMember.linkedin}
             />
           )}
         </div>

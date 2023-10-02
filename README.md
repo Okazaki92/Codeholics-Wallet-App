@@ -2,13 +2,13 @@
 
 ## _Hello there!_ 👋
 
-💡 Our project get your attention?  
-👇 Then you can find more information about us below
+💡 Our project get your attention?
+👉 Welcome on board then on our Spaceship Falcon
+👇 There you can find more information about us below
 
 ## _Who we are?_ 🎓
 
-✔️A tight-knit, creative and talented team of full stack developers who are creating apps
-for different users.
+✔️A tight-knit, creative and talented team of full stack developers Padawanans who are doing first steps on the bright side of creating apps for different users.
 
 ✔️We are GoIT course graduates.
 
@@ -19,18 +19,17 @@ your business, using modern technical knowledge and agile technologies.
 
 ✔️We develop websites and web applications using the latest technologies that
 help our clients to develop and be competitive. ✔️Our documentation is simple,
-beautiful, and easy for everyone.
+beautiful, and easy for everyone like the bright side
 
 # _Why we care?_ 📄
 
 ✔️Because better documentation means easier understanding, faster coding, 
 less time to solve problems and bigger satisfaction when everything is done.
+The most we don't need some dark side stuff to be in our team
 
 # _Some things About Us_ 
 
-// jako butony które się rozwijają z tekstem
-
-- [Vicent Słomiński - Team Lead] - 
+- [Vicent Słomiński - Team Lead Padawan] - 
     > project goals:
         - Code Rewievs
         - User model and controllers with endpoints
@@ -42,9 +41,9 @@ less time to solve problems and bigger satisfaction when everything is done.
         - Anime ( Especially "One Piece", "Naruto")
         - Fantasy books
 
-- [Dagmara Sobczak - Scrum Master]
+- [Dagmara Sobczak - Scrum Master Padawan]
 
-- [Doroda Dudzik - Developer] -
+- [Doroda Dudzik - Developer - Padawan] -
     > project goals:
         - Registration Page
         - Balance Component
@@ -57,9 +56,9 @@ less time to solve problems and bigger satisfaction when everything is done.
         - Books reading
         - Embroidery
 
-- [Krystian Kowalik - Developer]
+- [Krystian Kowalik - Developer Padawan]
 
-- [Karol Łaski - Developer] - 
+- [Karol Łaski - Developer Padawan] - 
     > project goals:
         - Register form component
         - Chart component
@@ -74,7 +73,7 @@ less time to solve problems and bigger satisfaction when everything is done.
         = Functional Training
         - Sport Activity
 
-- [Jacek Pasierb - Developer] - 
+- [Jacek Pasierb - Developer Padawan] - 
     > project goals:
         - Transaction model and controllers with endpoints
         - Categories model and controllers with endpoints
@@ -86,9 +85,9 @@ less time to solve problems and bigger satisfaction when everything is done.
     > hobbies:
         - Fishing
 
-- [Hanna Rogalska - Developer]
+- [Hanna Rogalska - Developer Padawan]
 
-- [Edyta Sowa - Developer]
+- [Edyta Sowa - Developer Padawan]
 
 
 [ℹ\*\*]You can learn more about us by visiting our pages on LinkedIn:

@@ -1,7 +1,8 @@
 export const teamMembersList = [
   {
     name: "Vicent Słomiński",
-    role: "Team Lead",
+    avatar: "/src/assets/avatars/Vincent_Słomiński.jpg",
+    role: "Team Lead Master Padawan",
     goals: [
       "Code Reviews",
       "User model and controllers with endpoints",
@@ -15,7 +16,8 @@ export const teamMembersList = [
   },
   {
     name: "Dagmara Sobczak",
-    role: "Scrum Master",
+    avatar: "/src/assets/avatars/Dagmara_Sobczak.jpg",
+    role: "Scrum Master Padawan",
     goals: [],
     difficulties: [],
     hobbies: [],
@@ -24,7 +26,8 @@ export const teamMembersList = [
   },
   {
     name: "Dorota Dudzik",
-    role: "Developer",
+    avatar: "/src/assets/avatars/Dorota_Dudzik.jpg",
+    role: "Developer Padawan",
     goals: [
       "Registration Page",
       "Balance Component",
@@ -38,7 +41,8 @@ export const teamMembersList = [
   },
   {
     name: "Krystian Kowalik",
-    role: "Developer",
+    avatar: "/src/assets/avatars/Krystian_Kowalik.jpg",
+    role: "Developer Padawan",
     goals: [],
     difficulties: [],
     hobbies: [],
@@ -47,7 +51,8 @@ export const teamMembersList = [
   },
   {
     name: "Karol Łaski",
-    role: "Developer",
+    avatar: "/src/assets/avatars/Karol_Łaski.jpg",
+    role: "Developer Padawan",
     goals: [
       "Register form component",
       "Chart component",
@@ -65,7 +70,8 @@ export const teamMembersList = [
   },
   {
     name: "Jacek Pasierb",
-    role: "Developer",
+    avatar: "/src/assets/avatars/Jacek_Pasierb.jpg",
+    role: "Developer Padawan",
     goals: [
       "Transaction model and controllers with endpoints",
       "Categories model and controllers with endpoints",
@@ -82,7 +88,8 @@ export const teamMembersList = [
   },
   {
     name: "Hanna Rogalska",
-    role: "Developer",
+    avatar: "/src/assets/avatars/Hanna_Rogalska.jpg",
+    role: "Developer Padawan",
     goals: [],
     difficulties: [],
     hobbies: [],
@@ -91,7 +98,8 @@ export const teamMembersList = [
   },
   {
     name: "Edyta Sowa",
-    role: "Developer",
+    avatar: "/src/assets/avatars/Edyta_Sowa.jpg",
+    role: "Developer Padawan",
     goals: [],
     difficulties: [],
     hobbies: [],

@@ -1,5 +1,6 @@
 const TeamMember = ({
   name,
+  avatar,
   role,
   goals,
   difficulties,
@@ -12,6 +13,7 @@ const TeamMember = ({
       <h2>
         {name} - {role}
       </h2>
+      <img src={avatar} alt="avatar" className={name} />
       <h3>Project Goals:</h3>
       <ul>
         {goals.map((goal, index) => (
