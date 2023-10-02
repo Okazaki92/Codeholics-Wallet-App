@@ -51,6 +51,20 @@ const DoughnutChart = ({ dataToRender, statistics }) => {
       },
     ],
   };
+  const data2 = {
+    labels: ["No expenses"],
+    datasets: [
+      {
+        label: "",
+        data: [100],
+        backgroundColor: ["rgba(0, 0, 0,0.1)"],
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  const dataShow =
+    statistics.income === 0 && statistics.expenses === 0 ? data2 : data;
 
   const textCenter = {
     id: "textCenter",
@@ -78,7 +92,11 @@ const DoughnutChart = ({ dataToRender, statistics }) => {
 
   return (
     <div className={css.chartWrap}>
-      <Doughnut data={data} options={options} plugins={[textCenter]}></Doughnut>
+      <Doughnut
+        data={dataShow}
+        options={options}
+        plugins={[textCenter]}
+      ></Doughnut>
       <p className={css.balance}>$ {balance}</p>
     </div>
   );
