@@ -9,9 +9,7 @@ const getTransactions = createAsyncThunk(
   "transactions/getTransactions",
   async ({ page }, { rejectWithValue }) => {
     try {
-      const response = await axios.get(
-        `https://codeholics-wallet-app-backend.vercel.app/api/transactions?page=${page}`
-      );
+      const response = await axios.get(`/api/transactions?page=${page}`);
       console.log("getTrans", response);
       const data = response.data.data;
       return data;
@@ -39,9 +37,6 @@ const addTransaction = createAsyncThunk(
     }
   }
 );
-
-axios.defaults.baseURL =
-  "https://codeholics-wallet-app-c8b1a2de9f25.herokuapp.com";
 
 const fetchCategories = createAsyncThunk(
   "transactions/getCategories",
