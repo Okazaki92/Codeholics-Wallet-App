@@ -2,8 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { setAuthSuccess, setAuthError } from "./authSlice";
 
-axios.defaults.baseURL =
-  "https://codeholics-wallet-app-c8b1a2de9f25.herokuapp.com/";
+axios.defaults.baseURL = "https://codeholics-wallet-app-backend.vercel.app/";
 
 // Utility to add JWT
 const setAuthHeader = (token) => {

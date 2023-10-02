@@ -31,7 +31,7 @@ export const transactionsSlice = createSlice({
       state.isLoading = true;
     },
     [transactionsOperations.getTransactions.fulfilled]: (state, action) => {
-      state.operations = action.payload;
+      state.operations = action.payload.transactions;
       state.isLoading = false;
     },
     [transactionsOperations.getTransactions.rejected]: (state, action) => {
@@ -48,7 +48,7 @@ export const transactionsSlice = createSlice({
       state.isLoading = false;
     },
 
-    [transactionsOperations.addTransaction.rejected]: (state, action) => {
+    [transactionsOperations.addTransaction.rejected]: (state) => {
       state.error = "error";
       state.isLoading = false;
     },
@@ -69,24 +69,25 @@ export const transactionsSlice = createSlice({
       state.error = null;
     },
 
-    [transactionsOperations.deleteTransaction.fulfilled]: (state,action) => {
+    [transactionsOperations.deleteTransaction.fulfilled]: (state, action) => {
       state.isLoading = false;
-        const index = state.operations.findIndex(
-        transaction => transaction.id === action.payload._id
+      const index = state.operations.findIndex(
+        (transaction) => transaction.id === action.payload._id
       );
       state.operations.splice(index, 1);
     },
 
-    [transactionsOperations.deleteTransaction.rejected]: (state, action) => {
+    [transactionsOperations.deleteTransaction.rejected]: (state) => {
       state.error = "error";
       state.isLoading = false;
-    
     },
-
-
   },
 });
 
-export const { resetTransactions, setTransactions, addCategories, deleteTransaction } =
-  transactionsSlice.actions;
+export const {
+  resetTransactions,
+  setTransactions,
+  addCategories,
+  deleteTransaction,
+} = transactionsSlice.actions;
 export const transactionReducer = transactionsSlice.reducer;
