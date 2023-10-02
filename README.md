@@ -28,8 +28,6 @@ less time to solve problems and bigger satisfaction when everything is done.
 
 # _Some things About Us_ 
 
-// jako butony które się rozwijają z tekstem
-
 - [Vicent Słomiński - Team Lead] - 
     > project goals:
         - Code Rewievs
