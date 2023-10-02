@@ -1,12 +1,127 @@
+@import '../../stylesheet/variables.css';
+
 .modal {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: white;
-  padding: 20px;
-  border: 1px solid #ccc;
+  background: var(--color-background-main);
+  border: 1px solid #24CCA7;
+  border-radius: 10px;
   max-height: 80vh;
+  min-width: 280px;
   overflow-y: auto;
   z-index: 9999;
+  font-size: var(--font-size-fifth);
+  font-family: var(--font-family-main);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px
+}
+
+.btnTeam {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: none;
+  background-color: transparent;
+  font-size: var(--font-size-fifth);
+  font-family: var(--font-family-main);
+  color: var(--color-text-fourth);
+}
+
+.modalContent {
+  padding-top: 50px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px
+}
+
+.btnsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+.btns {
+  padding: 4px 4px;
+  width: 125px;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--border-radius-fourth);
+  border: none;
+  background: #24CCA7;
+  color: var(--color-text-fifth);
+  text-align: center;
+  font-family: var(--font-family-main);
+  font-size: var(--font-size-fifth);
+}
+
+.btns:hover,
+.btns:focus {
+  background: var(--color-btn-second);
+  color: var(--color-text-fourth);
+  transition-duration: 250ms;
+}
+
+.btnClose {
+  padding: 4px 4px;
+  width: 125px;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--border-radius-fourth);
+  border: none;
+  background: #24CCA7;
+  color: var(--color-text-fifth);
+  text-align: center;
+  font-family: var(--font-family-main);
+  font-size: var(--font-size-fifth);
+}
+
+.btnClose:hover,
+.btnClose:focus {
+  background: var(--color-btn-second);
+  color: var(--color-text-fourth);
+  transition-duration: 250ms;
+}
+
+.teamInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.link {
+  text-decoration: underline;
+}
+
+.header {
+  padding-top: 5px;
+}
+
+.headerName {
+  width: 200px;
+}
+
+@media screen and (min-width: 768px) {
+  .modal {
+    min-width: 600px;
+    max-width: 700px;
+    font-size: var(--font-size-main);
+  }
+
+  .modalContent {
+    padding: 20px;
+  }
 }
