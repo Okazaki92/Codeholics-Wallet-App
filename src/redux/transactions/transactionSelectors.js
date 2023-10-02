@@ -1,4 +1,3 @@
-export const selectTransactions = state => {
-    // console.log(state.transactions.operations);
-    return state.transactions.operations;
-  };
+export const selectTransactions = (state) => {
+  return state.transactions.operations;
+};

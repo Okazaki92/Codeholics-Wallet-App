@@ -41,8 +41,8 @@ function App() {
               <RestrictedRoute redirectTo="/home" component={<LoginPage />} />
             }
           />
-          {/* <Route path="/register" element={<RegistrationPage />} /> */}
-          <Route
+          <Route path="/register" element={<RegistrationPage />} />
+          {/* <Route
             path="/register"
             element={
               <RestrictedRoute
@@ -50,7 +50,7 @@ function App() {
                 component={<RegistrationPage />}
               />
             }
-          />
+          /> */}
 
           {/* <Route path="/:activeBtn" element={<DashboardPage />} /> */}
           <Route element={<DashboardPage />}>
