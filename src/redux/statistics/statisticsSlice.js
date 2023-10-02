@@ -4,10 +4,18 @@ import { fetchStatistics } from "./statisticsOperations";
 const statisticsSlice = createSlice({
   name: "statistics",
   initialState: {
+    selectedMonth: null,
+    selectedYear: null,
     statistics: [],
     isLoading: false,
   },
   reducers: {
+    setSelectedMonth(state, action) {
+      state.selectedMonth = action.payload;
+    },
+    setSelectedYear(state, action) {
+      state.selectedYear = action.payload;
+    },
     addStatistics(state, { payload }) {
       state.statistics = payload;
     },
@@ -28,4 +36,3 @@ const statisticsSlice = createSlice({
 
 export const { addStatistics } = statisticsSlice.actions;
 export const statisticsReducer = statisticsSlice.reducer;
-

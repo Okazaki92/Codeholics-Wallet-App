@@ -17,3 +17,17 @@ export const fetchStatistics = createAsyncThunk(
     }
   }
 );
+
+export const setSelectedMonth = (month) => {
+  return {
+    type: "statistics/setSelectedMonth",
+    payload: month,
+  };
+};
+
+export const setSelectedYear = (year) => {
+  return {
+    type: "statistics/setSelectedYear",
+    payload: year,
+  };
+};
