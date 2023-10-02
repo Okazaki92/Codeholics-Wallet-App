@@ -7,18 +7,27 @@
 
     --color-background-main: #E7EAF2;
     --color-background-blur: rgba(255, 255, 255, 0.40);
+    --color-background-pink: #FF6596;
+    --color-background-turquoise: #24CCA7;
 
     --color-btn: #24CCA7;
     --color-btn-second: #FFF;
 
     --font-weight: 700;
 
+    --font-family-main: Circe;
+    --font-family-sec: Poppins;
     --font-size-main: 18px;
     --font-size-sec: 16px;
+    --font-size-third: 30px;
+    --font-size-fourth: 12px;
+    --font-size-fifth: 14px;
+    --font-weight: 700;
 
     --border-radius: 20px;
     --border-radius-second: 30px;
     --border-radius-third: 30px 30px 0px 0px;
+    --border-radius-fourth: 18px;
 
     --transition-duration: 250ms;
     --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
