@@ -51,15 +51,23 @@ export const ModalUpdateTransaction = ({ id, income }) => {
       );
     }
     dispatch(
-      transactionsOperations.updateTransaction(
-        { transactionId: id },
-        {
+      // transactionsOperations.updateTransaction(
+      //   { transactionId: id },
+      //   {
+      //     sum: values.sum,
+      //     comment: values.comment,
+      //     date: moment(values.date).format("YYYY-MM-DD"),
+      //     category: values.category,
+      //   }
+      // )
+      transactionsOperations.updateTransaction({
+        id: id,
+        body: {
           sum: values.sum,
           comment: values.comment,
           date: moment(values.date).format("YYYY-MM-DD"),
-          category: values.category,
-        }
-      )
+        },
+      })
     );
   };
 
