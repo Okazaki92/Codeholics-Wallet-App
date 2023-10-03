@@ -23,8 +23,12 @@ function App() {
   const isRefreshing = useSelector(selectIsRefreshing);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(refreshUser());
+    const currentPath = window.location.pathname;
+    if (currentPath === "/home" || currentPath === "/diagram") {
+      dispatch(refreshUser());
+    }
   }, [dispatch]);
+
   const { isModalLogoutOpen } = useSelector((state) => state.global);
   return isRefreshing ? (
     <>...</>
@@ -41,17 +45,6 @@ function App() {
             }
           />
           <Route path="/register" element={<RegistrationPage />} />
-          {/* <Route
-            path="/register"
-            element={
-              <RestrictedRoute
-                redirectTo="/login"
-                component={<RegistrationPage />}
-              />
-            }
-          /> */}
-
-          {/* <Route path="/:activeBtn" element={<DashboardPage />} /> */}
           <Route element={<DashboardPage />}>
             <Route
               path="/home"
