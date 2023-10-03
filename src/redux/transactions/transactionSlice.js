@@ -19,7 +19,7 @@ export const transactionsSlice = createSlice({
       state.transactions = [];
     },
     setTransactions(state, action) {
-      state.transactions = action.payload.lastTransactions;
+      state.transactions = action.payload;
     },
     addCategories(state, { payload }) {
       state.categories = payload;
@@ -36,7 +36,7 @@ export const transactionsSlice = createSlice({
     },
     [transactionsOperations.getTransactions.rejected]: (state, action) => {
       state.isLoading = false;
-      state.error = action.payload.message;
+      state.error = action.payload;
     },
 
     [transactionsOperations.addTransaction.pending]: (state) => {
@@ -81,6 +81,20 @@ export const transactionsSlice = createSlice({
       state.error = "error";
       state.isLoading = false;
     },
+
+    [transactionsOperations.updateTransaction.pending]: (state) => {
+      state.isLoading = true;
+    },
+
+    [transactionsOperations.updateTransaction.fulfilled]: (state) => {
+      state.isLoading = false;
+      state.error = null;
+    },
+
+    [transactionsOperations.updateTransaction.rejected]: (state, action) => {
+      state.error = action.payload;
+      state.isLoading = false;
+    },
   },
 });
 
@@ -89,5 +103,6 @@ export const {
   setTransactions,
   addCategories,
   deleteTransaction,
+  updateTransaction,
 } = transactionsSlice.actions;
 export const transactionReducer = transactionsSlice.reducer;

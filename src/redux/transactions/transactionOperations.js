@@ -10,7 +10,6 @@ const getTransactions = createAsyncThunk(
   async ({ page }, { rejectWithValue }) => {
     try {
       const response = await axios.get(`/api/transactions?page=${page}`);
-      console.log("getTrans", response);
       const data = response.data.data;
       return data;
     } catch (error) {
@@ -24,12 +23,11 @@ const addTransaction = createAsyncThunk(
   async (trasaction, { rejectWithValue, dispatch }) => {
     try {
       const response = await axios.post("/api/transactions", trasaction);
-      console.log("addTrans", response);
 
       const newTotalBalance = response.data.data.balance;
       dispatch(setTotalBalance(newTotalBalance));
 
-      dispatch(getTransactions());
+      await dispatch(getTransactions());
       toast(response.data.message);
       return response.data.data;
     } catch (error) {
@@ -55,13 +53,30 @@ export const deleteTransaction = createAsyncThunk(
   async (transactionId, { thunkAPI, dispatch }) => {
     try {
       const response = await axios.delete(`/api/transactions/${transactionId}`);
-      // console.log(response.data)
 
       const newTotalBalance = response.data.data.balance;
       dispatch(setTotalBalance(newTotalBalance));
 
-      dispatch(getTransactions());
+      await dispatch(getTransactions());
 
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const updateTransaction = createAsyncThunk(
+  "tasks/deleteTransaction",
+  async (data, { thunkAPI, dispatch }) => {
+    const { id, body } = data;
+    try {
+      const response = await axios.patch(`/api/transactions/${id}`, body);
+
+      const newTotalBalance = response.data.data.balance;
+      dispatch(setTotalBalance(newTotalBalance));
+
+      await dispatch(getTransactions());
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -74,6 +89,7 @@ const transactionsOperations = {
   addTransaction,
   fetchCategories,
   deleteTransaction,
+  updateTransaction,
 };
 
 export default transactionsOperations;

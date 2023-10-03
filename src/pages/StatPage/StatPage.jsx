@@ -2,8 +2,6 @@ import css from "./StatPage.module.css";
 import Chart from "../../components/Chart/Chart";
 import Table from "../../components/Table/Table";
 import Dropdown from "../../components/Dropdown/Dropdown";
-
-// MOJE
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectCategories } from "../../redux/category/categoriesSelectors";
@@ -75,14 +73,13 @@ const StatPage = () => {
   const currentMonth = new Date().toISOString().slice(5, 7);
   const currentYear = new Date().toISOString().slice(0, 4);
 
-  const test = {
-    month: currentMonth,
-    year: currentYear,
-  };
-
   useEffect(() => {
+    const test = {
+      month: currentMonth,
+      year: currentYear,
+    };
     dispatch(fetchStatistics(test));
-  }, [dispatch]);
+  }, [currentMonth, currentYear, dispatch]);
 
   const handleMonthChange = (month) => {
     dispatch(setSelectedMonth(month));
@@ -132,7 +129,6 @@ const StatPage = () => {
       <p className={css["stats-title"]}>Statistics</p>
       <div className={css["stats-section"]}>
         <Chart dataToRender={allArray} statistics={statistics} />
-        {/* <Table dataToRender={cat} statistics={statistics} /> */}
         <div>
           <div className={css["dropdown-container"]}>
             <Dropdown

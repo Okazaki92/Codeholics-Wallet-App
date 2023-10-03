@@ -4,6 +4,7 @@ import moment from "moment";
 import transactionsOperations from "../../../redux/transactions/transactionOperations";
 import { useDispatch } from "react-redux";
 import editIcon from "../../../assets/icons/editIcon.svg";
+import { setIsModalUpdateOpen } from "../../../redux/global/globalSlice";
 export const TransactionTableDesk = ({
   id,
   date,
@@ -13,11 +14,13 @@ export const TransactionTableDesk = ({
   sum,
 }) => {
   const dispatch = useDispatch();
-  // const handleClick = () => {console.log(`${id}`)}
   const handleClick = () => {
     dispatch(transactionsOperations.deleteTransaction(id));
   };
 
+  const click = (clickedId) => {
+    dispatch(setIsModalUpdateOpen(clickedId));
+  };
   return (
     <>
       <tr className={styles.bodyString}>
@@ -29,7 +32,7 @@ export const TransactionTableDesk = ({
           {sum}{" "}
         </td>
         <td className={styles.buttons}>
-          <button className={styles.editBtn}>
+          <button onClick={() => click(id)} className={styles.editBtn}>
             <img src={editIcon} alt="Edit pen icon" />
           </button>
           <button

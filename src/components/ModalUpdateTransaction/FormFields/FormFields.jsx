@@ -61,6 +61,7 @@ export const MyData = ({ ...props }) => {
         onChange={(value) => {
           helpers.setValue(value);
         }}
+        // classname={css.date}
       />
 
       <img className={css.iconCallendar} src={callendar} alt="Callendar icon" />

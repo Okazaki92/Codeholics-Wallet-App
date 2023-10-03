@@ -1,37 +1,25 @@
-import css from "./ModalAddtransaction.module.css";
-
-import { useState, useEffect } from "react";
+import css from "./ModalUpdateTransaction.module.css";
+import PropTypes from "prop-types";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-
 import moment from "moment";
-
 import {
   MySelect,
   MyTextInput,
   MyTextArea,
   MyData,
 } from "./FormFields/FormFields";
-
-import { Switch } from "./Switch/Switch";
-
 import close from "../../assets/icons/close.svg";
-
-import { setIsModalAddTransactionOpen } from "../../redux/global/globalSlice";
-
 import transactionsOperations from "../../redux/transactions/transactionOperations";
+import { setIsModalUpdateOpen } from "../../redux/global/globalSlice";
 
-export const ModalAddTransaction = () => {
-  const [isChecked, setIsChecked] = useState(false);
-  const handleCheckboxChange = () => {
-    setIsChecked((isChecked) => !isChecked);
-  };
-
+export const ModalUpdateTransaction = ({ id, income }) => {
+  const isChecked = income;
   const dispatch = useDispatch();
   const onClickClose = () => {
-    dispatch(setIsModalAddTransactionOpen(false));
+    dispatch(setIsModalUpdateOpen(false));
   };
 
   useEffect(() => {
@@ -50,14 +38,28 @@ export const ModalAddTransaction = () => {
   }, [dispatch]);
 
   const handleSubmit = (values) => {
+    if (income) {
+      return dispatch(
+        transactionsOperations.updateTransaction({
+          id: id,
+          body: {
+            sum: values.sum,
+            comment: values.comment,
+            date: moment(values.date).format("YYYY-MM-DD"),
+          },
+        })
+      );
+    }
     dispatch(
-      transactionsOperations.addTransaction({
-        sum: values.sum,
-        comment: values.comment,
-        date: moment(values.date).format("YYYY-MM-DD"),
-        income: isChecked,
-        category: isChecked ? "income" : values.category,
-      })
+      transactionsOperations.updateTransaction(
+        { transactionId: id },
+        {
+          sum: values.sum,
+          comment: values.comment,
+          date: moment(values.date).format("YYYY-MM-DD"),
+          category: values.category,
+        }
+      )
     );
   };
 
@@ -98,14 +100,7 @@ export const ModalAddTransaction = () => {
                   alt="Close icon"
                 />
               </button>
-              <p className={css.title}>Add transaction </p>
-
-              <Switch
-                name="income"
-                checked={isChecked}
-                onClick={handleCheckboxChange}
-                type="checkbox"
-              />
+              <p className={css.title}>Edit transaction </p>
 
               {!isChecked && (
                 <div className={css.selectWrapper}>
@@ -154,7 +149,7 @@ export const ModalAddTransaction = () => {
               />
 
               <button type="submit" className={`${css.btn} ${css.btnAdd}`}>
-                Add
+                Update
               </button>
 
               <button
@@ -169,4 +164,9 @@ export const ModalAddTransaction = () => {
       </div>
     </>
   );
+};
+
+ModalUpdateTransaction.propTypes = {
+  id: PropTypes.string,
+  income: PropTypes.bool,
 };

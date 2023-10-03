@@ -16,7 +16,6 @@ export const TransactionPagination = () => {
       dispatch(
         transactionsOperations.getTransactions({ page: pagination.page })
       ).then((data) => {
-        console.log(data);
         setPagination({ ...pagination, count: data.payload.total });
       });
     }
@@ -24,7 +23,6 @@ export const TransactionPagination = () => {
 
   const handlePageChange = (event, page) => {
     const nextPage = page;
-    console.log(page);
 
     const newPageCount = Math.ceil(pagination.count / pageSize);
 
