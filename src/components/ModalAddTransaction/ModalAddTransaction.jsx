@@ -88,6 +88,7 @@ export const ModalAddTransaction = () => {
               handleSubmit(values);
               resetForm();
               setSubmitting(false);
+              onClickClose();
             }}
           >
             <Form className={css.form}>
