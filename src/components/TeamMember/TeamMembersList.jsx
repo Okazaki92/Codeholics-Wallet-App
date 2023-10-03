@@ -1,7 +1,16 @@
+import vincent from "../../assets/avatars/Vincent_Słomiński.jpg";
+import dagmara from "../../assets/avatars/Dagmara_Sobczak.jpg";
+import dorota from "../../assets/avatars/Dorota_Dudzik.jpg";
+import krystian from "../../assets/avatars/Krystian_Kowalik.jpg";
+import jacek from "../../assets/avatars/Jacek_Pasierb.jpg";
+import hanna from "../../assets/avatars/Hanna_Rogalska.jpg";
+import edyta from "../../assets/avatars/Edyta_Sowa.jpg";
+import karol from "../../assets/avatars/Karol_Łaski.jpg";
+
 export const teamMembersList = [
   {
     name: "Vicent Słomiński",
-    avatar: "./src/assets/avatars/Vincent_Słomiński.jpg",
+    avatar: `${vincent}`,
     role: "Team Lead Master Padawan",
     goals: [
       "Code Reviews",
@@ -17,7 +26,7 @@ export const teamMembersList = [
   },
   {
     name: "Dagmara Sobczak",
-    avatar: "/src/assets/avatars/Dagmara_Sobczak.jpg",
+    avatar: `${dagmara}`,
     role: "Scrum Master Padawan",
     goals: ["Login Page", "Login Form Component", "Login operations"],
     difficulties: ["CSS pixel perfect functionality"],
@@ -27,7 +36,7 @@ export const teamMembersList = [
   },
   {
     name: "Dorota Dudzik",
-    avatar: "/src/assets/avatars/Dorota_Dudzik.jpg",
+    avatar: `${dorota}`,
     role: "Developer Padawan",
     goals: [
       "Registration Page",
@@ -42,7 +51,7 @@ export const teamMembersList = [
   },
   {
     name: "Krystian Kowalik",
-    avatar: "/src/assets/avatars/Krystian_Kowalik.jpg",
+    avatar: `${krystian}`,
     role: "Developer Padawan",
     goals: [],
     difficulties: [],
@@ -52,7 +61,7 @@ export const teamMembersList = [
   },
   {
     name: "Karol Łaski",
-    avatar: "/src/assets/avatars/Karol_Łaski.jpg",
+    avatar: `${karol}`,
     role: "Developer Padawan",
     goals: [
       "Register form component",
@@ -71,7 +80,7 @@ export const teamMembersList = [
   },
   {
     name: "Jacek Pasierb",
-    avatar: "/src/assets/avatars/Jacek_Pasierb.jpg",
+    avatar: `${jacek}`,
     role: "Developer Padawan",
     goals: [
       "Transaction model and controllers with endpoints",
@@ -89,7 +98,7 @@ export const teamMembersList = [
   },
   {
     name: "Hanna Rogalska",
-    avatar: "/src/assets/avatars/Hanna_Rogalska.jpg",
+    avatar: `${hanna}`,
     role: "Developer Padawan",
     goals: [],
     difficulties: [],
@@ -99,7 +108,7 @@ export const teamMembersList = [
   },
   {
     name: "Edyta Sowa",
-    avatar: "/src/assets/avatars/Edyta_Sowa.jpg",
+    avatar: `${edyta}`,
     role: "Developer Padawan",
     goals: [],
     difficulties: [],
