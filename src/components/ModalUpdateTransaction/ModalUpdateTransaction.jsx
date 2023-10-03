@@ -66,6 +66,7 @@ export const ModalUpdateTransaction = ({ id, income }) => {
           sum: values.sum,
           comment: values.comment,
           date: moment(values.date).format("YYYY-MM-DD"),
+          category: values.category,
         },
       })
     );

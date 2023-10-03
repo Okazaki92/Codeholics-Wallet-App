@@ -158,7 +158,12 @@ export const ModalAddTransaction = () => {
                 Add
               </button>
 
-              <button className={`${css.btn} ${css.btnClose}`}>cancel</button>
+              <button
+                onClick={onClickClose}
+                className={`${css.btn} ${css.btnClose}`}
+              >
+                cancel
+              </button>
             </Form>
           </Formik>
         </div>
