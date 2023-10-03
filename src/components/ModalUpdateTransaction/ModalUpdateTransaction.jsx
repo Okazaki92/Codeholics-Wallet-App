@@ -149,7 +149,7 @@ export const ModalUpdateTransaction = ({ id, income }) => {
               />
 
               <button type="submit" className={`${css.btn} ${css.btnAdd}`}>
-                Add
+                Update
               </button>
 
               <button
