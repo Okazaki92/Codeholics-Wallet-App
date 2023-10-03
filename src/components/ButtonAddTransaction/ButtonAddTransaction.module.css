@@ -1,42 +1,43 @@
 .button {
-    position: relative;
-    width: 44px;
-    height: 44px;
-    border: none;
-    cursor: pointer;
-    border-radius: 50%;
-    background-color: rgba(36, 204, 167, 1);
-    transition: all 250ms ease;
-  }
-  
-  .button:hover,
-  .button:focus {
-    transform: scale(1.1);
-  
-    /* box-shadow: 0px 5px 5px 0px #000; */
-  }
-  
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: rgba(36, 204, 167, 1);
+  transition: all 250ms ease;
+}
+
+.button:hover,
+.button:focus {
+  transform: scale(1.1);
+
+  /* box-shadow: 0px 5px 5px 0px #000; */
+}
+
+.position {
+  position: fixed;
+  z-index: 1;
+}
+@media screen and (max-width: 767px) {
   .position {
-    position: fixed;
+    right: 20px;
+    bottom: 80px;
   }
-  @media screen and (max-width: 767px) {
-    .position {
-      right: 20px;
-      bottom: 80px;
-    }
+}
+
+@media screen and (min-width: 768px) {
+  .position {
+    right: 40px;
+    bottom: 80px;
   }
-  
-  @media screen and (min-width: 768px) {
-    .position {
-      right: 40px;
-      bottom: 80px;
-    }
-  }
-  
-  .icon {
-    position: absolute;
-    bottom: 12px;
-    left: 12px;
-    width: 20px;
-    height: 20px;
-  }
+}
+
+.icon {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  width: 20px;
+  height: 20px;
+}
