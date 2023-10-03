@@ -1,13 +1,14 @@
 export const teamMembersList = [
   {
     name: "Vicent Słomiński",
-    avatar: "/src/assets/avatars/Vincent_Słomiński.jpg",
+    avatar: "./src/assets/avatars/Vincent_Słomiński.jpg",
     role: "Team Lead Master Padawan",
     goals: [
       "Code Reviews",
       "User model and controllers with endpoints",
       "Pagination on transaction list",
       "Minor errors solving",
+      "Google Mail Sending",
     ],
     difficulties: ["Making a reliable code review"],
     hobbies: ['Anime ( Especially "One Piece", "Naruto")', "Fantasy books"],

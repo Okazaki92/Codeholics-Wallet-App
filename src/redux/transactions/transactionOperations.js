@@ -29,7 +29,7 @@ const addTransaction = createAsyncThunk(
       const newTotalBalance = response.data.data.balance;
       dispatch(setTotalBalance(newTotalBalance));
 
-      dispatch(getTransactions());
+      await dispatch(getTransactions());
       toast(response.data.message);
       return response.data.data;
     } catch (error) {
@@ -60,8 +60,27 @@ export const deleteTransaction = createAsyncThunk(
       const newTotalBalance = response.data.data.balance;
       dispatch(setTotalBalance(newTotalBalance));
 
-      dispatch(getTransactions());
+      await dispatch(getTransactions());
 
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const updateTransaction = createAsyncThunk(
+  "tasks/deleteTransaction",
+  async (data, { thunkAPI, dispatch }) => {
+    const { id, body } = data;
+    try {
+      const response = await axios.patch(`/api/transactions/${id}`, body);
+      console.log("API", response.data);
+
+      const newTotalBalance = response.data.data.balance;
+      dispatch(setTotalBalance(newTotalBalance));
+
+      await dispatch(getTransactions());
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -74,6 +93,7 @@ const transactionsOperations = {
   addTransaction,
   fetchCategories,
   deleteTransaction,
+  updateTransaction,
 };
 
 export default transactionsOperations;

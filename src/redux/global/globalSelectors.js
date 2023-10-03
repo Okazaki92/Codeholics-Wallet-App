@@ -1,3 +1,4 @@
-
 export const selectIsModalAddTransactionOpen = (state) =>
-  state.global.isModalAddTransactionOpen
+  state.global.isModalAddTransactionOpen;
+export const selectIsModalUpdateOpen = (state) =>
+  state.global.isModalUpdateOpen;
