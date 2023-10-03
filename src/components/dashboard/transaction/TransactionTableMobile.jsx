@@ -5,22 +5,26 @@ import moment from "moment";
 import transactionsOperations from "../../../redux/transactions/transactionOperations";
 import { useDispatch } from "react-redux";
 import editIcon from "../../../assets/icons/editIcon.svg";
+import { selectIsModalUpdateOpen } from "../../../redux/global/globalSelectors";
+import { setIsModalUpdateOpen } from "../../../redux/global/globalSlice";
+import { ModalUpdateTransaction } from "../../ModalUpdateTransaction/ModalUpdateTransaction";
 
 export const TransactionTableMobile = () => {
   const transactionsAll = useSelector(selectTransactions);
-
+  const openModal = useSelector(selectIsModalUpdateOpen);
+  const testId = useSelector((state) =>
+    state.transactions.operations.find(
+      (transaction) => transaction._id === openModal
+    )
+  );
   const dispatch = useDispatch();
-
-  // const handleClick = () => {console.log(id)}
-  // console.log(transactionsAll)
-  // const handleClick = (id) => {dispatch(transactionsOperations.deleteTransaction(id))}
 
   return (
     <>
       {transactionsAll.length === 0 && (
         <>
           <p className={styles.transactionsText}>
-            You haven't made any transactions yet
+            You haven`t made any transactions yet
           </p>
         </>
       )}
@@ -73,7 +77,10 @@ export const TransactionTableMobile = () => {
                   </button>
                 </td>
                 <td className={styles.tableD}>
-                  <button className={styles.editBtn}>
+                  <button
+                    onClick={() => dispatch(setIsModalUpdateOpen(_id, income))}
+                    className={styles.editBtn}
+                  >
                     <img src={editIcon} alt="Edit pen icon" />
                     <p className={styles.btnText}>Edit</p>
                   </button>
@@ -82,6 +89,9 @@ export const TransactionTableMobile = () => {
             </tbody>
           </table>
         ))}
+      {openModal && (
+        <ModalUpdateTransaction id={testId._id} income={testId.income} />
+      )}
     </>
   );
 };

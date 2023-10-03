@@ -32,6 +32,7 @@ The most we don't need some dark side stuff to be in our team
 - [Vicent Słomiński - Team Lead Padawan] - 
     > project goals:
         - Code Rewievs
+        - Google Mail Sending
         - User model and controllers with endpoints
         - Pagination on transaction list
         - Minor errors solving

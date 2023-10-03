@@ -3,19 +3,24 @@ import { useSelector } from "react-redux";
 import styles from "./TransactionDesk.module.css";
 import { TransactionTableDesk } from "./TransactionTableDesk";
 
-// import transactionsOperations from "../../../redux/transactions/transactionOperations";
-
 import { selectTransactions } from "../../../redux/transactions/transactionSelectors";
+import { selectIsModalUpdateOpen } from "../../../redux/global/globalSelectors";
+import { ModalUpdateTransaction } from "../../ModalUpdateTransaction/ModalUpdateTransaction";
 
 export const TransactionDesk = () => {
   const transactionsAll = useSelector(selectTransactions);
-
+  const openModal = useSelector(selectIsModalUpdateOpen);
+  const testId = useSelector((state) =>
+    state.transactions.operations.find(
+      (transaction) => transaction._id === openModal
+    )
+  );
   return (
     <>
       {transactionsAll.length === 0 && (
         <>
           <p className={styles.transactionsText}>
-            You haven't made any transactions yet
+            You haven`t made any transactions yet
           </p>
         </>
       )}
@@ -48,6 +53,9 @@ export const TransactionDesk = () => {
               )}
             </tbody>
           </table>
+          {testId && (
+            <ModalUpdateTransaction id={testId._id} income={testId.income} />
+          )}
         </>
       )}
     </>
