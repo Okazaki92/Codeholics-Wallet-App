@@ -33,7 +33,7 @@ function App() {
       {isModalLogoutOpen && <ModalLogout />}
       <Suspense fallback={<Loader />}>
         <Routes>
-          <Route path="/" element={<Navigate to="/login" />} />
+          <Route path="/" element={<Navigate to="/register" />} />
           <Route
             path="/login"
             element={
