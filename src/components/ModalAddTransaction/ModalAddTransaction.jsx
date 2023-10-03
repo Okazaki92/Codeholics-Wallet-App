@@ -88,6 +88,7 @@ export const ModalAddTransaction = () => {
               handleSubmit(values);
               resetForm();
               setSubmitting(false);
+              onClickClose();
             }}
           >
             <Form className={css.form}>
@@ -157,12 +158,7 @@ export const ModalAddTransaction = () => {
                 Add
               </button>
 
-              <button
-                onClick={onClickClose}
-                className={`${css.btn} ${css.btnClose}`}
-              >
-                cancel
-              </button>
+              <button className={`${css.btn} ${css.btnClose}`}>cancel</button>
             </Form>
           </Formik>
         </div>
