@@ -23,7 +23,6 @@ export const globalSlice = createSlice({
     },
     setIsModalUpdateOpen: (state, action) => {
       state.isModalUpdateOpen = action.payload;
-      console.log("testowy", action.payload);
     },
   },
 });

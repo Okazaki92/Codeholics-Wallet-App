@@ -5,7 +5,6 @@ import css from "./Switch.module.css";
 import plus from "../../../assets/icons/plusBtn.svg";
 
 import minus from "../../../assets/icons/minusBtn.svg";
-// import { boolean } from "yup";
 
 export const Switch = ({ ...props }) => {
   const [field] = useField(props);

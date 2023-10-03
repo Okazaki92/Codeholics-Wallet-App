@@ -10,7 +10,6 @@ const getTransactions = createAsyncThunk(
   async ({ page }, { rejectWithValue }) => {
     try {
       const response = await axios.get(`/api/transactions?page=${page}`);
-      console.log("getTrans", response);
       const data = response.data.data;
       return data;
     } catch (error) {
@@ -24,7 +23,6 @@ const addTransaction = createAsyncThunk(
   async (trasaction, { rejectWithValue, dispatch }) => {
     try {
       const response = await axios.post("/api/transactions", trasaction);
-      console.log("addTrans", response);
 
       const newTotalBalance = response.data.data.balance;
       dispatch(setTotalBalance(newTotalBalance));
@@ -55,7 +53,6 @@ export const deleteTransaction = createAsyncThunk(
   async (transactionId, { thunkAPI, dispatch }) => {
     try {
       const response = await axios.delete(`/api/transactions/${transactionId}`);
-      // console.log(response.data)
 
       const newTotalBalance = response.data.data.balance;
       dispatch(setTotalBalance(newTotalBalance));
@@ -75,7 +72,6 @@ export const updateTransaction = createAsyncThunk(
     const { id, body } = data;
     try {
       const response = await axios.patch(`/api/transactions/${id}`, body);
-      console.log("API", response.data);
 
       const newTotalBalance = response.data.data.balance;
       dispatch(setTotalBalance(newTotalBalance));

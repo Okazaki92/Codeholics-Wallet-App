@@ -16,7 +16,6 @@ import transactionsOperations from "../../redux/transactions/transactionOperatio
 import { setIsModalUpdateOpen } from "../../redux/global/globalSlice";
 
 export const ModalUpdateTransaction = ({ id, income }) => {
-  console.log("values", id, income);
   const isChecked = income;
   const dispatch = useDispatch();
   const onClickClose = () => {
@@ -39,15 +38,7 @@ export const ModalUpdateTransaction = ({ id, income }) => {
   }, [dispatch]);
 
   const handleSubmit = (values) => {
-    console.log("wartości", {
-      sum: values.sum,
-      comment: values.comment,
-      date: moment(values.date).format("YYYY-MM-DD"),
-      income: isChecked,
-      category: values.category,
-    });
     if (income) {
-      console.log("siano", id);
       return dispatch(
         transactionsOperations.updateTransaction({
           id: id,
@@ -94,7 +85,6 @@ export const ModalUpdateTransaction = ({ id, income }) => {
                   Yup.mixed().required("Please choose transaction category."),
                 otherwise: () => Yup.mixed().notRequired(),
               }),
-              // category: Yup.string(),
             })}
             onSubmit={(values, { setSubmitting, resetForm }) => {
               handleSubmit(values);

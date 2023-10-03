@@ -1,8 +1,6 @@
 import { useField } from "formik";
 import PropTypes from "prop-types";
 
-// import { useState } from "react";
-
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 

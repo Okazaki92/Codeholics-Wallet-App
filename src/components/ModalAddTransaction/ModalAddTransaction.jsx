@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 
-import moment from 'moment'
+import moment from "moment";
 
 import {
   MySelect,
@@ -17,15 +17,11 @@ import {
 
 import { Switch } from "./Switch/Switch";
 
-
 import close from "../../assets/icons/close.svg";
 
 import { setIsModalAddTransactionOpen } from "../../redux/global/globalSlice";
-// import {addTransaction} from '../../redux/transactions/transactionSlice'
 
 import transactionsOperations from "../../redux/transactions/transactionOperations";
-
-
 
 export const ModalAddTransaction = () => {
   const [isChecked, setIsChecked] = useState(false);
@@ -54,29 +50,21 @@ export const ModalAddTransaction = () => {
   }, [dispatch]);
 
   const handleSubmit = (values) => {
-    console.log({
-      sum: values.sum,
-      comment: values.comment,
-      date: moment(values.date).format("YYYY-MM-DD"),
-      income: isChecked,
-      category: isChecked ? "income" : values.category,
-    });
-
-    // dispatch(transactionsOperations.getTransactions())
-      dispatch(transactionsOperations.addTransaction({
+    dispatch(
+      transactionsOperations.addTransaction({
         sum: values.sum,
         comment: values.comment,
         date: moment(values.date).format("YYYY-MM-DD"),
         income: isChecked,
-        category: isChecked ? 'income' : values.category,
-      }))
+        category: isChecked ? "income" : values.category,
+      })
+    );
   };
 
   return (
     <>
       <div className={css.backdrop}>
         <div className={css.modal}>
-       
           <Formik
             initialValues={{
               comment: " ",
@@ -89,25 +77,27 @@ export const ModalAddTransaction = () => {
               income: Yup.bool(),
               comment: Yup.string().max(150, "Must be 150 characters or less"),
               sum: Yup.number().required("Amount is required"),
-              category: Yup.mixed().when('income', {
-                is: income => !income,
-                then: () => Yup.mixed().required('Please choose transaction category.'),
+              category: Yup.mixed().when("income", {
+                is: (income) => !income,
+                then: () =>
+                  Yup.mixed().required("Please choose transaction category."),
                 otherwise: () => Yup.mixed().notRequired(),
               }),
-              // category: Yup.string(),
             })}
             onSubmit={(values, { setSubmitting, resetForm }) => {
               handleSubmit(values);
               resetForm();
               setSubmitting(false);
-          
             }}
           >
             <Form className={css.form}>
-            <button className={css.closeModalBtn} onClick={onClickClose}>
-          
-            <img className={css.closeModalBtn} src={close} alt="Close icon" />
-          </button>
+              <button className={css.closeModalBtn} onClick={onClickClose}>
+                <img
+                  className={css.closeModalBtn}
+                  src={close}
+                  alt="Close icon"
+                />
+              </button>
               <p className={css.title}>Add transaction </p>
 
               <Switch
@@ -119,11 +109,7 @@ export const ModalAddTransaction = () => {
 
               {!isChecked && (
                 <div className={css.selectWrapper}>
-                
-                  <MySelect
-                    className={css.select}
-                    name="category"
-                  >
+                  <MySelect className={css.select} name="category">
                     <option value="" disabled>
                       Select a category
                     </option>

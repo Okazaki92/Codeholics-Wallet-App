@@ -10,10 +10,6 @@ import {
   TransactionDesk,
 } from "../../components/dashboard/transaction/";
 
-// import { NavMenuMobile } from "../../components/dashboard/navMenu/NavMenuMobile";
-// import { NavMenu } from "../../components/dashboard/navMenu/NavMenu";
-// import { Currency } from "../../components/Currency/Currency.jsx";
-// import Balance from "../../components/Balance/Balance";
 import styles from "./HomePage.module.css";
 
 import ButtonAddTransaction from "./../../components/ButtonAddTransaction/ButtonAddTransaction";
@@ -23,20 +19,6 @@ import { selectIsModalAddTransactionOpen } from "../../redux/global/globalSelect
 import { TransactionPagination } from "../../components/Pagination/Pagination";
 
 const HomePage = () => {
-  // const { error } = useSelector((state) => state.transactions);
-
-  // useEffect(() => {
-  //   if (error) {
-  //     toast(error);
-  //   }
-  // }, [error]);
-
-  // const dispatch = useDispatch();
-
-  // const  transactionsAll  = useSelector(selectTransactions);
-
-  // console.log(transactionsAll)
-
   const isModalAddTransaction = useSelector(selectIsModalAddTransactionOpen);
 
   return (
@@ -55,8 +37,7 @@ const HomePage = () => {
                 <ButtonAddTransaction />
                 {isModalAddTransaction && <ModalAddTransaction />}
                 <ToastContainer />
-                {/* <NavMenuMobile />
-                <Balance /> */}
+
                 <div className={styles.containerTable}>
                   <TransactionTableMobile />
                 </div>
@@ -68,13 +49,7 @@ const HomePage = () => {
                 {isModalAddTransaction && <ModalAddTransaction />}
 
                 <ToastContainer />
-                <div className={styles.currency}>
-                  {/* <div className={styles.nav_ballance}>
-                    <NavMenu />
-                    <Balance />
-                  </div>
-                  <Currency /> */}
-                </div>
+                <div className={styles.currency}></div>
                 <div className={styles.containerTable}>
                   <TransactionDesk />
                 </div>
@@ -86,11 +61,6 @@ const HomePage = () => {
                 {isModalAddTransaction && <ModalAddTransaction />}
                 <ToastContainer />
                 <div className={styles.largeSize}>
-                  {/* <div className={styles.leftSize}>
-                    <NavMenu />
-                    <Balance />
-                    <Currency />
-                  </div> */}
                   <div className={styles.rightSize}>
                     <div className={styles.containerTable}>
                       <TransactionDesk />

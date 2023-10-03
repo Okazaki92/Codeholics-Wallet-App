@@ -3,8 +3,6 @@ import { useSelector } from "react-redux";
 import styles from "./TransactionDesk.module.css";
 import { TransactionTableDesk } from "./TransactionTableDesk";
 
-// import transactionsOperations from "../../../redux/transactions/transactionOperations";
-
 import { selectTransactions } from "../../../redux/transactions/transactionSelectors";
 import { selectIsModalUpdateOpen } from "../../../redux/global/globalSelectors";
 import { ModalUpdateTransaction } from "../../ModalUpdateTransaction/ModalUpdateTransaction";
@@ -17,7 +15,6 @@ export const TransactionDesk = () => {
       (transaction) => transaction._id === openModal
     )
   );
-  console.log("trans", transactionsAll, openModal, testId);
   return (
     <>
       {transactionsAll.length === 0 && (

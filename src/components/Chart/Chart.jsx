@@ -7,13 +7,13 @@ import {
 } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 import css from "./Chart.module.css";
-
+import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
 
 const DoughnutChart = ({ dataToRender, statistics }) => {
   ChartJS.register(ArcElement, Tooltip, Legend, Colors);
 
-  const [showChart, setShowChart] = useState(false);
+  const [, setShowChart] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
@@ -100,6 +100,17 @@ const DoughnutChart = ({ dataToRender, statistics }) => {
       <p className={css.balance}>$ {balance}</p>
     </div>
   );
+};
+
+DoughnutChart.propTypes = {
+  statistics: PropTypes.any.isRequired,
+  dataToRender: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      color: PropTypes.string.isRequired,
+      sum: PropTypes.number.isRequired,
+    })
+  ).isRequired,
 };
 
 export default DoughnutChart;

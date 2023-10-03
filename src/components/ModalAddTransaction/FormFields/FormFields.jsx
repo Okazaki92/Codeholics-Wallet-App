@@ -1,8 +1,6 @@
 import { useField } from "formik";
 import PropTypes from "prop-types";
 
-// import { useState } from "react";
-
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -63,7 +61,6 @@ export const MyData = ({ ...props }) => {
         onChange={(value) => {
           helpers.setValue(value);
         }}
-        // classname={css.date}
       />
 
       <img className={css.iconCallendar} src={callendar} alt="Callendar icon" />
